@@ -115,7 +115,7 @@ path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="BubbleBG" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("3_bgrm3")
 
@@ -124,10 +124,11 @@ texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_r8sus")
 animation = &"walk"
-frame_progress = 0.653131
+frame_progress = 0.129219
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Bubble" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("5_vdgkb")
 
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
