@@ -1,10 +1,107 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjxdp7ek2w8kv"]
+[gd_scene load_steps=18 format=3 uid="uid://bjxdp7ek2w8kv"]
 
 [ext_resource type="Script" uid="uid://0read4388w2k" path="res://scenes/porter/porter.gd" id="1_66ag7"]
-[ext_resource type="Texture2D" uid="uid://41vybj5iryg6" path="res://assets/tiles/colored-transparent_packed.png" id="1_wq34g"]
+[ext_resource type="Texture2D" uid="uid://gnsjii6guyxa" path="res://assets/charactersprites/Character Base.png" id="3_2pqi4"]
+[ext_resource type="Texture2D" uid="uid://cdahv86ch56mv" path="res://assets/charactersprites/bubblebg.png" id="3_bgrm3"]
+[ext_resource type="Texture2D" uid="uid://bneu7ontd7jmn" path="res://assets/charactersprites/bubble.png" id="5_vdgkb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sja4k"]
 radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pqi4"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8sus"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgrm3"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdgkb"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuu14"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c15or"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjkib"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nt6f"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8qqs"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8doj"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8lp"]
+atlas = ExtResource("3_2pqi4")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8sus"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pqi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8sus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgrm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdgkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuu14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c15or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjkib")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nt6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8qqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8doj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no8lp")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 4.0
+}]
 
 [node name="Porter" type="CharacterBody2D"]
 collision_mask = 0
@@ -13,14 +110,24 @@ script = ExtResource("1_66ag7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sja4k")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wq34g")
-region_enabled = true
-region_rect = Rect2(400, 0, 16, 16)
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 5.0
 target_desired_distance = 5.0
 path_postprocessing = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_bgrm3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_r8sus")
+animation = &"walk"
+frame_progress = 0.653131
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("5_vdgkb")
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
