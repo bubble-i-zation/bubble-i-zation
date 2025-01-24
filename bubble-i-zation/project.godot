@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="bubble-i-zation"
+run/main_scene="uid://yv0hgjx0g1db"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
