@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const speed := 20
+const speed := 30
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 
