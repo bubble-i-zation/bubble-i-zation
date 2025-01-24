@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://yv0hgjx0g1db"]
+[gd_scene load_steps=7 format=4 uid="uid://yv0hgjx0g1db"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_lfee2"]
-[ext_resource type="Texture2D" uid="uid://41vybj5iryg6" path="res://assets/tiles/colored-transparent_packed.png" id="2_nk136"]
+[ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lfee2"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1106,9 +1106,6 @@ texture = ExtResource("1_lfee2")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_nk136")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sja4k"]
-radius = 4.0
-
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1116,14 +1113,15 @@ tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAA
 tile_set = SubResource("TileSet_sja4k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(49, -22)
+zoom = Vector2(2.2, 2.2)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(8, -88)
+[node name="Porter" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
+position = Vector2(8, -87)
+bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_sja4k")
+[node name="WaterBubble" type="Marker2D" parent="."]
+position = Vector2(104, -71)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_nk136")
-region_enabled = true
-region_rect = Rect2(400, 0, 16, 16)
+[node name="O2Bubble" type="Marker2D" parent="."]
+position = Vector2(-56, -103)
