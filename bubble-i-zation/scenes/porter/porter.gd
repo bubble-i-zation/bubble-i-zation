@@ -39,6 +39,9 @@ func _physics_process(_delta: float) -> void:
 	print(current_quest)
 	print("Current job:")
 	print(current_job)
+	
+	if (current_job != null):
+		current_job.execute()
 		 
 	# Example how to use the quest system end	
 
