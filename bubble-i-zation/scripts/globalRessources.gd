@@ -8,30 +8,30 @@ var food := 0
 var water := 0
 var oxygen := 0
 var fuel := 0
-#factory
-var fPops := 0
-var fMatStone := 0
-var fMatWood := 0
-var fFood := 0
-var fWater := 0 
-var fOxygen := 0
-var fFuel := 0
-#city
-var cPops := 0
-var cMatStone := 0
-var cMatWood := 0
-var cFood := 0
-var cWater := 0
-var cOxygen := 0
-var cFuel := 0
 
 
-func _ready():
+func _process(delta: float) -> void:
 	repeatCheck()
 
 
 func repeatCheck():
-	await get_tree().create_timer(1.0).timeout
+	#factory
+	var fPops := 0
+	var fMatStone := 0
+	var fMatWood := 0
+	var fFood := 0
+	var fWater := 0 
+	var fOxygen := 0
+	var fFuel := 0
+	#city
+	var cPops := 0
+	var cMatStone := 0
+	var cMatWood := 0
+	var cFood := 0
+	var cWater := 0
+	var cOxygen := 0
+	var cFuel := 0
+
 	for city in cities:
 		cFood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food).size()
 		cMatStone += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone).size()
@@ -57,7 +57,6 @@ func repeatCheck():
 	oxygen = cOxygen + fOxygen
 	fuel = cFuel + fFuel
 	pops = cPops + fPops
-	repeatCheck()
 
 
 var cities: Array[ressource_node] = []
