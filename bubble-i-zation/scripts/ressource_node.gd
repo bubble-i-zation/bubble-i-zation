@@ -1,10 +1,10 @@
 extends Node2D
+class_name ressource_node
 var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
 @export var factory := true
-#var resourceOutsorced = ProductionResource.RessourceType
 @export var stats: Resource
 enum TYPE {living, water, oxygen, stone, wood, food, fuel}
 @export var ressources:ProductionResource.ResourceType
@@ -84,9 +84,9 @@ func BubbleCreation():
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
+		bubble.setRessourceType(ressources)
 		 
-func get_factoryType(ressources):
-	return ressources
+	
 
 func NodeSelfKill():
 	queue_free()
