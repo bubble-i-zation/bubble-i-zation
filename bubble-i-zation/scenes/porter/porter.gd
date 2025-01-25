@@ -4,6 +4,7 @@ class_name Porter
 const speed := 30
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
+@onready var work_particles: GPUParticles2D = $WorkParticles
 
 @export var bubbles: Array[Marker2D] = []
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -62,9 +63,11 @@ func do_navigation():
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
 
 func handle_animation():
+	work_particles.emitting = false
 	if velocity.length() > 0:
 		animated_sprite_2d.play("walk")
-	# elif current_job.isPerfomingAction: play work animation
+	elif current_job != null && current_job.isPerfomingAction:
+		work_particles.emitting = true
 	else:
 		animated_sprite_2d.play("idle")
 	

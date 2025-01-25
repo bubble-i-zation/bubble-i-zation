@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjxdp7ek2w8kv"]
+[gd_scene load_steps=24 format=3 uid="uid://bjxdp7ek2w8kv"]
 
 [ext_resource type="Script" uid="uid://0read4388w2k" path="res://scenes/porter/porter.gd" id="1_66ag7"]
 [ext_resource type="Texture2D" uid="uid://gnsjii6guyxa" path="res://assets/charactersprites/Character Base.png" id="3_2pqi4"]
 [ext_resource type="Texture2D" uid="uid://cdahv86ch56mv" path="res://assets/charactersprites/bubblebg.png" id="3_bgrm3"]
+[ext_resource type="Texture2D" uid="uid://p3yodp1oydrm" path="res://assets/particles/smoke_03.png" id="5_bgrm3"]
 [ext_resource type="Texture2D" uid="uid://bneu7ontd7jmn" path="res://assets/charactersprites/bubble.png" id="5_vdgkb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sja4k"]
@@ -103,6 +104,34 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Curve" id="Curve_vdgkb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.189769, 1), 0.0, 0.0, 0, 0, Vector2(0.727723, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_yuu14"]
+curve = SubResource("Curve_vdgkb")
+
+[sub_resource type="Curve" id="Curve_c15or"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.262376, 0.734558), 0.0, 0.0, 0, 0, Vector2(0.688119, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.708014), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wjkib"]
+curve = SubResource("Curve_c15or")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1nt6f"]
+particle_flag_disable_z = true
+angle_min = -180.0
+angle_max = 180.0
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.05
+scale_curve = SubResource("CurveTexture_wjkib")
+alpha_curve = SubResource("CurveTexture_yuu14")
+
 [node name="Porter" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_66ag7")
@@ -129,6 +158,11 @@ frame_progress = 0.129219
 [node name="Bubble" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("5_vdgkb")
+
+[node name="WorkParticles" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("5_bgrm3")
+process_material = SubResource("ParticleProcessMaterial_1nt6f")
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
