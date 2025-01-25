@@ -3,6 +3,11 @@ var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
+@export var factory := true
+#var resourceOutsorced = ProductionResource.RessourceType
+@export var stats: Resource
+enum TYPE {living, water, oxygen, stone, wood, food, fuel}
+@export var ressources:ProductionResource.ResourceType
 var streetTiles = [2] # hier kommen die Tile IDs der Straße rein
 var grid_position #holt koordinaten der Ressource im Grid aus world transform
 var offsets = [
@@ -14,6 +19,7 @@ var offsets = [
 var bubbleCoroutine = false
 
 var scene_to_instance := preload("res://scenes/bubbles/bubble.tscn")
+var factory_to_instance := preload("res://scenes/bubbles/buildingMatBubble.tscn") # hier muss noch der Path von dem Factory building ran...
 var bubble: Bubble = null
 
 @export var production: ProductionResource
@@ -66,10 +72,21 @@ func checkForStreet():
 func BubbleCreation():
 	if bubble != null:
 		return
-	bubble = scene_to_instance.instantiate()
-	bubble.global_position = global_position
-	get_parent().get_parent().add_child(bubble)
-	print("create bubble")
+	if factory == false:
+		bubble = scene_to_instance.instantiate()
+		bubble.global_position = global_position
+		get_parent().get_parent().add_child(bubble)
+		print("create bubble")
+
+	elif factory == true:
+		
+		bubble = factory_to_instance.instantiate()
+		bubble.global_position = global_position
+		get_parent().get_parent().add_child(bubble)
+		print("create bubble")
+		 
+func get_factoryType(ressources):
+	return ressources
 
 func NodeSelfKill():
 	queue_free()
