@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dahpb8t8822u7" path="res://scripts/ressource_node.gd" id="1_a86f2"]
 
 [node name="RessourceNode" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_a86f2")
 "baumaterialVerfügbar" = 1
 

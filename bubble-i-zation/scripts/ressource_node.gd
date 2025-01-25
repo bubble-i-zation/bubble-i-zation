@@ -1,10 +1,9 @@
 extends Node2D
 @export var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
-@export var bauKosten = 10 #mussma halt anpassenexport var icon:Texture2D
-@export var icon:Texture2D
+@export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 var streetTiles = [1,2,3,4] # hier kommen die Tile IDs der Straße rein
-var grid_position = tileMap.world_to_map(global_position) #holt koordinaten der Ressource im Grid aus world transform
+var grid_position #holt koordinaten der Ressource im Grid aus world transform
 var offsets = [
 	Vector2(-1, 0),
 	Vector2(1, 0),
@@ -12,6 +11,16 @@ var offsets = [
 	Vector2(0,1)
 ]
 var bubbleCoroutine = false
+
+func _ready() -> void:
+	
+	tileMap = $TileMapLayer #weist die TileMap automatisch zu
+	if tileMap != null:
+		grid_position = tileMap.local_to_map(global_position)
+	else:
+		print("TileMap für RessourceNode im Code nicht richtig benannt")
+	if $AnimatedSprite2D != null:
+		$AnimatedSprite2D.play("bubbling")
 	
 func checkForStreet(bool):
 	for offset in offsets:

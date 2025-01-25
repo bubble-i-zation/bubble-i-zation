@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckafnxf1263e0"]
 
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_y6vsf"]
-[ext_resource type="Texture2D" uid="uid://jpf8gme61yqb" path="res://assets/tiles/Pond.png" id="2_abihu"]
+[ext_resource type="Texture2D" uid="uid://0yorkpb484o3" path="res://assets/tiles/Pond.png" id="2_abihu"]
 
 [node name="RessourceNode" instance=ExtResource("1_y6vsf")]
 
 [node name="Sprite2D" parent="." index="0"]
+texture_filter = 1
 scale = Vector2(1, 1)
 texture = ExtResource("2_abihu")
