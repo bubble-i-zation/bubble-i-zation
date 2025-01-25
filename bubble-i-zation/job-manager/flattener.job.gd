@@ -13,4 +13,5 @@ func execute(porter):
 		destinationIsSet = true
 		porter.targetReached.connect(func (): destinationIsReached = true)
 	if destinationIsReached == true:
+		isPerfomingAction = true
 		Global.get_tree().create_timer(2).timeout.connect(func (): isCompleted = true)

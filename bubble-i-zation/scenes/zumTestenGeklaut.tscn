@@ -1186,9 +1186,8 @@ tile_set = SubResource("TileSet_sja4k")
 position = Vector2(49, -22)
 zoom = Vector2(2.2, 2.2)
 
-[node name="Porter" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_n4vkt")]
+[node name="Porter" parent="." instance=ExtResource("2_n4vkt")]
 position = Vector2(8, -87)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
 
 [node name="WaterBubble" type="Marker2D" parent="."]
 position = Vector2(104, -71)
@@ -1199,10 +1198,8 @@ position = Vector2(-25, -8)
 [node name="O2Bubble" type="Marker2D" parent="."]
 position = Vector2(-56, -103)
 
-[node name="Porter2" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_n4vkt")]
+[node name="Porter2" parent="." instance=ExtResource("2_n4vkt")]
 position = Vector2(8, -25)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
 
-[node name="Porter3" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_n4vkt")]
+[node name="Porter3" parent="." instance=ExtResource("2_n4vkt")]
 position = Vector2(60, -73)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]

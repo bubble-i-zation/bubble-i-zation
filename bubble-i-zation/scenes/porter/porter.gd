@@ -45,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func do_navigation():
-	if navigation_agent_2d.target_position == null:
+	if current_job == null || current_job.isPerfomingAction:
 		velocity = Vector2.ZERO
 		return
 
@@ -64,12 +64,9 @@ func do_navigation():
 func handle_animation():
 	if velocity.length() > 0:
 		animated_sprite_2d.play("walk")
-		bubble.visible = true
-		bubble_bg.visible = true
+	# elif current_job.isPerfomingAction: play work animation
 	else:
 		animated_sprite_2d.play("idle")
-		bubble.visible = false
-		bubble_bg.visible = false
 	
 	animated_sprite_2d.flip_h = velocity.x < 0
 
