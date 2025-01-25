@@ -37,13 +37,15 @@ func execute(porter):
 				
 		jobState.WALK_TO_ITEM:
 			# Walk to the bubble
-			porter.targetReached.connect(func (): current_state = jobState.PICK_UP_ITEM)
+#			porter.targetReached.connect(func (): current_state = jobState.PICK_UP_ITEM)
+			porter.targetReached.connect(func (): Global.get_tree().create_timer(5).timeout.connect(func (): current_state = jobState.PICK_UP_ITEM))
 			porter.navigation_agent_2d.target_position = factory.position
 			current_state = jobState.ON_WAY_TO_ITEM
 			
 		jobState.PICK_UP_ITEM:
 			# Pick up the item
-			# @todo: Implement
+			# @todo: Remove the item from the bubble
+			porter.inventory.add_item(resourceType)
 			current_state = jobState.WALK_TO_DESTINAION
 			
 		jobState.WALK_TO_DESTINAION:
@@ -54,12 +56,13 @@ func execute(porter):
 
 		jobState.DROP_ITEM:
 			# Drop the item
-			# @todo: implement dropping the item
+			# @todo: add the item to the destination
+			porter.inventory.remove_item(resourceType)
 			current_state = jobState.FINISH_JOB
 
 		jobState.FINISH_JOB:
 			# Finish the job
-			isCompleted = true
+			Global.get_tree().create_timer(5).timeout.connect(func (): isCompleted = true)
 
 		jobState.JOB_FAILED:
 			current_state = jobState.SEARCH_ITEM

@@ -12,9 +12,9 @@ const speed := 30
 @onready var bubble_bg: Sprite2D = $BubbleBG
 @onready var bubble: Sprite2D = $Bubble
 
-
 var current_quest: Quest = null
 var current_job: Job = null
+var inventory: Array[ProductionResource.ResourceType] = []
 
 signal targetReached
 
@@ -84,3 +84,9 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 func _on_navigation_agent_2d_target_reached() -> void:
 	print("target reached")
 	targetReached.emit()
+	
+func add_item(item: ProductionResource.ResourceType) -> void:
+	inventory.append(item)
+	
+func remove_item(item: ProductionResource.ResourceType) -> void:
+	inventory.erase(inventory.find(item))
