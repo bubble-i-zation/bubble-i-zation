@@ -1,48 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2yrsa2eg1grp"]
+[gd_scene load_steps=7 format=3 uid="uid://c2yrsa2eg1grp"]
 
 [ext_resource type="Script" uid="uid://dva87hu8ndd27" path="res://scenes/bubbles/bubble.gd" id="1_jkl1b"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="1_pa6aa"]
-[ext_resource type="Script" uid="uid://c2gcf024sbcaf" path="res://scenes/bubbles/house.gd" id="2_60m1a"]
-[ext_resource type="Texture2D" uid="uid://ckinuuv833dp2" path="res://assets/tiles/Houses.png" id="3_4py6g"]
+[ext_resource type="PackedScene" uid="uid://b263m705smxsq" path="res://scenes/bubbles/houseNew.tscn" id="2_60m1a"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="3_gkbh5"]
 [ext_resource type="Texture2D" uid="uid://3b0okmv40a78" path="res://assets/Bubbles/BubbleConstSite.png" id="4_4py6g"]
 [ext_resource type="Texture2D" uid="uid://wd66sven8161" path="res://assets/Bubbles/Bubble7x7.png" id="4_60m1a"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vws1"]
-resource_local_to_scene = true
-atlas = ExtResource("3_4py6g")
-region = Rect2(16, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1egdj"]
-resource_local_to_scene = true
-atlas = ExtResource("3_4py6g")
-region = Rect2(32, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mcd3o"]
-resource_local_to_scene = true
-atlas = ExtResource("3_4py6g")
-region = Rect2(48, 0, 16, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5oatg"]
-atlas = ExtResource("3_4py6g")
-region = Rect2(64, 0, 16, 0)
-
-[sub_resource type="PackedScene" id="PackedScene_rx32t"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("House", "script", "Node2D", "HouseSprite", "visible", "texture_filter", "texture", "Sprite2D", "HouseSprite2", "HouseSprite3", "HouseSprite4", "HouseSprite5", "HouseSprite6", "HouseSprite7", "HouseSprite8", "HouseSprite9"),
-"node_count": 10,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 7, 3, -1, 3, 4, 1, 5, 2, 6, 3, 0, 0, 0, 7, 8, -1, 3, 4, 1, 5, 2, 6, 4, 0, 0, 0, 7, 9, -1, 3, 4, 1, 5, 2, 6, 5, 0, 0, 0, 7, 10, -1, 3, 4, 1, 5, 2, 6, 6, 0, 0, 0, 7, 11, -1, 0, 0, 0, 0, 7, 12, -1, 0, 0, 0, 0, 7, 13, -1, 0, 0, 0, 0, 7, 14, -1, 0, 0, 0, 0, 7, 15, -1, 0, 0),
-"variants": [ExtResource("2_60m1a"), false, 1, SubResource("AtlasTexture_2vws1"), SubResource("AtlasTexture_1egdj"), SubResource("AtlasTexture_mcd3o"), SubResource("AtlasTexture_5oatg")],
-"version": 3
-}
-
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_jkl1b")
-house_scene = SubResource("PackedScene_rx32t")
+house_scene = ExtResource("2_60m1a")
 
 [node name="bubbleConstrSite" type="Sprite2D" parent="."]
 texture_filter = 1

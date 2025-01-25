@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://klvftua4e8ai"]
+
+[ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="1_r5ob3"]
+
+[node name="Spritetestscene" type="Node2D"]
+
+[node name="Bubble" parent="." instance=ExtResource("1_r5ob3")]
+position = Vector2(397, 182)

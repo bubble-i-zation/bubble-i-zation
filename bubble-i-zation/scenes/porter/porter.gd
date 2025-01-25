@@ -59,6 +59,10 @@ func do_navigation():
 		velocity = Vector2.ZERO
 		return
 
+	if !navigation_agent_2d.is_target_reachable():
+		velocity = Vector2.ZERO
+		return
+
 	var next_pos := navigation_agent_2d.get_next_path_position()
 	var new_velocity := global_position.direction_to(next_pos) * speed
 	
