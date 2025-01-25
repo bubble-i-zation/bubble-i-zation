@@ -10,6 +10,7 @@ resource_type = 1
 metadata/_custom_type_script = ExtResource("2_31qs7")
 
 [node name="RessourceNode" instance=ExtResource("1_no1l1")]
+ressources = 1
 production = SubResource("Resource_dp8ll")
 
 [node name="Sprite2D" parent="." index="0"]

@@ -12,6 +12,7 @@ metadata/_custom_type_script = ExtResource("2_eqj1j")
 
 [node name="RessourceNode" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_svh5d")]
 animated_sprite = NodePath("AnimatedSprite2D")
+ressources = 4
 production = SubResource("Resource_cy2k6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
