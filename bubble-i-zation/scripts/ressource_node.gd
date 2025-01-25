@@ -24,36 +24,32 @@ func _ready() -> void:
 	if $AnimatedSprite2D != null:
 		$AnimatedSprite2D.play("bubbling")
 		
-func checkForStreet(bool):
+func checkForStreet():
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
 		var tile_id = tileMap.get_cellv(neighbor_position)
 		if tile_id == streetTiles:
-			coroutineBubbleCreation()
-			bubbleCoroutine = true
-			return true
-		else:
-			return false
+			#coroutineBubbleCreation()
+			#bubbleCoroutine = true
+			BubbleCreation()
+			
 #Damit nicht jeden Frame versucht wird, zu bauen			
-func coroutineBubbleCreation():
-	if bubbleCoroutine == true:
-		await get_tree().create_timer(1.0)
-		tryBubbleCreation()
-		coroutineBubbleCreation()
-	else:
-		return
+#func coroutineBubbleCreation():
+	#if bubbleCoroutine == true:
+		#await get_tree().create_timer(1.0)
+		#tryBubbleCreation()
+		#coroutineBubbleCreation()
+	#else:
+		#return
 	
-func tryBubbleCreation():
-	if baumaterialVerfügbar >= bauKosten:
+#func tryBubbleCreation():
+	#if baumaterialVerfügbar >= bauKosten:
+		#BubbleCreation()
+		#return
 		
-		#start Quest -> nach abschluss soll func BubbleCreation triggern
-		return
-		#print.log("Quest sollt starten, und do muss was in der if sein, daher der text")
 func BubbleCreation():
-	#Sprite austauschen,...
-	#print.log("Bubble sollt jetz do si")
 	var object = scene_to_instance.instance()
-	bubbleCoroutine = false
+	# bubbleCoroutine = false
 	return
 
 func NodeSelfKill():
