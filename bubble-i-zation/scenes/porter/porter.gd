@@ -9,17 +9,58 @@ const speed := 30
 @onready var bubble_bg: Sprite2D = $BubbleBG
 @onready var bubble: Sprite2D = $Bubble
 
-
 var current_target: Marker2D = null
 var last_target: Marker2D = null
 
+var current_quest: Quest = null
+var current_job: Job = null
+
 func _ready() -> void:
 	current_target = bubbles.pick_random()
+<<<<<<< HEAD
 	last_target = current_target
 
 
 func _physics_process(_delta: float) -> void:
 	handle_animation()
+=======
+	animated_sprite_2d.play("walk")
+	
+	# Example how to use the quest system
+	var transportJob = TransportJob.new()
+	var buildJob = BuildJob.new()
+	var quest = Quest.new()
+	quest.add_objective(transportJob)
+	quest.add_objective(buildJob)
+	
+	QuestManager.add_quest(quest)
+	# Example how to use the quest system end
+
+
+func _physics_process(_delta: float) -> void:
+	# Example how to use the quest system
+	if (current_quest == null):
+		current_quest = QuestManager.get_next_quest()
+		
+	if (current_quest != null and current_job == null):
+		current_job = current_quest.get_next_objective()
+	
+	print("Current quest: ")
+	print(current_quest)
+	print("Current job:")
+	print(current_job)
+	
+	if (current_job != null):
+		current_job.execute()
+		 
+	# Example how to use the quest system end	
+
+	if navigation_agent_2d.is_navigation_finished():
+		print("target reached")
+		current_target = bubbles.pick_random()
+	
+	animated_sprite_2d.flip_h = velocity.x < 0
+>>>>>>> origin/feature/job-manager
 
 	if current_target != null:
 		do_navigation()

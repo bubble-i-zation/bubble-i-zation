@@ -11,6 +11,8 @@ var offsets = [
 	Vector2(0,1)
 ]
 var bubbleCoroutine = false
+var scene_to_instance = preload("res://scenes/bubbles/bubble.tscn")
+
 
 func _ready() -> void:
 	
@@ -21,7 +23,7 @@ func _ready() -> void:
 		print("TileMap für RessourceNode im Code nicht richtig benannt")
 	if $AnimatedSprite2D != null:
 		$AnimatedSprite2D.play("bubbling")
-	
+		
 func checkForStreet(bool):
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
@@ -50,5 +52,9 @@ func tryBubbleCreation():
 func BubbleCreation():
 	#Sprite austauschen,...
 	#print.log("Bubble sollt jetz do si")
+	var object = scene_to_instance.instance()
 	bubbleCoroutine = false
 	return
+
+func NodeSelfKill():
+	queue_free()
