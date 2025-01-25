@@ -19,48 +19,58 @@ script = ExtResource("1_chclh")
 visible = false
 texture_filter = 1
 texture = ExtResource("2_6242s")
+offset = Vector2(0, -8)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("3_qhc0d")
+offset = Vector2(0, -8)
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("4_hovpx")
+offset = Vector2(0, -8)
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("5_6irc1")
+offset = Vector2(0, -8)
 
 [node name="Sprite2D5" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("6_ufy0b")
+offset = Vector2(0, -16)
 
 [node name="Sprite2D6" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("7_77jab")
+offset = Vector2(0, -8)
 
 [node name="Sprite2D7" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("8_ts4b2")
+offset = Vector2(0, -16)
 
 [node name="Sprite2D8" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("9_y6rmv")
+offset = Vector2(0, -16)
 
 [node name="Sprite2D9" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("10_o8uvo")
+offset = Vector2(0, -24)
 
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 texture = ExtResource("11_5p8e4")
+offset = Vector2(0, -16)

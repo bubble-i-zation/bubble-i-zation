@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var house_size: float = 16.0             # Distance threshold for house overlap
-
 @onready var house_tiles1 = [
 	$Sprite2D,
 	$Sprite2D2,
@@ -19,18 +17,23 @@ extends Node2D
 	$Sprite2D10,
 ]
 
+@onready var allHouses = [
+	house_tiles1,
+	house_tiles2,
+	house_tiles3
+]
+
 func assign_tile_texture(tier):
 	deactivateTiles()
-	if tier == 1:
+	var houseTier
+	if tier == 0:
 		# Choose a random tile ID
 		house_tiles1.pick_random().visible = true
-		house_size = 16
-	elif tier == 2:
+	elif tier == 1:
 		house_tiles2.pick_random().visible = true
-		house_size = 32
-	elif tier == 3:
+	elif tier == 2:
 		house_tiles3.pick_random().visible = true
-		house_size = 48
+	
 
 func deactivateTiles():
 	for tile in house_tiles1:
