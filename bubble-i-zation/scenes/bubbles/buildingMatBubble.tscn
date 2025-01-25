@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dmgbg2rs1dxen"]
+[gd_scene load_steps=15 format=3 uid="uid://dmgbg2rs1dxen"]
 
-[ext_resource type="Script" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
+[ext_resource type="Script" uid="uid://bbt852anbswtj" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
+[ext_resource type="Texture2D" uid="uid://dybupbm415r43" path="res://assets/tiles/CornFarm.png" id="2_hadys"]
 [ext_resource type="Texture2D" uid="uid://3b0okmv40a78" path="res://assets/Bubbles/BubbleConstSite.png" id="3_jr3sd"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
@@ -9,15 +10,62 @@
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_kd4wp"]
 [ext_resource type="Texture2D" uid="uid://bwpsya2nplumx" path="res://assets/Bubbles/Bubble7x7BG.png" id="9_vrpuw"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbbo3"]
+atlas = ExtResource("2_hadys")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr3sd"]
+atlas = ExtResource("2_hadys")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j67hl"]
+atlas = ExtResource("2_hadys")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgbyc"]
+atlas = ExtResource("2_hadys")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xdwsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbbo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jr3sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j67hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgbyc")
+}],
+"loop": true,
+"name": &"farm",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"o2",
+"speed": 5.0
+}]
+
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_xsje2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xdwsg")
+animation = &"o2"
 
 [node name="bubbleConstrSite" type="Sprite2D" parent="."]
 z_index = 2
 texture_filter = 1
 texture = ExtResource("3_jr3sd")
 
-[node name="bubble3x4" type="Sprite2D" parent="."]
+[node name="bubble3x3" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
 texture_filter = 1

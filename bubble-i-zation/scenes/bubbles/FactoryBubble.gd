@@ -11,10 +11,6 @@ var upgrading = false
 
 var rescourceType: ProductionResource.ResourceType
 
-@export var house_scene: PackedScene  # Reference to the house scene
-var spawned_houses: Array[Node2D] = []  # List of spawned house instances
-var bubbleCrowded = false;
-
 # Timer reference to spawn houses every 10 seconds
 @onready var spawn_timer: Timer = $Timer
 
@@ -32,8 +28,8 @@ var bubbleCrowded = false;
 ]
 
 func upgradeTier():
-	bubbleCrowded = false
 	if tier < maxTier:
+		$AnimatedSprite2D.visible = true
 		bubbleSprites[tier].visible = false
 		bubbleBGSprites[tier-1].visible = false
 		tier = tier + 1
@@ -49,7 +45,8 @@ func _ready():
 	#for i in range(3):
 		#spawn_house()
 		#print("spawned house ",i)
+	$AnimatedSprite2D.play("farm")
 
 func _on_timer_timeout() -> void:
-	if tier == 0 and upgrading:
-			upgradeTier()
+	if tier == 0 or upgrading:
+		upgradeTier()
