@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dmgbg2rs1dxen"]
 
-[ext_resource type="Script" uid="uid://bbt852anbswtj" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
-[ext_resource type="Texture2D" uid="uid://dybupbm415r43" path="res://assets/tiles/CornFarm.png" id="2_hadys"]
+[ext_resource type="Script" uid="uid://bh1p57d3t8svl" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
+[ext_resource type="Texture2D" uid="uid://ceeo62l5w3t34" path="res://assets/tiles/CornFarm.png" id="2_hadys"]
 [ext_resource type="Texture2D" uid="uid://3b0okmv40a78" path="res://assets/Bubbles/BubbleConstSite.png" id="3_jr3sd"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
