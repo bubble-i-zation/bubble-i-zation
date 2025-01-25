@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmgbg2rs1dxen"]
+[gd_scene load_steps=20 format=3 uid="uid://dmgbg2rs1dxen"]
 
 [ext_resource type="Script" uid="uid://bh1p57d3t8svl" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
 [ext_resource type="Texture2D" uid="uid://ceeo62l5w3t34" path="res://assets/tiles/CornFarm.png" id="2_hadys"]
+[ext_resource type="Texture2D" uid="uid://dk48do10jy85c" path="res://assets/tiles/OxygenHouse.png" id="3_hbbo3"]
 [ext_resource type="Texture2D" uid="uid://3b0okmv40a78" path="res://assets/Bubbles/BubbleConstSite.png" id="3_jr3sd"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
@@ -26,6 +27,22 @@ region = Rect2(96, 0, 48, 32)
 atlas = ExtResource("2_hadys")
 region = Rect2(144, 0, 48, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdwsg"]
+atlas = ExtResource("3_hbbo3")
+region = Rect2(0, 0, 38, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip3nl"]
+atlas = ExtResource("3_hbbo3")
+region = Rect2(38, 0, 38, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd4wp"]
+atlas = ExtResource("3_hbbo3")
+region = Rect2(76, 0, 38, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrpuw"]
+atlas = ExtResource("3_hbbo3")
+region = Rect2(114, 0, 38, 22)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdwsg"]
 animations = [{
 "frames": [{
@@ -45,7 +62,19 @@ animations = [{
 "name": &"farm",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdwsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip3nl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd4wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrpuw")
+}],
 "loop": true,
 "name": &"o2",
 "speed": 5.0
@@ -86,6 +115,7 @@ texture = ExtResource("6_xdwsg")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="BG" type="Node2D" parent="."]
+visible = false
 z_as_relative = false
 
 [node name="BG3x3" type="Sprite2D" parent="BG"]

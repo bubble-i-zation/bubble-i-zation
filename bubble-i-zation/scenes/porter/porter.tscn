@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjxdp7ek2w8kv"]
+[gd_scene load_steps=29 format=3 uid="uid://bjxdp7ek2w8kv"]
 
 [ext_resource type="Script" uid="uid://0read4388w2k" path="res://scenes/porter/porter.gd" id="1_66ag7"]
 [ext_resource type="Texture2D" uid="uid://gnsjii6guyxa" path="res://assets/charactersprites/Character Base.png" id="3_2pqi4"]
 [ext_resource type="Texture2D" uid="uid://cdahv86ch56mv" path="res://assets/charactersprites/bubblebg.png" id="3_bgrm3"]
+[ext_resource type="Texture2D" uid="uid://d0cpfm41l4wd8" path="res://assets/charactersprites/JobCharacters.png" id="4_vdgkb"]
 [ext_resource type="Texture2D" uid="uid://p3yodp1oydrm" path="res://assets/particles/smoke_03.png" id="5_bgrm3"]
 [ext_resource type="Texture2D" uid="uid://bneu7ontd7jmn" path="res://assets/charactersprites/bubble.png" id="5_vdgkb"]
 
@@ -53,6 +54,22 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("3_2pqi4")
 region = Rect2(160, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fcck"]
+atlas = ExtResource("4_vdgkb")
+region = Rect2(464, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms2wt"]
+atlas = ExtResource("4_vdgkb")
+region = Rect2(368, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaa4e"]
+atlas = ExtResource("4_vdgkb")
+region = Rect2(432, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn5n3"]
+atlas = ExtResource("4_vdgkb")
+region = Rect2(400, 16, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_r8sus"]
 animations = [{
 "frames": [],
@@ -101,6 +118,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fcck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms2wt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaa4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn5n3")
+}],
+"loop": true,
+"name": &"work",
 "speed": 4.0
 }]
 
@@ -152,8 +186,6 @@ texture = ExtResource("3_bgrm3")
 texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_r8sus")
-animation = &"walk"
-frame_progress = 0.129219
 
 [node name="Bubble" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -161,6 +193,7 @@ texture = ExtResource("5_vdgkb")
 
 [node name="WorkParticles" type="GPUParticles2D" parent="."]
 emitting = false
+amount = 5
 texture = ExtResource("5_bgrm3")
 process_material = SubResource("ParticleProcessMaterial_1nt6f")
 
