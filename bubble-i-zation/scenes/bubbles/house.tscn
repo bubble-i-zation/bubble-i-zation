@@ -65,6 +65,7 @@ texture_filter = 1
 texture = SubResource("AtlasTexture_5oatg")
 
 [node name="HouseSprite5" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 texture = SubResource("AtlasTexture_cpiqc")
 region_rect = Rect2(32, 48, 16, 32)
