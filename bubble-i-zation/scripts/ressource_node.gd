@@ -40,7 +40,7 @@ func _ready() -> void:
 	else:
 		print("TileMap für RessourceNode im Code nicht richtig benannt")
 	if animated_sprite != null:
-		animated_sprite.play("bubbling")
+		animated_sprite.play("default")
 
 func _process(delta: float) -> void:
 	checkForStreet()
