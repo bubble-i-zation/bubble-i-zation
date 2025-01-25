@@ -35,14 +35,6 @@ position = Vector2(-25, -8)
 [node name="O2Bubble" type="Marker2D" parent="."]
 position = Vector2(-56, -103)
 
-[node name="Porter2" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
-position = Vector2(23, -8)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
-
-[node name="Porter3" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
-position = Vector2(105, -93)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
-
 [node name="RoadPlacementHandler" type="Node2D" parent="." node_paths=PackedStringArray("road_layer")]
 script = ExtResource("6_p2eeb")
 road_layer = NodePath("../TileMapLayer2")

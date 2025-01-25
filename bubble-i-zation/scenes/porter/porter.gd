@@ -12,16 +12,11 @@ const speed := 30
 @onready var bubble: Sprite2D = $Bubble
 
 
-var current_target: Marker2D = null
-var last_target: Marker2D = null
-
 var current_quest: Quest = null
 var current_job: Job = null
 
 signal targetReached
-	
-	# Example how to use the quest system
-	# Example how to use the quest system end
+
 
 func _process(_delta: float) -> void:
 	# Example how to use the quest system
@@ -40,7 +35,7 @@ func _process(_delta: float) -> void:
 	if (current_job != null):
 		current_job.execute(self)
 	
-		if (current_job.jobIsCompleted == true):
+		if (current_job.isCompleted):
 			current_job = null
 
 func _physics_process(_delta: float) -> void:
@@ -50,7 +45,7 @@ func _physics_process(_delta: float) -> void:
 
 
 func do_navigation():
-	if current_target == null:
+	if navigation_agent_2d.target_position == null:
 		velocity = Vector2.ZERO
 		return
 
