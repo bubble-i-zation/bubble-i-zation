@@ -2,7 +2,7 @@ extends Node2D
 @export var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
-var streetTiles = [1,2,3,4] # hier kommen die Tile IDs der Straße rein
+var streetTiles = [2] # hier kommen die Tile IDs der Straße rein
 var grid_position #holt koordinaten der Ressource im Grid aus world transform
 var offsets = [
 	Vector2(-1, 0),
