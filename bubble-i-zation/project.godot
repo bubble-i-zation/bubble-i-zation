@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 QuestManager="*res://job-manager/quest-manager.gd"
 Global="*res://scenes/helper/Global.tscn"
+GlobalRessources="*res://scripts/globalRessources.gd"
 
 [input]
 
