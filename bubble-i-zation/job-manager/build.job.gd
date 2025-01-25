@@ -7,7 +7,7 @@ var item_to_transport: Object = null
 var destination: Vector2
 
 func execute():
-	print("Run Transport Job")
-    # 1. Move the NPC to the position of the construction site
-    # 2. Build the construction site
-    # 3. Finish the job
+	pass
+	# 1. Move the NPC to the position of the construction site
+	# 2. Build the construction site
+	# 3. Finish the job
