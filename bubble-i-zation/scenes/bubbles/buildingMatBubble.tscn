@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://dmgbg2rs1dxen"]
+
+[ext_resource type="Script" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
+[ext_resource type="Texture2D" uid="uid://3b0okmv40a78" path="res://assets/Bubbles/BubbleConstSite.png" id="3_jr3sd"]
+[ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
+[ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
+[ext_resource type="Texture2D" uid="uid://wd66sven8161" path="res://assets/Bubbles/Bubble7x7.png" id="6_xdwsg"]
+[ext_resource type="Texture2D" uid="uid://c05g5nvgd3ky6" path="res://assets/Bubbles/Bubble3x3BG.png" id="7_ip3nl"]
+[ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_kd4wp"]
+[ext_resource type="Texture2D" uid="uid://bwpsya2nplumx" path="res://assets/Bubbles/Bubble7x7BG.png" id="9_vrpuw"]
+
+[node name="Bubble" type="Node2D"]
+script = ExtResource("1_xsje2")
+
+[node name="bubbleConstrSite" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+texture = ExtResource("3_jr3sd")
+
+[node name="bubble3x4" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+texture = ExtResource("4_j67hl")
+
+[node name="bubble5x5" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+texture = ExtResource("5_lgbyc")
+
+[node name="bubble7x7" type="Sprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+texture = ExtResource("6_xdwsg")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="BG" type="Node2D" parent="."]
+z_as_relative = false
+
+[node name="BG3x3" type="Sprite2D" parent="BG"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("7_ip3nl")
+
+[node name="BG5x5" type="Sprite2D" parent="BG"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("8_kd4wp")
+
+[node name="BG7x7" type="Sprite2D" parent="BG"]
+visible = false
+z_as_relative = false
+texture_filter = 1
+texture = ExtResource("9_vrpuw")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

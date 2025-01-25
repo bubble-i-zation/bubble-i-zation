@@ -11,7 +11,7 @@ var upgrading = false
 	0,
 	12.0,
 	24.0,
-	36,
+	37,
 ]          # Radius of the spawn circle
 @export var buildingHeightOffset: float = 6.0
 @export var max_attempts: int = 350
