@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=4 uid="uid://yv0hgjx0g1db"]
 
-[ext_resource type="Script" path="res://scenes/cameraMovement.gd" id="2_lhepp"]
+[ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_lhepp"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="2_otmfv"]
-[ext_resource type="Script" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
+[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
 
 [node name="Node2D" type="Node2D"]
 

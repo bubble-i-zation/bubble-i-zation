@@ -11,12 +11,13 @@ func _ready() -> void:
 #	testQuest.add_objective(testflattenerJob)
 #	add_quest(testQuest)
 	
-	var testTransportQuest = Quest.new()
-	var testTransportJob = TransportJob.new()
-	testTransportJob.destination = Vector2(0, 0)
-	testTransportJob.resourceType = ProductionResource.ResourceType.Brennstoff
-	testTransportQuest.add_objective(testTransportJob)
-	add_quest(testTransportQuest)
+	#var testTransportQuest = Quest.new()
+	#var testTransportJob = TransportJob.new()
+	#testTransportJob.destination = Vector2(0, 0)
+	#testTransportJob.resourceType = ProductionResource.ResourceType.Brennstoff
+	#testTransportQuest.add_objective(testTransportJob)
+	#add_quest(testTransportQuest)
+	pass
 	
 func add_quest(quest: Quest):
 	quest_queue.append(quest)
