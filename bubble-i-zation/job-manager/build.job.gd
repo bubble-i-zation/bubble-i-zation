@@ -6,7 +6,7 @@ extends Job
 var item_to_transport: Object = null
 var destination: Vector2
 
-func execute():
+func execute(porter):
 	pass
 	# 1. Move the NPC to the position of the construction site
 	# 2. Build the construction site
