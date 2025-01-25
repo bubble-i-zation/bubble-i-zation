@@ -31,8 +31,12 @@ func _process(delta: float) -> void:
 func _input(event):
 	if (Input.is_action_pressed("Zoom-Out")):
 		zoomfactor -= 0.1
+		if zoomfactor < 0:
+			zoomfactor = 0
 	if (Input.is_action_pressed("Zoom-In")):
 		zoomfactor += 0.1
+		if zoomfactor > 1:
+			zoomfactor = 1
 	
 func movementLoop(delta):
 	move_direction.x = int(Input.is_action_pressed("Right")) - int(Input.is_action_pressed("Left"))
