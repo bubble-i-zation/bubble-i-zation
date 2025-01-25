@@ -6,7 +6,7 @@ extends Job
 var item_to_transport: Object = null
 var destination: Vector2
 
-func execute():
+func execute(porter):
 	pass
 	# 1. Find the bubble with the item
 	# 2. Walk to the bubble

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Porter
 
 const speed := 30
 
@@ -17,20 +18,9 @@ var last_target: Marker2D = null
 var current_quest: Quest = null
 var current_job: Job = null
 
-func _ready() -> void:
-	current_target = bubbles.pick_random()
-	navigation_agent_2d.target_position = current_target.global_position
-	last_target = current_target
-	animated_sprite_2d.play("walk")
+signal targetReached
 	
 	# Example how to use the quest system
-	var transportJob = TransportJob.new()
-	var buildJob = BuildJob.new()
-	var quest = Quest.new()
-	quest.add_objective(transportJob)
-	quest.add_objective(buildJob)
-	
-	QuestManager.add_quest(quest)
 	# Example how to use the quest system end
 
 func _process(_delta: float) -> void:
@@ -44,9 +34,14 @@ func _process(_delta: float) -> void:
 		current_job = current_quest.get_next_objective()
 		print("got new job")
 		print(current_job)
+	if (current_quest != null && current_quest.is_complete()):
+		current_quest = null
 	
 	if (current_job != null):
-		current_job.execute()
+		current_job.execute(self)
+	
+		if (current_job.jobIsCompleted == true):
+			current_job = null
 
 func _physics_process(_delta: float) -> void:
 	handle_animation()
@@ -89,12 +84,4 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 func _on_navigation_agent_2d_target_reached() -> void:
 	print("target reached")
-	last_target = current_target
-	current_target = null
-	get_tree().create_timer(2).timeout.connect(pick_new_target)
-
-func pick_new_target():
-	current_target = bubbles.pick_random()
-	while current_target == last_target:
-		current_target = bubbles.pick_random()
-	navigation_agent_2d.target_position = current_target.global_position
+	targetReached.emit()
