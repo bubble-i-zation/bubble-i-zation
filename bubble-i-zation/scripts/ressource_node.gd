@@ -85,6 +85,8 @@ func BubbleCreation():
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
 		bubble.setRessourceType(ressources)
+	if $Sprite2D != null:
+		$Sprite2D.visible = false;
 		 
 	
 

@@ -36,7 +36,10 @@ func upgradeTier():
 		bubbleSprites[tier].visible = true
 		bubbleBGSprites[tier-1].visible = true
 
-
+func setRessourceType(rescourceType: ProductionResource.ResourceType):
+	rescourceType = rescourceType
+	print("rescourceType: ", rescourceType)
+	$AnimatedSprite2D.play(ProductionResource.ResourceType.keys()[rescourceType])
 
 func _ready():
 	# Start the timer with a 10-second interval
@@ -45,7 +48,7 @@ func _ready():
 	#for i in range(3):
 		#spawn_house()
 		#print("spawned house ",i)
-	$AnimatedSprite2D.play("o2")
+	
 
 func _on_timer_timeout() -> void:
 	if tier == 0 or upgrading:
