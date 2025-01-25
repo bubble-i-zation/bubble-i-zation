@@ -19,6 +19,7 @@ var current_job: Job = null
 
 func _ready() -> void:
 	current_target = bubbles.pick_random()
+	navigation_agent_2d.target_position = current_target.global_position
 	last_target = current_target
 	animated_sprite_2d.play("walk")
 	
@@ -58,7 +59,6 @@ func do_navigation():
 		velocity = Vector2.ZERO
 		return
 
-	navigation_agent_2d.target_position = current_target.global_position
 	var next_pos := navigation_agent_2d.get_next_path_position()
 	var new_velocity := global_position.direction_to(next_pos) * speed
 	
@@ -93,3 +93,4 @@ func pick_new_target():
 	current_target = bubbles.pick_random()
 	while current_target == last_target:
 		current_target = bubbles.pick_random()
+	navigation_agent_2d.target_position = current_target.global_position
