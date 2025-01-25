@@ -16,8 +16,6 @@ func get_completed_jobs():
 # Returns the first objective in array and removes it from the array
 func get_next_objective():
 	var unstarted_jobs = get_unstarted_jobs()
-	print("unstarted")
-	print(unstarted_jobs)
 	if unstarted_jobs.size() > 0:
 		var job = unstarted_jobs[0]
 		job.isStarted = true

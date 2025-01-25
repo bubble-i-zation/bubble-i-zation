@@ -23,19 +23,21 @@ func _process(_delta: float) -> void:
 	# Example how to use the quest system
 	if (current_quest == null):
 		current_quest = QuestManager.get_next_quest()
-		print("got new quest")
-		print(current_quest)
+		if current_quest != null:
+			print("got new quest")
+			print(current_quest)
 		
 	if (current_quest != null and current_job == null):
 		current_job = current_quest.get_next_objective()
-		print("got new job")
-		print(current_job)
+		if current_job != null:
+			print("got new job")
+			print(current_job)
+
 	if (current_quest != null && current_quest.is_complete()):
 		current_quest = null
 	
 	if (current_job != null):
 		current_job.execute(self)
-	
 		if (current_job.isCompleted):
 			current_job = null
 
@@ -64,9 +66,11 @@ func do_navigation():
 
 func handle_animation():
 	work_particles.emitting = false
+	
 	if velocity.length() > 0:
 		animated_sprite_2d.play("walk")
 	elif current_job != null && current_job.isPerfomingAction:
+		animated_sprite_2d.play("work")
 		work_particles.emitting = true
 	else:
 		animated_sprite_2d.play("idle")
