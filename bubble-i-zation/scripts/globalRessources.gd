@@ -67,3 +67,9 @@ func add_to_cities (ressourceNode:ressource_node):
 	
 func add_to_factories (ressourceNode:ressource_node):
 	factories.append(ressourceNode)
+
+func get_factories(resource: ProductionResource.ResourceType) -> Array[ressource_node]:
+	var factories_with_resource = factories.filter(func (factory: ressource_node): 
+		return factory.inventory.filter(func (item: ProductionResource): return item.resource_type == resource).size() > 0)
+	return factories_with_resource
+
