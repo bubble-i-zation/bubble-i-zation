@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cs3wi277rwk0w"]
+[gd_scene load_steps=21 format=4 uid="uid://d0b5ruvtrafex"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_1hobc"]
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="2_2jjrd"]
