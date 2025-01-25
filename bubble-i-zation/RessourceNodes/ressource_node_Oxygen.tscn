@@ -1,11 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dthkwrle336i6"]
+[gd_scene load_steps=4 format=3 uid="uid://dthkwrle336i6"]
 
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_svh5d"]
-[ext_resource type="Texture2D" uid="uid://dfymel4gi31fc" path="res://assets/tiles/Oxygen.png" id="2_7krfd"]
+[ext_resource type="Texture2D" uid="uid://dp01oah7adq5h" path="res://assets/tiles/Oxygen.png" id="2_7krfd"]
+[ext_resource type="SpriteFrames" uid="uid://cbra12irb1uwf" path="res://assets/tiles/oxygen.tres" id="2_grjel"]
 
 [node name="RessourceNode" instance=ExtResource("1_svh5d")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = ExtResource("2_grjel")
+animation = &"bubbling"
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+texture_filter = 1
 scale = Vector2(1, 1)
 texture = ExtResource("2_7krfd")
 hframes = 10

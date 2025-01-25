@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c02yik08vfedr"]
 
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_no1l1"]
-[ext_resource type="Texture2D" uid="uid://bg3ata1so11v0" path="res://assets/tiles/Forest.png" id="2_ragte"]
+[ext_resource type="Texture2D" uid="uid://csbjfhaffvql6" path="res://assets/tiles/Forest.png" id="2_ragte"]
 
 [node name="RessourceNode" instance=ExtResource("1_no1l1")]
 
