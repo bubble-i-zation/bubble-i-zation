@@ -6,21 +6,20 @@ var objectives: Array[Job] = []
 var has_priority: bool = false
 	
 func add_objective(job: Job):
-	print("added objectives")
 	objectives.push_back(job)
 
 func get_unstarted_jobs():
-	print(objectives[0].isStarted) # gibt 0 aus
-	return objectives.filter(func (job): job.isStarted == false)
+	return objectives.filter(func (job: Job): return !job.isStarted)
 	
 func get_completed_jobs():
-	print("completed Jobs")
-	return objectives.filter(func (job): job.isCompleted == true)
+	return objectives.filter(func (job): return job.isCompleted == true)
 # Returns the first objective in array and removes it from the array
 func get_next_objective():
-	print("next objective")
-	if get_unstarted_jobs().size() > 0:
-		var job = get_unstarted_jobs()[0]
+	var unstarted_jobs = get_unstarted_jobs()
+	print("unstarted")
+	print(unstarted_jobs)
+	if unstarted_jobs.size() > 0:
+		var job = unstarted_jobs[0]
 		job.isStarted = true
 		return job
 	return null

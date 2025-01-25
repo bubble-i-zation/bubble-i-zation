@@ -3,6 +3,7 @@ class_name Job
 
 var isCompleted := false
 var isStarted := false
+var isPerfomingAction := false
 
 # This is the base class of a job and defines the interface for all job-types
 

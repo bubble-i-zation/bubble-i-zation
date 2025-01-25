@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://yv0hgjx0g1db"]
+[gd_scene load_steps=5 format=4 uid="uid://yv0hgjx0g1db"]
 
-[ext_resource type="Script" path="res://scenes/cameraMovement.gd" id="2_lhepp"]
+[ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_lhepp"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="2_otmfv"]
-[ext_resource type="PackedScene" uid="uid://dmgbg2rs1dxen" path="res://scenes/bubbles/buildingMatBubble.tscn" id="5_b3j4d"]
-[ext_resource type="Script" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
+[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,9 +22,8 @@ position = Vector2(38, -42)
 zoom = Vector2(4, 4)
 script = ExtResource("2_lhepp")
 
-[node name="Porter" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
+[node name="Porter" parent="." instance=ExtResource("2_nk136")]
 position = Vector2(-12, -107)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
 
 [node name="WaterBubble" type="Marker2D" parent="."]
 position = Vector2(104, -71)
@@ -36,17 +34,6 @@ position = Vector2(-25, -8)
 [node name="O2Bubble" type="Marker2D" parent="."]
 position = Vector2(-56, -103)
 
-[node name="Porter2" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
-position = Vector2(23, -8)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
-
-[node name="Porter3" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
-position = Vector2(105, -93)
-bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
-
 [node name="RoadPlacementHandler" type="Node2D" parent="." node_paths=PackedStringArray("road_layer")]
 script = ExtResource("6_p2eeb")
 road_layer = NodePath("../TileMapLayer2")
-
-[node name="Bubble" parent="." instance=ExtResource("5_b3j4d")]
-position = Vector2(-97, 118)
