@@ -33,22 +33,22 @@ func _ready():
 func repeatCheck():
 	await get_tree().create_timer(1.0).timeout
 	for city in cities:
-		cFood += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food) 
-		cMatStone += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
-		cMatWood += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
-		cWater += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
-		cOxygen += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
-		cFuel += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
-		cPops += city.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
+		cFood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food).size()
+		cMatStone += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone).size()
+		cMatWood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood).size()
+		cWater += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water).size()
+		cOxygen += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen).size()
+		cFuel += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff).size()
+		cPops += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population).size()
 		
 	for factory in factories:
-		fFood += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food)
-		fMatStone += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
-		fMatWood += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
-		fWater += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
-		fOxygen += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
-		fFuel += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
-		fPops += factory.inventory.count(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
+		fFood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food).size()
+		fMatStone += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone).size()
+		fMatWood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood).size()
+		fWater += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water).size()
+		fOxygen += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen).size()
+		fFuel += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff).size()
+		fPops += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population).size()
 		
 	food = cFood + fFood
 	matStone = cMatStone + fMatStone
