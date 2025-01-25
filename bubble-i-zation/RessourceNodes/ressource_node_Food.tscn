@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy2fmd04pg1j8"]
+
+[ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_3baki"]
+[ext_resource type="Texture2D" uid="uid://b6jx21o73y3bl" path="res://assets/tiles/Cornfield.png" id="2_hllua"]
+
+[node name="RessourceNode" instance=ExtResource("1_3baki")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_hllua")

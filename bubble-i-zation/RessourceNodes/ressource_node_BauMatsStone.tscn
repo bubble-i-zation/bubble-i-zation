@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ktwqg73u7axe"]
+
+[ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_hlhfr"]
+[ext_resource type="Texture2D" uid="uid://cufkbcqyc6gfh" path="res://assets/tiles/Rocks.png" id="2_kw57d"]
+
+[node name="RessourceNode" instance=ExtResource("1_hlhfr")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_kw57d")
