@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://yv0hgjx0g1db"]
+[gd_scene load_steps=4 format=4 uid="uid://yv0hgjx0g1db"]
 
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="2_otmfv"]
-[ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="3_sja4k"]
 [ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
 
 [node name="Node2D" type="Node2D"]
@@ -14,7 +13,7 @@ tile_set = ExtResource("2_otmfv")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAGAPz/AgACAAAAAAAGAP3/AgABAAAAAAAGAP7/AgABAAAAAAAGAP//AgABAAAAAAAGAAAAAgABAAAAAAAGAAEAAgABAAAAAAAGAAIAAgADAAEAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgACAAEAAAADAAEAAgABAAAAAAADAAAAAgABAAAAAAADAP//AgABAAEAAAACAP//AgAAAAAAAAABAP//AgAEAAEAAAAAAP//AgAAAAAAAAD/////AgABAAIAAAABAP7/AgABAAAAAAABAP3/AgABAAAAAAABAPz/AgABAAAAAAABAPv/AgAAAAEAAAACAPv/AgADAAEAAAACAPr/AgABAAAAAAACAPn/AgABAAAAAAACAPj/AgABAAAAAAACAPf/AgAEAAIAAAABAPf/AgAAAAAAAAAAAPf/AgAAAAAAAAD///f/AgAAAAEAAAD///j/AgABAAAAAAD///n/AgADAAEAAAD+//n/AgAAAAAAAAD9//n/AgABAAIAAAADAPf/AgAAAAAAAAAEAPf/AgAAAAAAAAAFAPf/AgAAAAAAAAAGAPf/AgABAAEAAAAGAPj/AgABAAAAAAAGAPn/AgABAAAAAAAGAPr/AgACAAIAAAD///v/AQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAAGAPz/AgACAAAAAAAGAP3/AgABAAAAAAAGAP7/AgABAAAAAAAGAP//AgABAAAAAAAGAAAAAgABAAAAAAAGAAEAAgABAAAAAAAGAAIAAgADAAEAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgACAAEAAAADAAEAAgABAAAAAAADAAAAAgABAAAAAAADAP//AgABAAEAAAACAP//AgAAAAAAAAABAP//AgAEAAEAAAAAAP//AgAAAAAAAAD/////AgABAAIAAAABAP7/AgABAAAAAAABAP3/AgABAAAAAAABAPz/AgABAAAAAAABAPv/AgAAAAEAAAACAPv/AgADAAEAAAACAPr/AgABAAAAAAACAPn/AgABAAAAAAACAPj/AgABAAAAAAACAPf/AgAEAAIAAAABAPf/AgAAAAAAAAAAAPf/AgAAAAAAAAD///f/AgAAAAEAAAD///j/AgABAAAAAAD///n/AgADAAEAAAD+//n/AgAAAAAAAAD9//n/AgABAAIAAAADAPf/AgAAAAAAAAAEAPf/AgAAAAAAAAAFAPf/AgAAAAAAAAAGAPf/AgABAAEAAAAGAPj/AgABAAAAAAAGAPn/AgABAAAAAAAGAPr/AgACAAIAAAD9//z/AQAAAAAABAA=")
 tile_set = ExtResource("2_otmfv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -41,9 +40,6 @@ bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../Foo
 [node name="Porter3" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
 position = Vector2(105, -93)
 bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
-
-[node name="Bubble" parent="." instance=ExtResource("3_sja4k")]
-position = Vector2(-55, -52)
 
 [node name="RoadPlacementHandler" type="Node2D" parent="." node_paths=PackedStringArray("road_layer")]
 script = ExtResource("6_p2eeb")
