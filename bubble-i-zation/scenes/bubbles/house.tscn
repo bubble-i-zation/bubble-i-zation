@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://f8s4qer8qame"]
+
+[ext_resource type="Script" uid="uid://c2gcf024sbcaf" path="res://scenes/bubbles/house.gd" id="1_m1uws"]
+[ext_resource type="Texture2D" uid="uid://ckinuuv833dp2" path="res://assets/tiles/Houses.png" id="2_2vws1"]
+[ext_resource type="Texture2D" uid="uid://d1irvlyovgf2f" path="res://assets/tiles/Buildings.png" id="3_2vws1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vws1"]
+atlas = ExtResource("2_2vws1")
+region = Rect2(16, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1egdj"]
+resource_local_to_scene = true
+atlas = ExtResource("2_2vws1")
+region = Rect2(32, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcd3o"]
+atlas = ExtResource("2_2vws1")
+region = Rect2(48, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5oatg"]
+atlas = ExtResource("2_2vws1")
+region = Rect2(64, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpiqc"]
+atlas = ExtResource("3_2vws1")
+region = Rect2(32, 55, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybp85"]
+atlas = ExtResource("3_2vws1")
+region = Rect2(0, 64, 25, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hg3y"]
+atlas = ExtResource("3_2vws1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkugq"]
+atlas = ExtResource("3_2vws1")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnk1b"]
+atlas = ExtResource("3_2vws1")
+region = Rect2(0, 32, 32, 32)
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_m1uws")
+
+[node name="HouseSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_2vws1")
+
+[node name="HouseSprite2" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_1egdj")
+
+[node name="HouseSprite3" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_mcd3o")
+
+[node name="HouseSprite4" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_5oatg")
+
+[node name="HouseSprite5" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("AtlasTexture_cpiqc")
+region_rect = Rect2(32, 48, 16, 32)
+
+[node name="HouseSprite6" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_ybp85")
+
+[node name="HouseSprite7" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_1hg3y")
+
+[node name="HouseSprite8" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_fkugq")
+
+[node name="HouseSprite9" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+texture = SubResource("AtlasTexture_mnk1b")

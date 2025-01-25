@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://yv0hgjx0g1db"]
+[gd_scene load_steps=11 format=4 uid="uid://yv0hgjx0g1db"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_lfee2"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
+[ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="3_sja4k"]
+[ext_resource type="PackedScene" uid="uid://f8s4qer8qame" path="res://scenes/bubbles/house.tscn" id="4_b3j4d"]
+[ext_resource type="Texture2D" uid="uid://ckinuuv833dp2" path="res://assets/tiles/Houses.png" id="5_p2eeb"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lfee2"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1106,6 +1109,11 @@ texture = ExtResource("1_lfee2")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_nk136")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_otmfv"]
+resource_local_to_scene = true
+atlas = ExtResource("5_p2eeb")
+region = Rect2(32, 0, 16, 0)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1137,3 +1145,14 @@ bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../Foo
 [node name="Porter3" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
 position = Vector2(60, -73)
 bubbles = [NodePath("../WaterBubble"), NodePath("../O2Bubble"), NodePath("../FoodBubble")]
+
+[node name="Bubble" parent="." instance=ExtResource("3_sja4k")]
+position = Vector2(-111, -21)
+
+[node name="House" parent="." instance=ExtResource("4_b3j4d")]
+position = Vector2(22, 17)
+
+[node name="HouseSprite2" parent="House" index="1"]
+texture = SubResource("AtlasTexture_otmfv")
+
+[editable path="House"]
