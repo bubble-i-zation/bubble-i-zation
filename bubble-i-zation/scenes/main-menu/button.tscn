@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://2kdx33y0ho05"]
+
+[ext_resource type="Texture2D" uid="uid://85vyy17p6rbi" path="res://assets/UI/BubbleButton.png" id="1_hsof1"]
+[ext_resource type="Script" uid="uid://bunnatbriyfjd" path="res://scenes/main-menu/button.gd" id="2_pmjmk"]
+[ext_resource type="AudioStream" uid="uid://b2yif7tt5336c" path="res://assets/Sounds/Ui Elements/Bubblenation_Ui_Swooshing.wav" id="3_pyxdd"]
+
+[node name="Button" type="Button"]
+icon = ExtResource("1_hsof1")
+flat = true
+icon_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pyxdd")
+script = ExtResource("2_pmjmk")
+
+[connection signal="pressed" from="." to="AudioStreamPlayer2D" method="_on_Button_pressed"]
