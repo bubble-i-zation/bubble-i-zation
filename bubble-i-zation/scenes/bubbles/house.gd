@@ -3,19 +3,20 @@ extends Node2D
 @export var house_size: float = 16.0             # Distance threshold for house overlap
 
 @onready var house_tiles1 = [
-	$HouseSprite,
-	$HouseSprite2,
-	$HouseSprite3,
-	$HouseSprite4
+	$Sprite2D,
+	$Sprite2D2,
+	$Sprite2D3,
+	$Sprite2D4,
 ]
 @onready var house_tiles2 = [
-	$HouseSprite5,
-	$HouseSprite6,
-	$HouseSprite7,
+	$Sprite2D5,
+	$Sprite2D6,
+	$Sprite2D7,
+	$Sprite2D8,
 ]
 @onready var house_tiles3 = [
-	$HouseSprite8,
-	$HouseSprite9,
+	$Sprite2D9,
+	$Sprite2D10,
 ]
 
 func assign_tile_texture(tier):
