@@ -7,7 +7,7 @@ var item_to_transport: Object = null
 var destination: Vector2
 
 func execute():
-	print("Run Transport Job")
+	pass
 	# 1. Find the bubble with the item
 	# 2. Walk to the bubble
 	# 3. Pick up the item
