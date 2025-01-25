@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://2kdx33y0ho05"]
+
+[ext_resource type="Texture2D" uid="uid://c4cwfpr5rmaoe" path="res://assets/UI/BubbleButton.png" id="1_hsof1"]
+
+[node name="Button" type="Button"]
+icon = ExtResource("1_hsof1")
+flat = true
+icon_alignment = 1
