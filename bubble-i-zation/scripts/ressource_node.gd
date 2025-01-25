@@ -19,7 +19,7 @@ var bubbleCoroutine = false
 
 var scene_to_instance := preload("res://scenes/bubbles/bubble.tscn")
 var factory_to_instance := preload("res://scenes/bubbles/buildingMatBubble.tscn") # hier muss noch der Path von dem Factory building ran...
-var bubble: Bubble = null
+var bubble: Node2D = null
 
 @export var production: ProductionResource
 
