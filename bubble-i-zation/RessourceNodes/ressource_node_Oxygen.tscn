@@ -17,7 +17,6 @@ production = SubResource("Resource_cy2k6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_grjel")
-animation = &"bubbling"
 
 [node name="Sprite2D" parent="." index="1"]
 visible = false
