@@ -45,7 +45,7 @@ func _ready():
 	#for i in range(3):
 		#spawn_house()
 		#print("spawned house ",i)
-	$AnimatedSprite2D.play("farm")
+	$AnimatedSprite2D.play("o2")
 
 func _on_timer_timeout() -> void:
 	if tier == 0 or upgrading:
