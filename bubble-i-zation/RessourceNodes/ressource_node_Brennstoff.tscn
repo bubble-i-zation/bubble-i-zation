@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ekahsqgwrmu7"]
+[gd_scene load_steps=5 format=3 uid="uid://ekahsqgwrmu7"]
 
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_ktn8q"]
-[ext_resource type="Texture2D" uid="uid://lumngds2uw8y" path="res://assets/tiles/OilField.png" id="2_r3nx2"]
+[ext_resource type="Script" uid="uid://cy1no2dwrsgwd" path="res://resources/resource.gd" id="2_cflhn"]
+[ext_resource type="Texture2D" uid="uid://bla5cmh0d07om" path="res://assets/tiles/OilField.png" id="2_r3nx2"]
+
+[sub_resource type="Resource" id="Resource_2b2uk"]
+script = ExtResource("2_cflhn")
+resource_type = 2
+metadata/_custom_type_script = ExtResource("2_cflhn")
 
 [node name="RessourceNode" instance=ExtResource("1_ktn8q")]
+production = SubResource("Resource_2b2uk")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1, 1)

@@ -14,10 +14,20 @@ var offsets = [
 var bubbleCoroutine = false
 
 var scene_to_instance := preload("res://scenes/bubbles/bubble.tscn")
-var has_bubble := false
+var bubble: Bubble = null
+
+@export var production: ProductionResource
+
+var inventory: Array[ProductionResource] = []
+var can_produce := true
+
 
 
 func _ready() -> void:
+	if production == null:
+		push_error("no pruduction for %s" % [name])
+	
+	
 	tileMap = get_parent()
 
 	if tileMap != null:
@@ -29,9 +39,23 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	checkForStreet()
+	do_production()
+
+func do_production():
+	if bubble == null:
+		return
+	if !can_produce:
+		return
+	if bubble.tier == 0:
+		return
+	for i in bubble.tier:
+		inventory.push_back(production)
+	print("produced %s %s" % [bubble.tier, production.ResourceType.keys()[production.resource_type]])
+	can_produce = false
+	get_tree().create_timer(5).timeout.connect(func (): can_produce = true)
 
 func checkForStreet():
-	if has_bubble:
+	if bubble != null:
 		return
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
@@ -56,12 +80,11 @@ func checkForStreet():
 		#return
 		
 func BubbleCreation():
-	if has_bubble:
+	if bubble != null:
 		return
-	var object: Node2D = scene_to_instance.instantiate()
-	object.global_position = global_position
-	has_bubble = true
-	get_parent().get_parent().add_child(object)
+	bubble = scene_to_instance.instantiate()
+	bubble.global_position = global_position
+	get_parent().get_parent().add_child(bubble)
 	print("create bubble")
 
 func NodeSelfKill():
