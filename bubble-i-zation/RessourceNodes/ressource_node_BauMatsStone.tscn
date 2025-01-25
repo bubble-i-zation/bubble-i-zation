@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://ktwqg73u7axe"]
+[gd_scene load_steps=5 format=3 uid="uid://ktwqg73u7axe"]
 
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_hlhfr"]
+[ext_resource type="Script" uid="uid://cy1no2dwrsgwd" path="res://resources/resource.gd" id="2_5yjuj"]
 [ext_resource type="Texture2D" uid="uid://fhew2nj5oa5y" path="res://assets/tiles/Rocks.png" id="2_kw57d"]
 
+[sub_resource type="Resource" id="Resource_w3jso"]
+script = ExtResource("2_5yjuj")
+resource_type = 0
+metadata/_custom_type_script = ExtResource("2_5yjuj")
+
 [node name="RessourceNode" instance=ExtResource("1_hlhfr")]
+production = SubResource("Resource_w3jso")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1, 1)

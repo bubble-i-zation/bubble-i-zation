@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://yv0hgjx0g1db"]
+[gd_scene load_steps=5 format=4 uid="uid://yv0hgjx0g1db"]
 
+[ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_lhepp"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="2_otmfv"]
-[ext_resource type="Script" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
+[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,12 +14,13 @@ tile_set = ExtResource("2_otmfv")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 texture_filter = 1
-tile_map_data = PackedByteArray("AAAGAPz/AgACAAAAAAAGAP3/AgABAAAAAAAGAP7/AgABAAAAAAAGAP//AgABAAAAAAAGAAAAAgABAAAAAAAGAAEAAgABAAAAAAAGAAIAAgADAAEAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgACAAEAAAADAAEAAgABAAAAAAADAAAAAgABAAAAAAADAP//AgABAAEAAAACAP//AgAAAAAAAAABAP//AgAEAAEAAAAAAP//AgAAAAAAAAD/////AgABAAIAAAABAP7/AgABAAAAAAABAP3/AgABAAAAAAABAPz/AgABAAAAAAABAPv/AgAAAAEAAAACAPv/AgADAAEAAAACAPr/AgABAAAAAAACAPn/AgABAAAAAAACAPj/AgABAAAAAAACAPf/AgAEAAIAAAABAPf/AgAAAAAAAAAAAPf/AgAAAAAAAAD///f/AgAAAAEAAAD///j/AgABAAAAAAD///n/AgADAAEAAAD+//n/AgAAAAAAAAD9//n/AgABAAIAAAADAPf/AgAAAAAAAAAEAPf/AgAAAAAAAAAFAPf/AgAAAAAAAAAGAPf/AgABAAEAAAAGAPj/AgABAAAAAAAGAPn/AgABAAAAAAAGAPr/AgACAAIAAAD9//z/AQAAAAAABAA=")
+tile_map_data = PackedByteArray("AAAGAPz/AgACAAAAAAAGAP3/AgABAAAAAAAGAP7/AgABAAAAAAAGAP//AgABAAAAAAAGAAAAAgABAAAAAAAGAAEAAgABAAAAAAAGAAIAAgADAAEAAAAFAAIAAgAAAAAAAAAEAAIAAgAAAAAAAAADAAIAAgACAAEAAAADAAEAAgABAAAAAAADAAAAAgABAAAAAAADAP//AgABAAEAAAACAP//AgAAAAAAAAABAP//AgAEAAEAAAAAAP//AgAAAAAAAAD/////AgABAAIAAAABAP7/AgABAAAAAAABAP3/AgABAAAAAAABAPz/AgABAAAAAAABAPv/AgAAAAEAAAACAPv/AgADAAEAAAACAPr/AgABAAAAAAACAPn/AgABAAAAAAACAPj/AgABAAAAAAACAPf/AgAEAAIAAAABAPf/AgAAAAAAAAAAAPf/AgAAAAAAAAD///f/AgAAAAEAAAD///j/AgABAAAAAAD///n/AgADAAEAAAD+//n/AgAAAAAAAAD9//n/AgABAAIAAAADAPf/AgAAAAAAAAAEAPf/AgAAAAAAAAAFAPf/AgAAAAAAAAAGAPf/AgABAAEAAAAGAPj/AgABAAAAAAAGAPn/AgABAAAAAAAGAPr/AgACAAIAAAD9//z/AQAAAAAABQA=")
 tile_set = ExtResource("2_otmfv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(38, -42)
 zoom = Vector2(4, 4)
+script = ExtResource("2_lhepp")
 
 [node name="Porter" parent="." node_paths=PackedStringArray("bubbles") instance=ExtResource("2_nk136")]
 position = Vector2(-12, -107)

@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Bubble
+
 var tier = 0
 @export var maxTier = 3
 @export var houseSpawnDelay = 3
