@@ -8,7 +8,8 @@ enum ResourceType {
 	Brennstoff,
 	Food,
 	Oxygen,
-	Water
+	Water,
+	Population
 }
 
 @export var resource_type: ResourceType

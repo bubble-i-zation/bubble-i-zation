@@ -1,26 +1,29 @@
 extends Node
 
 #total
-var pops
-var mat
-var food
-var water
-var oxygen
-var fuel
+var pops = 0
+var matStone = 0
+var matWood = 0
+var food = 0
+var water = 0
+var oxygen = 0
+var fuel = 0
 #factory
-var fPops
-var fMat
-var fFood
-var fWater
-var fOxygen
-var fFuel
+var fPops = 0
+var fMatStone = 0
+var fMatWood = 0
+var fFood = 0
+var fWater = 0 
+var fOxygen = 0
+var fFuel = 0
 #city
-var cPops
-var cMat
-var cFood
-var cWater
-var cOxygen
-var cFuel
+var cPops = 0
+var cMatStone = 0
+var cMatWood = 0
+var cFood = 0
+var cWater = 0
+var cOxygen = 0
+var cFuel = 0
 
 
 func _ready():
@@ -30,23 +33,26 @@ func _ready():
 func repeatCheck():
 	await get_tree().create_timer(1.0).timeout
 	for city in cities:
-		cFood += city.inventory.filter(food) 
-		cMat += city.inventory.filter(mat)
-		cWater += city.inventory.filter(water)
-		cOxygen += city.inventory.filter(oxygen)
-		cFuel += city.inventory.filter(fuel)
-		cPops += city.inventory.filter(pops)
+		cFood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food) 
+		cMatStone += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
+		cMatWood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
+		cWater += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
+		cOxygen += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
+		cFuel += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
+		cPops += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
 		
 	for factory in factories:
-		fFood += factory.inventory.filter(food) 
-		fMat += factory.inventory.filter(mat)
-		fWater += factory.inventory.filter(water)
-		fOxygen += factory.inventory.filter(oxygen)
-		fFuel += factory.inventory.filter(fuel)
-		fPops += factory.inventory.filter(pops)
+		fFood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food)
+		fMatStone += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
+		fMatWood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
+		fWater += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
+		fOxygen += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
+		fFuel += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
+		fPops += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
 		
 	food = cFood + fFood
-	mat = cMat + fMat
+	matStone = cMatStone + fMatStone
+	matWood = cMatWood + fMatWood
 	water = cWater + fWater
 	oxygen = cOxygen + fOxygen
 	fuel = cFuel + fFuel
