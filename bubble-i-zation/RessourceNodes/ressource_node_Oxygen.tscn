@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dp01oah7adq5h" path="res://assets/tiles/Oxygen.png" id="2_7krfd"]
 [ext_resource type="SpriteFrames" uid="uid://cbra12irb1uwf" path="res://assets/tiles/oxygen.tres" id="2_grjel"]
 
-[node name="RessourceNode" instance=ExtResource("1_svh5d")]
+[node name="RessourceNode" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_svh5d")]
+animated_sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = ExtResource("2_grjel")

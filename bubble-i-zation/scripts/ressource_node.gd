@@ -2,6 +2,7 @@ extends Node2D
 var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
+@export var animated_sprite: AnimatedSprite2D = null
 var streetTiles = [2] # hier kommen die Tile IDs der Straße rein
 var grid_position #holt koordinaten der Ressource im Grid aus world transform
 var offsets = [
@@ -23,8 +24,8 @@ func _ready() -> void:
 		grid_position = tileMap.local_to_map(global_position)
 	else:
 		print("TileMap für RessourceNode im Code nicht richtig benannt")
-	if $AnimatedSprite2D != null:
-		$AnimatedSprite2D.play("bubbling")
+	if animated_sprite != null:
+		animated_sprite.play("bubbling")
 
 func _process(delta: float) -> void:
 	checkForStreet()
