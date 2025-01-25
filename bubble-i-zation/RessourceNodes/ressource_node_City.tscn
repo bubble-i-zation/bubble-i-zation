@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://bfeti4fd3q0m1"]
+
+[ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="1_pcxkv"]
+[ext_resource type="Script" uid="uid://cy1no2dwrsgwd" path="res://resources/resource.gd" id="2_4vils"]
+[ext_resource type="Texture2D" uid="uid://b85q65nfbmd3o" path="res://assets/tiles/FlagAnimation.png" id="3_pcxkv"]
+[ext_resource type="Texture2D" uid="uid://dp01oah7adq5h" path="res://assets/tiles/Oxygen.png" id="4_i887r"]
+
+[sub_resource type="Resource" id="Resource_cy2k6"]
+script = ExtResource("2_4vils")
+resource_type = 4
+metadata/_custom_type_script = ExtResource("2_4vils")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vils"]
+atlas = ExtResource("3_pcxkv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i887r"]
+atlas = ExtResource("3_pcxkv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v68d"]
+atlas = ExtResource("3_pcxkv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpsbi"]
+atlas = ExtResource("3_pcxkv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wy2xy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vils")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i887r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v68d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpsbi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RessourceNode" node_paths=PackedStringArray("animated_sprite") instance=ExtResource("1_pcxkv")]
+animated_sprite = NodePath("AnimatedSprite2D")
+factory = false
+production = SubResource("Resource_cy2k6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_wy2xy")
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false
+texture_filter = 1
+scale = Vector2(1, 1)
+texture = ExtResource("4_i887r")
+hframes = 10

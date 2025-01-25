@@ -5,11 +5,19 @@ extends Node
 var quest_queue: Array = []
 
 func _ready() -> void:
-	var testQuest = Quest.new()
-	var testflattenerJob = FlattenerJob.new()
-	testflattenerJob.destination = Vector2(0, 0)
-	testQuest.add_objective(testflattenerJob)
-	add_quest(testQuest)
+#	var testQuest = Quest.new()
+#	var testflattenerJob = FlattenerJob.new()
+#	testflattenerJob.destination = Vector2(0, 0)
+#	testQuest.add_objective(testflattenerJob)
+#	add_quest(testQuest)
+	
+	#var testTransportQuest = Quest.new()
+	#var testTransportJob = TransportJob.new()
+	#testTransportJob.destination = Vector2(0, 0)
+	#testTransportJob.resourceType = ProductionResource.ResourceType.Brennstoff
+	#testTransportQuest.add_objective(testTransportJob)
+	#add_quest(testTransportQuest)
+	pass
 	
 func add_quest(quest: Quest):
 	quest_queue.append(quest)

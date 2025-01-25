@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://85vyy17p6rbi"
-path="res://.godot/imported/BubbleButton.png-1d8930ad68cc2cf1f09aa35b9add7727.ctex"
+uid="uid://bkwgwctisxmfg"
+path="res://.godot/imported/FlattenSpeechBubble.png-dfb42b45d5217aaea39476d8fcc4d1dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/BubbleButton.png"
-dest_files=["res://.godot/imported/BubbleButton.png-1d8930ad68cc2cf1f09aa35b9add7727.ctex"]
+source_file="res://assets/UI/FlattenSpeechBubble.png"
+dest_files=["res://.godot/imported/FlattenSpeechBubble.png-dfb42b45d5217aaea39476d8fcc4d1dd.ctex"]
 
 [params]
 

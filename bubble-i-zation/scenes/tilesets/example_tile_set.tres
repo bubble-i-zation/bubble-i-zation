@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=31 format=3 uid="uid://c6frucvxmiolt"]
+[gd_resource type="TileSet" load_steps=35 format=3 uid="uid://c6frucvxmiolt"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_6dwdw"]
 [ext_resource type="PackedScene" uid="uid://ktwqg73u7axe" path="res://RessourceNodes/ressource_node_BauMatsStone.tscn" id="2_3spsu"]
@@ -7,7 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dy2fmd04pg1j8" path="res://RessourceNodes/ressource_node_Food.tscn" id="5_euiu7"]
 [ext_resource type="PackedScene" uid="uid://dthkwrle336i6" path="res://RessourceNodes/ressource_node_Oxygen.tscn" id="6_k0jyd"]
 [ext_resource type="PackedScene" uid="uid://ckafnxf1263e0" path="res://RessourceNodes/ressource_node_Water.tscn" id="7_dtipj"]
+[ext_resource type="Texture2D" uid="uid://dbtjs31ynu70b" path="res://assets/tiles/StreetTileset.png" id="8_3spsu"]
+[ext_resource type="PackedScene" uid="uid://bfeti4fd3q0m1" path="res://RessourceNodes/ressource_node_City.tscn" id="8_ukcbg"]
 [ext_resource type="Texture2D" uid="uid://dluner0nwwv2h" path="res://assets/tiles/StreetTileNotConnected.png" id="9_pm83g"]
+[ext_resource type="Texture2D" uid="uid://bcrl66ssk35ax" path="res://assets/tiles/BasicTileset.png" id="11_euiu7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lfee2"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1115,6 +1118,7 @@ scenes/3/scene = ExtResource("4_ukcbg")
 scenes/4/scene = ExtResource("5_euiu7")
 scenes/5/scene = ExtResource("6_k0jyd")
 scenes/6/scene = ExtResource("7_dtipj")
+scenes/7/scene = ExtResource("8_ukcbg")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_3spsu"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1207,6 +1211,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukcbg"]
+texture = ExtResource("8_3spsu")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
@@ -1313,6 +1318,29 @@ texture = ExtResource("9_pm83g")
 0:0/0/terrain = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cx3xn")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0jyd"]
+texture = ExtResource("11_euiu7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+
 [resource]
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "roads"
@@ -1322,3 +1350,4 @@ sources/0 = SubResource("TileSetAtlasSource_nk136")
 sources/1 = SubResource("TileSetScenesCollectionSource_xwvea")
 sources/2 = SubResource("TileSetAtlasSource_ukcbg")
 sources/3 = SubResource("TileSetAtlasSource_jt7kc")
+sources/4 = SubResource("TileSetAtlasSource_k0jyd")

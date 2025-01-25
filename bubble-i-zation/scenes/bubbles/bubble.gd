@@ -54,6 +54,7 @@ func upgradeTier():
 
 
 func _ready():
+	
 	housesNode.y_sort_enabled = true
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
