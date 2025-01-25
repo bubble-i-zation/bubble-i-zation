@@ -1,34 +1,41 @@
 extends Node2D
-@export var tileMap:TileMapLayer
+var tileMap:TileMapLayer
 @export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
-var streetTiles = [1,2,3,4] # hier kommen die Tile IDs der Straße rein
+var streetTiles = [2] # hier kommen die Tile IDs der Straße rein
 var grid_position #holt koordinaten der Ressource im Grid aus world transform
 var offsets = [
-	Vector2(-1, 0),
-	Vector2(1, 0),
-	Vector2(0, -1),
-	Vector2(0,1)
+	Vector2i(-1, 0),
+	Vector2i(1, 0),
+	Vector2i(0, -1),
+	Vector2i(0,1)
 ]
 var bubbleCoroutine = false
-var scene_to_instance = preload("res://scenes/bubbles/bubble.tscn")
+
+var scene_to_instance := preload("res://scenes/bubbles/bubble.tscn")
+var has_bubble := false
 
 
 func _ready() -> void:
-	
-	tileMap = $TileMapLayer #weist die TileMap automatisch zu
+	tileMap = get_parent()
+
 	if tileMap != null:
 		grid_position = tileMap.local_to_map(global_position)
 	else:
 		print("TileMap für RessourceNode im Code nicht richtig benannt")
 	if $AnimatedSprite2D != null:
 		$AnimatedSprite2D.play("bubbling")
-		
+
+func _process(delta: float) -> void:
+	checkForStreet()
+
 func checkForStreet():
+	if has_bubble:
+		return
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
-		var tile_id = tileMap.get_cellv(neighbor_position)
-		if tile_id == streetTiles:
+		var tile_id = tileMap.get_cell_source_id(neighbor_position)
+		if streetTiles.has(tile_id):
 			#coroutineBubbleCreation()
 			#bubbleCoroutine = true
 			BubbleCreation()
@@ -48,9 +55,13 @@ func checkForStreet():
 		#return
 		
 func BubbleCreation():
-	var object = scene_to_instance.instance()
-	# bubbleCoroutine = false
-	return
+	if has_bubble:
+		return
+	var object: Node2D = scene_to_instance.instantiate()
+	object.global_position = global_position
+	has_bubble = true
+	get_parent().get_parent().add_child(object)
+	print("create bubble")
 
 func NodeSelfKill():
 	queue_free()

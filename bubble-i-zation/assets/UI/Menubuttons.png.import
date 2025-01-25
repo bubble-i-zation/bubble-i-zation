@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x233ikbocxjh"
-path="res://.godot/imported/GGJLogo.png-9aa8bc302c7ff053b2de2d71c3f3f783.ctex"
+uid="uid://bv1j3kk3l2fbg"
+path="res://.godot/imported/Menubuttons.png-d53fe73a1bdee1d9596beff8f5b71305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/GGJLogo.png"
-dest_files=["res://.godot/imported/GGJLogo.png-9aa8bc302c7ff053b2de2d71c3f3f783.ctex"]
+source_file="res://assets/UI/Menubuttons.png"
+dest_files=["res://.godot/imported/Menubuttons.png-d53fe73a1bdee1d9596beff8f5b71305.ctex"]
 
 [params]
 
