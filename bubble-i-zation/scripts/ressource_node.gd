@@ -61,24 +61,8 @@ func checkForStreet():
 		var neighbor_position = grid_position + offset
 		var tile_id = tileMap.get_cell_source_id(neighbor_position)
 		if streetTiles.has(tile_id):
-			#coroutineBubbleCreation()
-			#bubbleCoroutine = true
 			BubbleCreation()
-			
-#Damit nicht jeden Frame versucht wird, zu bauen			
-#func coroutineBubbleCreation():
-	#if bubbleCoroutine == true:
-		#await get_tree().create_timer(1.0)
-		#tryBubbleCreation()
-		#coroutineBubbleCreation()
-	#else:
-		#return
-	
-#func tryBubbleCreation():
-	#if baumaterialVerfügbar >= bauKosten:
-		#BubbleCreation()
-		#return
-		
+
 func BubbleCreation():
 	if bubble != null:
 		return
