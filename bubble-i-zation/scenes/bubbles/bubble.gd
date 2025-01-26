@@ -60,11 +60,11 @@ var bubbleCrowded = false;
 
 @export var inventoryNew = {
 	BauMatsStone = 0,
-	BaumMatsWood = 100,
+	BaumMatsWood = 200,
 	Brennstoff = 0,
-	Food = 50,
-	Oxygen = 300,
-	Water = 100,
+	Food = 250,
+	Oxygen = 500,
+	Water = 300,
 	Population = 3,
 }
 
