@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://bdvjuhn46ngik"]
+[gd_scene load_steps=10 format=4 uid="uid://bdvjuhn46ngik"]
 
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="1_8eups"]
 [ext_resource type="Script" uid="uid://j8u5q6y2l21a" path="res://scenes/game.gd" id="1_y1rsc"]
 [ext_resource type="Script" path="res://scenes/cameraMovement.gd" id="2_f2qbf"]
+[ext_resource type="AudioStream" uid="uid://cbyoyadng45i1" path="res://assets/Sounds/level-music/background-music_loop.ogg" id="2_y1rsc"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_ayw0b"]
 [ext_resource type="PackedScene" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="5_f2qbf"]
@@ -16,6 +17,10 @@ script = ExtResource("1_y1rsc")
 
 [node name="ZentraleUi" parent="CanvasLayer" instance=ExtResource("6_ayw0b")]
 custom_minimum_size = Vector2(0, 0)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_y1rsc")
+autoplay = true
 
 [node name="TileMapLayer-Deco" type="TileMapLayer" parent="."]
 texture_filter = 1
