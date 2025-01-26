@@ -25,7 +25,7 @@ signal targetReached
 
 func _process(_delta: float) -> void:
 	if (current_quest == null):
-		current_quest = QuestManager.get_next_quest()
+		current_quest = QuestManager.get_next_quest(self)
 		if current_quest != null:
 			print("got new quest")
 			print(current_quest)
