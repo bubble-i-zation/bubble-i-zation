@@ -52,13 +52,13 @@ func repeatCheck():
 		fFuel += factory.inventoryNew["Brennstoff"]
 		fPops += factory.inventoryNew["Population"]
 		
-	food = cFood + fFood
-	matStone = cMatStone + fMatStone
-	matWood = cMatWood + fMatWood
-	water = cWater + fWater
-	oxygen = cOxygen + fOxygen
-	fuel = cFuel + fFuel
-	pops = cPops + fPops
+	food = cFood
+	matStone = cMatStone
+	matWood = cMatWood
+	water = cWater
+	oxygen = cOxygen
+	fuel = cFuel
+	pops = cPops
 	
 	if (
 		0 > food ||

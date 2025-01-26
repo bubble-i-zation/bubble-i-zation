@@ -14,6 +14,8 @@
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_jkl1b")
+houseSpawnDelay = 3
+porterSpawnDelay = 2
 house_scene = ExtResource("2_60m1a")
 porter_scene = ExtResource("3_taa85")
 
