@@ -84,6 +84,7 @@ func _ready():
 	var nav3x3 = $bubble3x3/NavMesh3x3
 	var nav5x5 = $bubble5x5/NavMesh5x5
 	var nav7x7 = $bubble7x7/NavMesh7x7
+	
 func changeNavAgent(i):
 	if i == 1:
 		nav3x3.set_navigation_layers(1)
@@ -106,7 +107,7 @@ func upgradeTier():
 		tier = tier + 1
 		bubbleSprites[tier].visible = true
 		bubbleBGSprites[tier-1].visible = true
-		changeNavAgent(tier)
+		#changeNavAgent(tier)
 		
 func buildQuestComplete():
 	if tier == 0:
