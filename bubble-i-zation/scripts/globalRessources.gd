@@ -33,22 +33,22 @@ func repeatCheck():
 	var cFuel := 0
 
 	for city in cities:
-		cFood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food).size()
-		cMatStone += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone).size()
-		cMatWood += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood).size()
-		cWater += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water).size()
-		cOxygen += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen).size()
-		cFuel += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff).size()
-		cPops += city.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population).size()
+		cFood += city.inventoryNew["Food"]
+		cMatStone += city.inventoryNew["BauMatsStone"]
+		cMatWood += city.inventoryNew["BaumMatsWood"]
+		cWater += city.inventoryNew["Water"]
+		cOxygen += city.inventoryNew["Oxygen"]
+		cFuel += city.inventoryNew["Brennstoff"]
+		cPops += city.inventoryNew["Population"]
 		
-	for factory in factories:
-		fFood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food).size()
-		fMatStone += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone).size()
-		fMatWood += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood).size()
-		fWater += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water).size()
-		fOxygen += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen).size()
-		fFuel += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff).size()
-		fPops += factory.inventory.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population).size()
+	#for factory in factories:
+		#fFood += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food)
+		#fMatStone += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
+		#fMatWood += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
+		#fWater += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
+		#fOxygen += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
+		#fFuel += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
+		#fPops += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
 		
 	food = cFood + fFood
 	matStone = cMatStone + fMatStone
@@ -58,11 +58,29 @@ func repeatCheck():
 	fuel = cFuel + fFuel
 	pops = cPops + fPops
 
+	#print("food: ",food)
+	#print("matStone: ",matStone)
+	#print("matWood: ",matWood)
+	#print("water: ",water)
+	#print("oxygen: ",oxygen)
+	#print("fuel: ",fuel)
+	#print("pops: ",pops)
 
 var cities: Array[ressource_node] = []
 var factories: Array[ressource_node] = []
 
-func add_to_cities (ressourceNode:ressource_node):
+# Helper dictionary to map ResourceType to string keys
+var resource_key_map = {
+	ProductionResource.ResourceType.BauMatsStone: "BauMatsStone",
+	ProductionResource.ResourceType.BaumMatsWood: "BaumMatsWood",
+	ProductionResource.ResourceType.Brennstoff: "Brennstoff",
+	ProductionResource.ResourceType.Food: "Food",
+	ProductionResource.ResourceType.Oxygen: "Oxygen",
+	ProductionResource.ResourceType.Water: "Water",
+	ProductionResource.ResourceType.Population: "Population"
+}
+
+func add_to_cities (ressourceNode:Bubble):
 	cities.append(ressourceNode)
 	
 func add_to_factories (ressourceNode:ressource_node):
@@ -70,5 +88,10 @@ func add_to_factories (ressourceNode:ressource_node):
 
 func get_factories(resource: ProductionResource.ResourceType) -> Array[ressource_node]:
 	var factories_with_resource = factories.filter(func (factory: ressource_node): 
-		return factory.inventory.filter(func (item: ProductionResource): return item.resource_type == resource).size() > 0)
+		return factory.inventoryNew[resource_key_map[resource]]>0)
 	return factories_with_resource
+
+func get_cities(resource: ProductionResource.ResourceType) -> Array[ressource_node]:
+	var cities_with_resource = factories.filter(func (city: ressource_node): 
+		return city.inventoryNew[resource_key_map[resource]]>0)
+	return cities_with_resource

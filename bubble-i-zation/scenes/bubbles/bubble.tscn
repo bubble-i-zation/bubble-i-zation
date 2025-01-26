@@ -15,6 +15,7 @@ script = ExtResource("1_jkl1b")
 house_scene = ExtResource("2_60m1a")
 
 [node name="bubbleConstrSite" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 texture_filter = 1
 texture = ExtResource("4_4py6g")

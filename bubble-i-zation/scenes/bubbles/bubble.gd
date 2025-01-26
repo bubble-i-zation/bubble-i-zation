@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Bubble
 
-var tier = 0
+@export var tier = 0
 @export var maxTier = 3
 @export var houseSpawnDelay = 3
 var enoughSpaceToUprade = false
@@ -41,6 +41,17 @@ var bubbleCrowded = false;
 	$BG/BG5x5,
 	$BG/BG7x7
 ]
+var testTransportQuest: Quest
+
+@export var inventoryNew = {
+	BauMatsStone = 0,
+	BaumMatsWood = 20,
+	Brennstoff = 0,
+	Food = 10,
+	Oxygen = 10,
+	Water = 10,
+	Population = 3
+}
 
 func upgradeTier():
 	bubbleCrowded = false
@@ -50,19 +61,26 @@ func upgradeTier():
 		tier = tier + 1
 		bubbleSprites[tier].visible = true
 		bubbleBGSprites[tier-1].visible = true
-
-
-
+		
 func _ready():
+	GlobalRessources.add_to_cities(self)
+	print("wood: ",inventoryNew["BaumMatsWood"])
+	bubbleSprites[tier].visible = true
 	
 	housesNode.y_sort_enabled = true
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
-	# Example: Spawn 10 houses
-	#for i in range(3):
-		#spawn_house()
-		#print("spawned house ",i)
 
+	testTransportQuest = Quest.new()
+	var testTransportJob = TransportJob.new()
+	testTransportJob.destination = self.position
+	testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+	testTransportQuest.add_objective(testTransportJob)
+	testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+	QuestManager.add_quest(testTransportQuest)
+func buildQuestComplete():
+	if tier == 0:
+		upgradeTier()
 func spawn_house():
 	for x in range(max_attempts):
 		# Generate a random position within the circle
@@ -98,7 +116,7 @@ func is_position_valid(position: Vector2, house_size) -> bool:
 	return true
 
 func _on_timer_timeout() -> void:
-	if bubbleCrowded or tier == 0:
+	if bubbleCrowded:
 			upgradeTier()
 	if tier != 0:
 		spawn_house()  # Call the spawn function

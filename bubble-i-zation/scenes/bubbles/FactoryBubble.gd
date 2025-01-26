@@ -27,6 +27,8 @@ var rescourceType: ProductionResource.ResourceType
 	$BG/BG7x7
 ]
 
+var testTransportQuest: Quest
+
 func upgradeTier():
 	if tier < maxTier:
 		$AnimatedSprite2D.visible = true
@@ -44,12 +46,18 @@ func setRessourceType(rescourceType: ProductionResource.ResourceType):
 func _ready():
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
-	# Example: Spawn 10 houses
-	#for i in range(3):
-		#spawn_house()
-		#print("spawned house ",i)
 	
-
+	testTransportQuest = Quest.new()
+	var testTransportJob = TransportJob.new()
+	testTransportJob.destination = self.position
+	testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+	testTransportQuest.add_objective(testTransportJob)
+	testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+	QuestManager.add_quest(testTransportQuest)
+func buildQuestComplete():
+	if tier == 0:
+		upgradeTier()
+		
 func _on_timer_timeout() -> void:
-	if tier == 0 or upgrading:
+	if upgrading:
 		upgradeTier()

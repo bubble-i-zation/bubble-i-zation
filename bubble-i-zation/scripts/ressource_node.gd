@@ -25,11 +25,22 @@ var bubble: Node2D = null
 @export var production: ProductionResource
 
 var inventory: Array[ProductionResource] = []
+
+@export var inventoryNew = {
+	BauMatsStone = 0,
+	BaumMatsWood = 20,
+	Brennstoff = 0,
+	Food = 10,
+	Oxygen = 10,
+	Water = 10,
+	Population = 3
+}
 var can_produce := true
 
 
 
 func _ready() -> void:
+	
 	if production == null:
 		push_error("no pruduction for %s" % [name])
 	
@@ -57,7 +68,11 @@ func do_production():
 	if bubble.tier == 0:
 		return
 	for i in bubble.tier:
+		
 		inventory.push_back(production)
+		inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 1
+		print("inventory: ",inventory)
+		print("inventoryNew: ",inventoryNew)
 	print("produced %s %s" % [bubble.tier, production.ResourceType.keys()[production.resource_type]])
 	can_produce = false
 	get_tree().create_timer(5).timeout.connect(func (): can_produce = true)
@@ -101,7 +116,6 @@ func BubbleCreation():
 		return
 	if factory == false:
 		bubble = scene_to_instance.instantiate()
-		GlobalRessources.add_to_cities(self)
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
