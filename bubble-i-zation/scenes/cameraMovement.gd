@@ -6,11 +6,19 @@ var currentZoom: float
 var zoomMin := 1
 var zoomMax := 5
 var zoom_target: float
+var pivot_camera = Vector2.ZERO
 
 func _ready():
 	currentZoom = zoom.x
 	zoom_target = zoom.x
-
+	
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("Middle-Mouse"):
+		pivot_camera=get_global_mouse_position()
+	if Input.is_action_pressed("Middle-Mouse"):
+		var gap=pivot_camera-get_global_mouse_position()
+		self.offset+=gap
+		
 func _process(delta: float) -> void:
 	move_camera()
 
@@ -30,3 +38,5 @@ func move_camera():
 	var motion = move_direction.normalized() * speed * (1 / currentZoom)
 	
 	position += motion
+	
+	
