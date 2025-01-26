@@ -191,6 +191,9 @@ sprite_frames = SubResource("SpriteFrames_r8sus")
 texture_filter = 1
 texture = ExtResource("5_vdgkb")
 
+[node name="PorterSpeechBubble" parent="." instance=ExtResource("7_yuu14")]
+position = Vector2(0, -23)
+
 [node name="WorkParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 5
