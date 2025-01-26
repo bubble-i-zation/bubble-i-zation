@@ -19,7 +19,7 @@ var current_job: Job = null
 var inventory: Array[ProductionResource.ResourceType] = []
 
 signal targetReached
-
+#spaß mit blasen
 
 func _process(_delta: float) -> void:
 	if (current_quest == null):
