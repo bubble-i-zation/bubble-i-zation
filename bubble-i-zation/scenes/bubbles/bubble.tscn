@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2yrsa2eg1grp"]
+[gd_scene load_steps=11 format=3 uid="uid://c2yrsa2eg1grp"]
 
 [ext_resource type="Script" uid="uid://dva87hu8ndd27" path="res://scenes/bubbles/bubble.gd" id="1_jkl1b"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="1_pa6aa"]
@@ -10,11 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c05g5nvgd3ky6" path="res://assets/Bubbles/Bubble3x3BG.png" id="7_4py6g"]
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_br2ov"]
 [ext_resource type="Texture2D" uid="uid://bwpsya2nplumx" path="res://assets/Bubbles/Bubble7x7BG.png" id="9_taa85"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_taa85"]
-vertices = PackedVector2Array(2.75781, -12.7969, 8.52344, -8.96094, 13, -1.28906, 13, 3.4375, 9.85156, 9.21094, 0.289063, 13.3906, -7.17969, 11.25, -11.8906, 5.35938, -13.5938, -0.867188, -12.1406, -5.71094, -7.42188, -10.4297, 0.453125, -13.4609)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -24, -13, -19, -21, -11, -24, -1, -21, 10, -13, 20, 1, 24, 17, 17, 23, 6, 23, -4, 16, -16, 7, -22)])
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_jkl1b")
@@ -32,11 +27,6 @@ visible = false
 z_index = 2
 texture_filter = 1
 texture = ExtResource("1_pa6aa")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="bubble3x3"]
-visible = false
-scale = Vector2(1.8, 1.8)
-navigation_polygon = SubResource("NavigationPolygon_taa85")
 
 [node name="bubble5x5" type="Sprite2D" parent="."]
 visible = false
