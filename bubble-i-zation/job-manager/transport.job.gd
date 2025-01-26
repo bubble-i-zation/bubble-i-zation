@@ -21,6 +21,7 @@ var destination: Vector2
 var resourceType: ProductionResource.ResourceType
 var factory: ressource_node
 var city: ressource_node
+var found_item := false
 
 func execute(porter):
 	#print("Current state: " + str(current_state))
@@ -42,6 +43,7 @@ func execute(porter):
 					current_state = jobState.WALK_TO_ITEM
 				
 		jobState.WALK_TO_ITEM:
+			found_item = true
 			# Walk to the bubble
 #			porter.targetReached.connect(func (): current_state = jobState.PICK_UP_ITEM)
 			porter.targetReached.connect(func (): Global.get_tree().create_timer(5).timeout.connect(func (): current_state = jobState.PICK_UP_ITEM))
