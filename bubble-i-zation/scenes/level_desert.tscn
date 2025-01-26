@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="1_8eups"]
 [ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_ayw0b"]
-[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="4_ypdak"]
+[ext_resource type="PackedScene" uid="uid://d0cmpm3efpf1e" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="5_f2qbf"]
-[ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="6_ayw0b"]
+[ext_resource type="PackedScene" path="res://scenes/ZentraleUI.tscn" id="6_ayw0b"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -17,7 +17,7 @@ tile_set = ExtResource("1_8eups")
 [node name="TileMapLayer2-Gameplay" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(2, 1)
-tile_map_data = PackedByteArray("AAAIAPr/AQAAAAAABQD3//r/AQAAAAAABgDz/wIAAQAAAAAABgAFAAQAAQAAAAAAAgD5/wgAAQAAAAAAAQDt/w4AAQAAAAAABwAUAAoAAQAAAAAABwDs/+//AQAAAAAABwASAOr/AQAAAAAABwAMAAAAAQAAAAAABAAZAA8AAQAAAAAABAAMABMAAQAAAAAABQARABUAAQAAAAAABgDz/xIAAQAAAAAAAQDp/xYAAQAAAAAAAgDz/+v/AQAAAAAAAwDm/+3/AQAAAAAABQDm//X/AQAAAAAABgAZAPD/AQAAAAAABgAPAPD/AQAAAAAABAAHAOr/AQAAAAAABAAWAPL/AQAAAAAAAQAAABIAAQAAAAAABQAWAAEAAQAAAAAABQDn/wcAAQAAAAAABQALAAgAAQAAAAAABQAXAPn/AQAAAAAABQD6/+r/AQAAAAAABgAbAOv/AQAAAAAABgD1/xYAAQAAAAAABgARAPf/AQAAAAAABwD7/xkAAQAAAAAAAwD//xgAAQAAAAAAAwDp//3/AQAAAAAAAwDs/wAAAQAAAAAAAwAPAP3/AQAAAAAABADl/xEAAQAAAAAABADo/wwAAQAAAAAAAQAJAPD/AQAAAAAAAgD6/+//AQAAAAAAAgD4//P/AQAAAAAAAQDx//X/AQAAAAAABQAPAOj/AQAAAAAABQAjAAcAAQAAAAAAAwAmAA4AAQAAAAAAAwDi/+b/AQAAAAAABgDo/+P/AQAAAAAABgDv/+H/AQAAAAAABAD0/+T/AQAAAAAABAAHAA0AAQAAAAAABQDy/wkAAQAAAAAABQApAAgAAQAAAAAABQAhABIAAQAAAAAABQAVABwAAQAAAAAAAQAZABsAAQAAAAAAAQAZACAAAQAAAAAAAgAHABgAAQAAAAAABgDn/xwAAQAAAAAABgDi/xoAAQAAAAAABgD///3/AgABAAIAAAABAP3/AgADAAIAAAAAAP3/AgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAIAPr/AQAAAAAABQD3//r/AQAAAAAABgDz/wIAAQAAAAAABgAFAAQAAQAAAAAAAgD5/wgAAQAAAAAAAQDt/w4AAQAAAAAABwAUAAoAAQAAAAAABwDs/+//AQAAAAAABwASAOr/AQAAAAAABwAMAAAAAQAAAAAABAAZAA8AAQAAAAAABAAMABMAAQAAAAAABQARABUAAQAAAAAABgDz/xIAAQAAAAAAAQDp/xYAAQAAAAAAAgDz/+v/AQAAAAAAAwDm/+3/AQAAAAAABQDm//X/AQAAAAAABgAZAPD/AQAAAAAABgAPAPD/AQAAAAAABAAHAOr/AQAAAAAABAAWAPL/AQAAAAAAAQAAABIAAQAAAAAABQAWAAEAAQAAAAAABQDn/wcAAQAAAAAABQALAAgAAQAAAAAABQAXAPn/AQAAAAAABQD6/+r/AQAAAAAABgAbAOv/AQAAAAAABgD1/xYAAQAAAAAABgARAPf/AQAAAAAABwD7/xkAAQAAAAAAAwD//xgAAQAAAAAAAwDp//3/AQAAAAAAAwDs/wAAAQAAAAAAAwAPAP3/AQAAAAAABADl/xEAAQAAAAAABADo/wwAAQAAAAAAAQAJAPD/AQAAAAAAAgD6/+//AQAAAAAAAgD4//P/AQAAAAAAAQDx//X/AQAAAAAABQAPAOj/AQAAAAAABQAjAAcAAQAAAAAAAwAmAA4AAQAAAAAAAwDi/+b/AQAAAAAABgDo/+P/AQAAAAAABgDv/+H/AQAAAAAABAD0/+T/AQAAAAAABAAHAA0AAQAAAAAABQDy/wkAAQAAAAAABQApAAgAAQAAAAAABQAhABIAAQAAAAAABQAVABwAAQAAAAAAAQAZABsAAQAAAAAAAQAZACAAAQAAAAAAAgAHABgAAQAAAAAABgDn/xwAAQAAAAAABgDi/xoAAQAAAAAABgD///3/AgABAAIAAAABAP3/AgADAAIAAAAAAP3/AgAEAAEAAAAAAPz/AgACAAAAAAA=")
 tile_set = ExtResource("1_8eups")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -34,10 +34,6 @@ position = Vector2(8, -38)
 [node name="Porter3" parent="." instance=ExtResource("3_ayw0b")]
 position = Vector2(-8, -38)
 
-[node name="RoadPlacementHandler" type="Node2D" parent="." node_paths=PackedStringArray("road_layer")]
-script = ExtResource("4_ypdak")
-road_layer = NodePath("../TileMapLayer2-Gameplay")
-
 [node name="Bubble" parent="." instance=ExtResource("5_f2qbf")]
 position = Vector2(7, -70)
 tier = 1
@@ -47,3 +43,6 @@ offset_left = 884.0
 offset_top = -608.0
 offset_right = 2033.0
 offset_bottom = -8.0
+
+[node name="RoadPlacementHandler2" parent="." node_paths=PackedStringArray("road_layer") instance=ExtResource("4_f2qbf")]
+road_layer = NodePath("../TileMapLayer2-Gameplay")

@@ -39,7 +39,7 @@ func _process(_delta: float) -> void:
 	
 	if (current_job != null):
 		current_job.execute(self)
-		if (current_job.isCompleted):
+		if (current_job.isCompleted || current_job.isAborted):
 			current_job = null
 
 	

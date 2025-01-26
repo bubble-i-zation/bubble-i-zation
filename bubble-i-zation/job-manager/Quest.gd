@@ -20,7 +20,7 @@ func has_unstarted_jobs() -> bool:
 	return 0 < unstartedJobs.size()
 
 func get_completed_jobs():
-	return objectives.filter(func (job): return job.isCompleted == true)
+	return objectives.filter(func (job:Job): return job.isCompleted || job.isAborted)
 # Returns the first objective in array and removes it from the array
 func get_next_objective():
 	var unstarted_jobs = get_unstarted_jobs()
