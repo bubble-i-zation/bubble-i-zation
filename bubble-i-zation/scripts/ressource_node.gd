@@ -14,6 +14,13 @@ var offsets = [
 	Vector2i(0, -1),
 	Vector2i(0,1)
 ]
+var diaOffsets = [
+	Vector2i(1, 1),
+	Vector2i(0, 0),
+	Vector2i(-1, -1),
+	Vector2i(1, -1)
+]
+
 var bubbleCoroutine = false
 
 var jobs: Array [FlattenerJob] = []
@@ -80,6 +87,9 @@ func checkForStreet():
 			beganTiling = true
 			BeginTiling()
 			
+	#for diaOffset in diaOffsets:
+	#	diaNeighbor_position = grid_position + diaOffset
+		
 func BeginTiling():
 	
 	if jobs.size() > 0:
