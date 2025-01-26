@@ -71,13 +71,15 @@ func _ready():
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
 
-	testTransportQuest = Quest.new()
-	var testTransportJob = TransportJob.new()
-	testTransportJob.destination = self.position
-	testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
-	testTransportQuest.add_objective(testTransportJob)
-	testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
-	QuestManager.add_quest(testTransportQuest)
+	if tier == 0:
+		testTransportQuest = Quest.new()
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+		testTransportQuest.add_objective(testTransportJob)
+		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+		QuestManager.add_quest(testTransportQuest)
+
 func buildQuestComplete():
 	if tier == 0:
 		upgradeTier()
