@@ -3,6 +3,7 @@ extends Node2D
 class_name FactoryBubble
 
 var tier = 0
+@export var buildingcosts: int = 10
 @export var maxTier = 2
 @export var houseSpawnDelay = 3
 @export var producedRescource: PackedScene
@@ -51,7 +52,7 @@ func _ready():
 	var testTransportJob = TransportJob.new()
 	testTransportJob.destination = self.position
 	testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
-	testTransportQuest.add_objective(testTransportJob)
+	testTransportQuest.add_objective(testTransportJob, buildingcosts)
 	testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 	QuestManager.add_quest(testTransportQuest)
 func buildQuestComplete():

@@ -1,7 +1,6 @@
 extends Node2D
 class_name ressource_node
 var tileMap:TileMapLayer
-@export var baumaterialVerfügbar:int
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
 @export var factory := true
@@ -24,26 +23,21 @@ var bubble: Node2D = null
 
 @export var production: ProductionResource
 
-var inventory: Array[ProductionResource] = []
-
 @export var inventoryNew = {
 	BauMatsStone = 0,
-	BaumMatsWood = 20,
+	BaumMatsWood = 0,
 	Brennstoff = 0,
-	Food = 10,
-	Oxygen = 10,
-	Water = 10,
-	Population = 3
+	Food = 0,
+	Oxygen = 0,
+	Water = 0,
+	Population = 0
 }
 var can_produce := true
-
-
 
 func _ready() -> void:
 	
 	if production == null:
 		push_error("no pruduction for %s" % [name])
-	
 	
 	tileMap = get_parent()
 
@@ -69,9 +63,7 @@ func do_production():
 		return
 	for i in bubble.tier:
 		
-		inventory.push_back(production)
 		inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 1
-		print("inventory: ",inventory)
 		print("inventoryNew: ",inventoryNew)
 	print("produced %s %s" % [bubble.tier, production.ResourceType.keys()[production.resource_type]])
 	can_produce = false

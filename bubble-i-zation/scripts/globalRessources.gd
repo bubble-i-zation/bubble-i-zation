@@ -41,14 +41,14 @@ func repeatCheck():
 		cFuel += city.inventoryNew["Brennstoff"]
 		cPops += city.inventoryNew["Population"]
 		
-	#for factory in factories:
-		#fFood += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Food)
-		#fMatStone += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BauMatsStone)
-		#fMatWood += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.BaumMatsWood)
-		#fWater += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Water)
-		#fOxygen += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Oxygen)
-		#fFuel += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Brennstoff)
-		#fPops += factory.inventoryNew.filter(func (item: ProductionResource): return item.resource_type == ProductionResource.ResourceType.Population)
+	for factory in factories:
+		fFood += factory.inventoryNew["Food"]
+		fMatStone += factory.inventoryNew["BauMatsStone"]
+		fMatWood += factory.inventoryNew["BaumMatsWood"]
+		fWater += factory.inventoryNew["Water"]
+		fOxygen += factory.inventoryNew["Oxygen"]
+		fFuel += factory.inventoryNew["Brennstoff"]
+		fPops += factory.inventoryNew["Population"]
 		
 	food = cFood + fFood
 	matStone = cMatStone + fMatStone
