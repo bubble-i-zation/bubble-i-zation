@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bjxdp7ek2w8kv"]
+[gd_scene load_steps=30 format=3 uid="uid://bjxdp7ek2w8kv"]
 
 [ext_resource type="Script" uid="uid://0read4388w2k" path="res://scenes/porter/porter.gd" id="1_66ag7"]
 [ext_resource type="Texture2D" uid="uid://gnsjii6guyxa" path="res://assets/charactersprites/Character Base.png" id="3_2pqi4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d0cpfm41l4wd8" path="res://assets/charactersprites/JobCharacters.png" id="4_vdgkb"]
 [ext_resource type="Texture2D" uid="uid://p3yodp1oydrm" path="res://assets/particles/smoke_03.png" id="5_bgrm3"]
 [ext_resource type="Texture2D" uid="uid://bneu7ontd7jmn" path="res://assets/charactersprites/bubble.png" id="5_vdgkb"]
+[ext_resource type="PackedScene" uid="uid://cfk63rqd37e5k" path="res://scenes/porter/porter_speech_bubble.tscn" id="7_yuu14"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sja4k"]
 radius = 4.0
@@ -186,6 +187,8 @@ texture = ExtResource("3_bgrm3")
 texture_filter = 1
 position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_r8sus")
+animation = &"idle"
+frame_progress = 0.0646432
 
 [node name="Bubble" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -196,6 +199,9 @@ emitting = false
 amount = 5
 texture = ExtResource("5_bgrm3")
 process_material = SubResource("ParticleProcessMaterial_1nt6f")
+
+[node name="PorterSpeechBubble" parent="." instance=ExtResource("7_yuu14")]
+position = Vector2(0, -23)
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

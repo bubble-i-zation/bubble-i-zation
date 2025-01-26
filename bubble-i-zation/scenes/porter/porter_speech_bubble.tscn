@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfk63rqd37e5k"]
+
+[ext_resource type="Texture2D" uid="uid://bkwgwctisxmfg" path="res://assets/UI/FlattenSpeechBubble.png" id="1_gcsqv"]
+[ext_resource type="Script" uid="uid://dx7vc26i3aryd" path="res://scenes/porter/porter_speech_bubble.gd" id="1_pu2lf"]
+[ext_resource type="Texture2D" uid="uid://vpfil177q60h" path="res://assets/UI/nope.png" id="3_b2hv6"]
+[ext_resource type="Texture2D" uid="uid://d4cmvdfnhugfy" path="res://assets/UI/StreetSpeechBubble.png" id="4_f2w80"]
+[ext_resource type="Texture2D" uid="uid://dggxa2jccsx7r" path="res://assets/UI/O2SpeechBubble.png" id="5_xamh6"]
+[ext_resource type="Texture2D" uid="uid://pncakwwlbs0i" path="res://assets/UI/BuildingMatSpeechBubble.png" id="6_8wiha"]
+[ext_resource type="Texture2D" uid="uid://dw65ip47gdpky" path="res://assets/UI/WaterSpeechBubble.png" id="6_xnssl"]
+[ext_resource type="Texture2D" uid="uid://bjoy7dnjn3n3o" path="res://assets/UI/FoodSpeechBubble.png" id="8_t7ut5"]
+
+[node name="PorterSpeechBubble" type="Node2D"]
+script = ExtResource("1_pu2lf")
+
+[node name="FlattenSpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_gcsqv")
+
+[node name="StreetSpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("4_f2w80")
+
+[node name="O2SpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("5_xamh6")
+
+[node name="WaterSpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("6_xnssl")
+
+[node name="BuildingMatSpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("6_8wiha")
+
+[node name="FoodSpeechBubble" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("8_t7ut5")
+
+[node name="Nope" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_b2hv6")

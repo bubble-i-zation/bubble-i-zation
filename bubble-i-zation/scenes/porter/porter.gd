@@ -12,6 +12,8 @@ const speed := 30
 @onready var bubble_bg: Sprite2D = $BubbleBG
 @onready var bubble: Sprite2D = $Bubble
 
+@onready var porter_speech_bubble: PorterSpeechBubble = $PorterSpeechBubble
+
 var current_quest: Quest = null
 var current_job: Job = null
 var inventory: Array[ProductionResource.ResourceType] = []
@@ -20,7 +22,6 @@ signal targetReached
 
 
 func _process(_delta: float) -> void:
-	# Example how to use the quest system
 	if (current_quest == null):
 		current_quest = QuestManager.get_next_quest()
 		if current_quest != null:
@@ -40,11 +41,29 @@ func _process(_delta: float) -> void:
 		current_job.execute(self)
 		if (current_job.isCompleted):
 			current_job = null
+	
+	handle_speech_bubble()
 
 func _physics_process(_delta: float) -> void:
 	handle_animation()
 	do_navigation()
 	move_and_slide()
+
+
+func handle_speech_bubble():
+	if current_job == null:
+		porter_speech_bubble.reset()
+		return
+	
+	if !navigation_agent_2d.is_target_reachable():
+		porter_speech_bubble.show_road(true)
+		return
+	
+	if current_job is FlattenerJob:
+		porter_speech_bubble.show_flatten()
+	
+	if current_job is TransportJob:
+		porter_speech_bubble.show_resource_type(current_job.resourceType)
 
 
 func do_navigation():
@@ -74,7 +93,7 @@ func handle_animation():
 		work_particles.emitting = true
 	else:
 		animated_sprite_2d.play("idle")
-	
+
 	animated_sprite_2d.flip_h = velocity.x < 0
 
 
