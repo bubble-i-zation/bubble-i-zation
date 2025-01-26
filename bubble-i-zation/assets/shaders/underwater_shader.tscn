@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbjhlb11fqqoi"]
+
+[ext_resource type="Material" path="res://assets/shaders/underwater_material.tres" id="1_jrs3g"]
+[ext_resource type="Texture2D" path="res://assets/shaders/underwater_texture.tres" id="2_pgmr7"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_jrs3g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pgmr7")
