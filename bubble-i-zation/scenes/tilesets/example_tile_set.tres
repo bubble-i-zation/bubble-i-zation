@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bfeti4fd3q0m1" path="res://RessourceNodes/ressource_node_City.tscn" id="8_ukcbg"]
 [ext_resource type="Texture2D" uid="uid://dluner0nwwv2h" path="res://assets/tiles/StreetTileNotConnected.png" id="9_pm83g"]
 [ext_resource type="Texture2D" uid="uid://bcrl66ssk35ax" path="res://assets/tiles/BasicTileset.png" id="11_euiu7"]
-[ext_resource type="Texture2D" uid="uid://ijsaadint7u3" path="res://assets/UI/road.png" id="12_k0jyd"]
+[ext_resource type="Texture2D" uid="uid://fkynm6x3mxx5" path="res://assets/tiles/roadmarker.png" id="12_k0jyd"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lfee2"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1372,7 +1372,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)])
 agent_radius = 0.0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtipj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgagp"]
 texture = ExtResource("12_k0jyd")
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ndf16")
@@ -1388,4 +1388,4 @@ sources/2 = SubResource("TileSetAtlasSource_ukcbg")
 sources/3 = SubResource("TileSetAtlasSource_jt7kc")
 sources/4 = SubResource("TileSetAtlasSource_k0jyd")
 sources/5 = SubResource("TileSetAtlasSource_bqig8")
-sources/7 = SubResource("TileSetAtlasSource_dtipj")
+sources/7 = SubResource("TileSetAtlasSource_vgagp")
