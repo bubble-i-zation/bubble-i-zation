@@ -46,7 +46,7 @@ func execute(porter):
 			found_item = true
 			# Walk to the bubble
 #			porter.targetReached.connect(func (): current_state = jobState.PICK_UP_ITEM)
-			porter.targetReached.connect(func (): Global.get_tree().create_timer(5).timeout.connect(func (): current_state = jobState.PICK_UP_ITEM))
+			porter.targetReached.connect(on_target_reached)
 			if factory != null:
 				porter.navigation_agent_2d.target_position = factory.position
 			else:
@@ -72,10 +72,24 @@ func execute(porter):
 			# @todo: add the item to the destination
 			porter.remove_item(resourceType)
 			current_state = jobState.FINISH_JOB
+			isPerfomingAction = true
 
 		jobState.FINISH_JOB:
 			# Finish the job
-			Global.get_tree().create_timer(2).timeout.connect(func (): isCompleted = true)
+			Global.get_tree().create_timer(3).timeout.connect(on_finish_timeout)
 
 		jobState.JOB_FAILED:
 			current_state = jobState.SEARCH_ITEM
+
+
+func on_finish_timeout():
+	isCompleted = true
+	isPerfomingAction = false
+
+func on_target_reached():
+	isPerfomingAction = true
+	Global.get_tree().create_timer(2).timeout.connect(on_target_action_done)
+
+func on_target_action_done():
+	isPerfomingAction = false
+	current_state = jobState.PICK_UP_ITEM
