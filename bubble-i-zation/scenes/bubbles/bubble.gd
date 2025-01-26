@@ -6,7 +6,18 @@ class_name Bubble
 @export var maxTier = 3
 @export var houseSpawnDelay = 3
 @export var porterSpawnDelay = 5
+@export var consumptionDelay = 5
 @export var maxPopulation = 3
+
+@export	var o2ConsumptionPerPopulation = 3
+@export	var waterConsumptionPerPopulation = 2
+@export	var foodConsumptionPerPopulation = 1
+
+@export var o2ThresholdMin = 150
+@export var waterThreshold = 100
+@export var foodThresholdMin = 50
+@export var buildMatsThresholdMin = 50
+
 var enoughSpaceToUprade = false
 var upgrading = false
 @export var circle_radius = [
@@ -25,6 +36,7 @@ var bubbleCrowded = false;
 # Timer reference to spawn houses every 10 seconds
 @onready var spawn_timer: Timer = $Timer
 @onready var porter_spawn_timer: Timer = $Timer2
+@onready var consumption_timer: Timer = $Timer3
 @onready var housesNode = $houses
 
 @export var house_size = [
@@ -45,15 +57,14 @@ var bubbleCrowded = false;
 	$BG/BG5x5,
 	$BG/BG7x7
 ]
-var testTransportQuest: Quest
 
 @export var inventoryNew = {
 	BauMatsStone = 0,
-	BaumMatsWood = 20,
+	BaumMatsWood = 200,
 	Brennstoff = 0,
-	Food = 10,
-	Oxygen = 10,
-	Water = 10,
+	Food = 250,
+	Oxygen = 500,
+	Water = 300,
 	Population = 3,
 }
 
@@ -70,10 +81,11 @@ func _ready():
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
 	porter_spawn_timer.start(porterSpawnDelay)
+	consumption_timer.start(consumptionDelay)
 	
 
 	if tier == 0:
-		testTransportQuest = Quest.new()
+		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
 		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
@@ -81,6 +93,40 @@ func _ready():
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 		QuestManager.add_quest(testTransportQuest)
 
+func _process(delta: float) -> void:
+	if inventoryNew["Oxygen"] < o2ThresholdMin:
+		var testTransportQuest = Quest.new()
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.Oxygen
+		testTransportQuest.add_objective(testTransportJob)
+		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+		QuestManager.add_quest(testTransportQuest)
+	if inventoryNew["Water"] < waterThreshold:
+		var testTransportQuest = Quest.new()
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.Water
+		testTransportQuest.add_objective(testTransportJob)
+		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+		QuestManager.add_quest(testTransportQuest)
+	if inventoryNew["Food"] < foodThresholdMin:
+		var testTransportQuest = Quest.new()
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.Food
+		testTransportQuest.add_objective(testTransportJob)
+		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+		QuestManager.add_quest(testTransportQuest)
+	if inventoryNew["BaumMatsWood"] < buildMatsThresholdMin:
+		var testTransportQuest = Quest.new()
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+		testTransportQuest.add_objective(testTransportJob)
+		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+		QuestManager.add_quest(testTransportQuest)
+		
 func upgradeTier():
 	bubbleCrowded = false
 	if tier < maxTier:
@@ -115,6 +161,8 @@ func spawn_house():
 			
 			#increase max population for each house that is added (tier is important)
 			maxPopulation += houseTier
+			#consume BuildingMats
+			remove_resource(ProductionResource.ResourceType.BaumMatsWood, houseTier)
 			
 			# Assign a random texture from the TileSet
 			house_instance.assign_tile_texture(houseTier)
@@ -142,7 +190,7 @@ func is_position_valid(position: Vector2, house_size) -> bool:
 	return true
 
 func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
-	inventoryNew[GlobalRessources.resource_key_map[resource]] += quantity
+	inventoryNew[GlobalRessources.resource_key_map[resource]] -= quantity
 
 func _on_timer_timeout() -> void:
 	
@@ -155,4 +203,15 @@ func _on_timer_timeout() -> void:
 func _on_timer_2_timeout() -> void:
 	if inventoryNew["Population"] < maxPopulation:
 		spawn_porter()
-		spawn_timer.start(porterSpawnDelay)  # Restart the timer to spawn every 10 seconds
+		porter_spawn_timer.start(porterSpawnDelay)  # Restart the timer to spawn every 10 seconds
+
+func _on_timer_3_timeout() -> void:
+	#consume food periodically
+	var foodConsumption = inventoryNew["Population"] * foodConsumptionPerPopulation
+	var o2Consumption = inventoryNew["Population"] * o2ConsumptionPerPopulation
+	var waterConsumption = inventoryNew["Population"] * waterConsumptionPerPopulation
+	remove_resource(ProductionResource.ResourceType.Food, foodConsumption)
+	remove_resource(ProductionResource.ResourceType.Oxygen, o2Consumption)
+	remove_resource(ProductionResource.ResourceType.Water, waterConsumption)
+	consumption_timer.start(consumptionDelay)
+	
