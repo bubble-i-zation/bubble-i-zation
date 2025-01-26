@@ -14,10 +14,6 @@ var matsTextBox: Label
 var fuelTextBox: Label
 var popsTextBox: Label
 
-var streetBtn
-var editBtn
-var demolishBtn
-
 func _ready():
 	#text
 	oxygenTextBox = $Oxygen/Label
@@ -36,7 +32,6 @@ func _process(delta: float) -> void:
 	pops = GlobalRessources.pops
 	
 	adjustUI()
-
 
 
 
