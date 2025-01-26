@@ -43,6 +43,6 @@ texture_filter = 1
 texture = ExtResource("8_t7ut5")
 
 [node name="Nope" type="Sprite2D" parent="."]
-z_index = 1500
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("3_b2hv6")
