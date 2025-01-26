@@ -13,29 +13,36 @@
 script = ExtResource("1_pu2lf")
 
 [node name="FlattenSpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("1_gcsqv")
 
 [node name="StreetSpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("4_f2w80")
 
 [node name="O2SpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("5_xamh6")
 
 [node name="WaterSpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("6_xnssl")
 
 [node name="BuildingMatSpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("6_8wiha")
 
 [node name="FoodSpeechBubble" type="Sprite2D" parent="."]
+z_index = 1000
 texture_filter = 1
 texture = ExtResource("8_t7ut5")
 
 [node name="Nope" type="Sprite2D" parent="."]
+z_index = 1500
 texture_filter = 1
 texture = ExtResource("3_b2hv6")
