@@ -5,6 +5,8 @@ class_name Bubble
 @export var tier = 0
 @export var maxTier = 3
 @export var houseSpawnDelay = 3
+@export var porterSpawnDelay = 5
+@export var maxPopulation = 3
 var enoughSpaceToUprade = false
 var upgrading = false
 @export var circle_radius = [
@@ -16,11 +18,13 @@ var upgrading = false
 @export var buildingHeightOffset: float = 6.0
 @export var max_attempts: int = 350
 @export var house_scene: PackedScene  # Reference to the house scene
+@export var porter_scene: PackedScene # Reference to the porter scene
 var spawned_houses: Array[Node2D] = []  # List of spawned house instances
 var bubbleCrowded = false;
 
 # Timer reference to spawn houses every 10 seconds
 @onready var spawn_timer: Timer = $Timer
+@onready var porter_spawn_timer: Timer = $Timer2
 @onready var housesNode = $houses
 
 @export var house_size = [
@@ -50,7 +54,7 @@ var testTransportQuest: Quest
 	Food = 10,
 	Oxygen = 10,
 	Water = 10,
-	Population = 3
+	Population = 3,
 }
 
 func upgradeTier():
@@ -70,6 +74,8 @@ func _ready():
 	housesNode.y_sort_enabled = true
 	# Start the timer with a 10-second interval
 	spawn_timer.start(houseSpawnDelay)
+	porter_spawn_timer.start(porterSpawnDelay)
+	
 
 	if tier == 0:
 		testTransportQuest = Quest.new()
@@ -98,11 +104,14 @@ func spawn_house():
 			# Spawn the house scene
 			var house_instance = house_scene.instantiate() as Node2D
 			house_instance.position = position
-			#add_child(house_instance)
 			
+			#add_child(house_instance)
 			housesNode.add_child(house_instance)
 			spawned_houses.append(house_instance)
-
+			
+			#increase max population for each house that is added (tier is important)
+			maxPopulation += houseTier
+			
 			# Assign a random texture from the TileSet
 			house_instance.assign_tile_texture(houseTier)
 			return  # Stop trying after a successful spawn
@@ -110,7 +119,18 @@ func spawn_house():
 	print("Could not find a valid position for the house.")
 	bubbleCrowded = true;
 	
-
+func spawn_porter():
+	# Spawn the house scene
+		var porter_instance = porter_scene.instantiate() as Node2D
+		var porterSpawnPos = position
+		porterSpawnPos.x = porterSpawnPos.x + randi_range(-16,16)
+		porterSpawnPos.y = porterSpawnPos.x + randi_range(16,24)
+		porter_instance.position = porterSpawnPos
+		
+		self.add_child(porter_instance)
+		
+		inventoryNew["Population"] += 1
+		
 func is_position_valid(position: Vector2, house_size) -> bool:
 	for house in spawned_houses:
 		if house.position.distance_to(position) < house_size:
@@ -123,3 +143,8 @@ func _on_timer_timeout() -> void:
 	if tier != 0:
 		spawn_house()  # Call the spawn function
 		spawn_timer.start(houseSpawnDelay)  # Restart the timer to spawn every 10 seconds
+		
+func _on_timer_2_timeout() -> void:
+	if inventoryNew["Population"] < maxPopulation:
+		spawn_porter()
+		spawn_timer.start(porterSpawnDelay)  # Restart the timer to spawn every 10 seconds
