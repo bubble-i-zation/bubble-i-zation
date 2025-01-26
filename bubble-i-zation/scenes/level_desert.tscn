@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bdvjuhn46ngik"]
+[gd_scene load_steps=7 format=4 uid="uid://bdvjuhn46ngik"]
 
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="1_8eups"]
 [ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_ayw0b"]
-[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="4_ypdak"]
+[ext_resource type="Script" path="res://scripts/build_roads_input.gd" id="4_ypdak"]
 [ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="5_f2qbf"]
+[ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="6_ayw0b"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -40,3 +41,9 @@ road_layer = NodePath("../TileMapLayer2-Gameplay")
 [node name="Bubble" parent="." instance=ExtResource("5_f2qbf")]
 position = Vector2(7, -70)
 tier = 1
+
+[node name="ZentraleUi" parent="." instance=ExtResource("6_ayw0b")]
+offset_left = 884.0
+offset_top = -608.0
+offset_right = 2033.0
+offset_bottom = -8.0
