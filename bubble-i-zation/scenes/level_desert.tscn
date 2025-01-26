@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="1_8eups"]
 [ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_ayw0b"]
-[ext_resource type="PackedScene" uid="uid://d0cmpm3efpf1e" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
+[ext_resource type="PackedScene" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="5_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="6_ayw0b"]
 
@@ -13,10 +13,6 @@
 
 [node name="ZentraleUi" parent="CanvasLayer" instance=ExtResource("6_ayw0b")]
 custom_minimum_size = Vector2(0, 0)
-offset_left = 38.0
-offset_top = -42.0
-offset_right = 38.0
-offset_bottom = -42.0
 
 [node name="TileMapLayer-Deco" type="TileMapLayer" parent="."]
 texture_filter = 1

@@ -26,13 +26,6 @@ func _ready():
 	matsTextBox = $Material/Label
 	fuelTextBox = $Fuel/Label
 	popsTextBox = $Pop/Label
-	#buttons
-	streetBtn = $Control/streetBtn
-#	streetBtn.pressed.connect("pressed", streetBtnPressed())
-	editBtn = $Control/editBtn
-#	editBtn.pressed.connect("pressed", editBtnPressed())
-	demolishBtn = $Control/demolishBtn
-#	demolishBtn.pressed.connect("pressed", demolishBtnPressed())
 	
 func _process(delta: float) -> void:
 	food = GlobalRessources.food
@@ -54,23 +47,4 @@ func adjustUI():
 	matsTextBox.text = str(mats)
 	fuelTextBox.text = str(fuel)
 	popsTextBox.text = str(pops)
-	
-	print(oxygenTextBox)
-	print(waterTextBox)
-	print(foodTextBox)
-	print(matsTextBox)
-	
-#	func streetBtnPressed():
-		
-		
-#	func editBtnPressed():
-		
-		
-#	func demolishBtnPressed():
-		
-		
-	
-	
-	
-	
 	
