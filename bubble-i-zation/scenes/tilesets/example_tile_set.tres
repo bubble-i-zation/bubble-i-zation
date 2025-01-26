@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://c6frucvxmiolt"]
+[gd_resource type="TileSet" load_steps=38 format=3 uid="uid://c6frucvxmiolt"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_6dwdw"]
 [ext_resource type="PackedScene" uid="uid://ktwqg73u7axe" path="res://RessourceNodes/ressource_node_BauMatsStone.tscn" id="2_3spsu"]
@@ -1354,9 +1354,16 @@ texture = ExtResource("11_euiu7")
 4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jt7kc")
 4:1/0 = 0
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bqig8"]
+vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-8, -8, -8, 8, 8, 8, 8, -8)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqig8"]
 texture = ExtResource("11_euiu7")
 4:0/0 = 0
+4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bqig8")
 
 [resource]
 terrain_set_0/mode = 2
