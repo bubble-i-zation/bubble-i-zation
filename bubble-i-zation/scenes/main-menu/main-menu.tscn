@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/main-menu/title-screen-animation.gd" id="2_t0ril"]
 [ext_resource type="AudioStream" uid="uid://b2qgmyq13snp2" path="res://assets/Sounds/main-menu/main-menu_no-loop.ogg" id="4_uhacv"]
 [ext_resource type="Texture2D" uid="uid://x233ikbocxjh" path="res://assets/UI/GGJLogo.png" id="7_l34ud"]
-[ext_resource type="Script" uid="uid://cwqqnv4tbt7xq" path="res://scenes/main-menu/logo-animation.gd" id="8_3jy3k"]
+[ext_resource type="Script" path="res://scenes/main-menu/logo-animation.gd" id="8_3jy3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ril"]
 atlas = ExtResource("1_yqp1m")

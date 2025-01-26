@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
 [ext_resource type="Texture2D" uid="uid://bhcv8cgtr6i1r" path="res://assets/tiles/SmallFarm.png" id="4_lgbyc"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
-[ext_resource type="Texture2D" uid="uid://bll46urb5f5u0" path="res://assets/tiles/WaterFactory.png" id="6_lgbyc"]
+[ext_resource type="Texture2D" uid="uid://brfkaa1mrwpw4" path="res://assets/tiles/SmallWater.png" id="6_lgbyc"]
 [ext_resource type="Texture2D" uid="uid://wd66sven8161" path="res://assets/Bubbles/Bubble7x7.png" id="6_xdwsg"]
 [ext_resource type="Texture2D" uid="uid://c05g5nvgd3ky6" path="res://assets/Bubbles/Bubble3x3BG.png" id="7_ip3nl"]
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_kd4wp"]
@@ -80,19 +80,19 @@ region = Rect2(114, 0, 38, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbnss"]
 atlas = ExtResource("6_lgbyc")
-region = Rect2(0, 0, 128, 80)
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7alvd"]
 atlas = ExtResource("6_lgbyc")
-region = Rect2(128, 0, 128, 80)
+region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlvmq"]
 atlas = ExtResource("6_lgbyc")
-region = Rect2(256, 0, 128, 80)
+region = Rect2(96, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u64vy"]
 atlas = ExtResource("6_lgbyc")
-region = Rect2(384, 0, 128, 80)
+region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdwsg"]
 animations = [{
