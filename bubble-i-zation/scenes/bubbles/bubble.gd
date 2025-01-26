@@ -127,8 +127,8 @@ func spawn_porter():
 	# Spawn the house scene
 		var porter_instance = porter_scene.instantiate() as Node2D
 		var porterSpawnPos = position
-		porterSpawnPos.x = porterSpawnPos.x + randi_range(-16,16)
-		porterSpawnPos.y = porterSpawnPos.x + randi_range(16,24)
+		porterSpawnPos.x = porterSpawnPos.x + randi_range(-1,1)
+		porterSpawnPos.y = porterSpawnPos.x + randi_range(1,3)
 		porter_instance.position = porterSpawnPos
 		
 		self.add_child(porter_instance)
@@ -141,8 +141,8 @@ func is_position_valid(position: Vector2, house_size) -> bool:
 			return false
 	return true
 
-func remove_resource():
-	pass
+func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
+	inventoryNew[GlobalRessources.resource_key_map[resource]] += quantity
 
 func _on_timer_timeout() -> void:
 	

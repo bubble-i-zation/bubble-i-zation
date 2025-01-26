@@ -58,6 +58,10 @@ func execute(porter):
 		jobState.PICK_UP_ITEM:
 			# Pick up the item
 			# @todo: Remove the item from the bubble
+			if factory != null:
+				factory.remove_resource(resourceType)
+			elif city != null:
+				city.remove_resource(resourceType)
 			porter.add_item(resourceType)
 			current_state = jobState.WALK_TO_DESTINAION
 			

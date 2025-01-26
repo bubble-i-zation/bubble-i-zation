@@ -144,3 +144,6 @@ func BubbleCreation():
 		
 func NodeSelfKill():
 	queue_free()
+
+func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
+	inventoryNew[GlobalRessources.resource_key_map[resource]] += quantity
