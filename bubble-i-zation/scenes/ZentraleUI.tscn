@@ -27,7 +27,7 @@ script = ExtResource("1_554ha")
 modulate = Color(1, 1, 1, 0.27451)
 layout_mode = 1
 offset_right = 1152.0
-offset_bottom = 53.0
+offset_bottom = 73.0
 texture = SubResource("CanvasTexture_554ha")
 
 [node name="Oxygen" type="TextureRect" parent="."]
@@ -35,9 +35,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 7.0
-offset_top = 6.0
+offset_top = 26.0
 offset_right = 47.0
-offset_bottom = 46.0
+offset_bottom = 66.0
 texture = ExtResource("2_7f8uu")
 
 [node name="Label" type="Label" parent="Oxygen"]
@@ -51,9 +51,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 172.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 212.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("3_64qkt")
 
 [node name="Label" type="Label" parent="Water"]
@@ -68,9 +68,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 336.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 376.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("4_64qkt")
 
 [node name="Label" type="Label" parent="Food"]
@@ -84,9 +84,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 511.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 551.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("5_wst1h")
 
 [node name="Label" type="Label" parent="Material"]
@@ -100,9 +100,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 671.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 711.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("6_qsb8j")
 
 [node name="Label" type="Label" parent="Fuel"]
@@ -116,9 +116,9 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 824.0
-offset_top = 6.0
+offset_top = 26.0
 offset_right = 864.0
-offset_bottom = 46.0
+offset_bottom = 66.0
 texture = ExtResource("7_wst1h")
 
 [node name="Label" type="Label" parent="Pop"]
@@ -142,8 +142,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 23.0
-offset_top = -68.0
+offset_top = -102.0
 offset_right = 91.0
+offset_bottom = -34.0
 grow_vertical = 0
 icon = ExtResource("7_b2h50")
 icon_alignment = 1
@@ -156,8 +157,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 141.0
-offset_top = -68.0
+offset_top = -102.0
 offset_right = 209.0
+offset_bottom = -34.0
 grow_vertical = 0
 icon = ExtResource("8_hf2mv")
 icon_alignment = 1
@@ -170,8 +172,9 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 261.0
-offset_top = -68.0
+offset_top = -102.0
 offset_right = 329.0
+offset_bottom = -34.0
 grow_vertical = 0
 icon = ExtResource("9_g2ioc")
 icon_alignment = 1

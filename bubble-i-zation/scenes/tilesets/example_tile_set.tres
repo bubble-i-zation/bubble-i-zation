@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dthkwrle336i6" path="res://RessourceNodes/ressource_node_Oxygen.tscn" id="6_k0jyd"]
 [ext_resource type="PackedScene" uid="uid://ckafnxf1263e0" path="res://RessourceNodes/ressource_node_Water.tscn" id="7_dtipj"]
 [ext_resource type="Texture2D" uid="uid://dbtjs31ynu70b" path="res://assets/tiles/StreetTileset.png" id="8_3spsu"]
-[ext_resource type="PackedScene" uid="uid://bfeti4fd3q0m1" path="res://RessourceNodes/ressource_node_City.tscn" id="8_ukcbg"]
+[ext_resource type="PackedScene" path="res://RessourceNodes/ressource_node_City.tscn" id="8_ukcbg"]
 [ext_resource type="Texture2D" uid="uid://dluner0nwwv2h" path="res://assets/tiles/StreetTileNotConnected.png" id="9_pm83g"]
 [ext_resource type="Texture2D" uid="uid://bcrl66ssk35ax" path="res://assets/tiles/BasicTileset.png" id="11_euiu7"]
 [ext_resource type="Texture2D" uid="uid://fkynm6x3mxx5" path="res://assets/tiles/roadmarker.png" id="12_k0jyd"]

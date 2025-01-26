@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2yrsa2eg1grp"]
+[gd_scene load_steps=11 format=3 uid="uid://c2yrsa2eg1grp"]
 
 [ext_resource type="Script" uid="uid://dva87hu8ndd27" path="res://scenes/bubbles/bubble.gd" id="1_jkl1b"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="1_pa6aa"]
@@ -10,11 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://c05g5nvgd3ky6" path="res://assets/Bubbles/Bubble3x3BG.png" id="7_4py6g"]
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_br2ov"]
 [ext_resource type="Texture2D" uid="uid://bwpsya2nplumx" path="res://assets/Bubbles/Bubble7x7BG.png" id="9_taa85"]
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_br2ov"]
-vertices = PackedVector2Array(8.63281, -10.0781, 12.7813, -1.11719, 12.7813, 1.5, 9.8125, 9.34375, 4.07813, 13, -2.88281, 13, -7.70313, 10.8516, -12.2031, 5.22656, -12.6719, -2.8125, -10.7031, -7.78125, -5.34375, -11.9531, -0.34375, -13.4531)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -24, 16, -18, 22.7778, -3.33333, 22.7778, 3.33333, 18, 16, 7, 23, -5, 23, -14, 19, -22, 9, -22.7778, -4.44444, -19, -14, -10, -21)])
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_jkl1b")
@@ -33,34 +28,17 @@ z_index = 2
 texture_filter = 1
 texture = ExtResource("1_pa6aa")
 
-[node name="NavMesh3x3" type="NavigationRegion2D" parent="bubble3x3"]
-visible = false
-scale = Vector2(1.8, 1.8)
-navigation_polygon = SubResource("NavigationPolygon_br2ov")
-
 [node name="bubble5x5" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
 texture_filter = 1
 texture = ExtResource("3_gkbh5")
 
-[node name="NavMesh5x5" type="NavigationRegion2D" parent="bubble5x5"]
-visible = false
-scale = Vector2(3, 3)
-navigation_polygon = SubResource("NavigationPolygon_br2ov")
-navigation_layers = 0
-
 [node name="bubble7x7" type="Sprite2D" parent="."]
 visible = false
 z_index = 2
 texture_filter = 1
 texture = ExtResource("4_60m1a")
-
-[node name="NavMesh7x7" type="NavigationRegion2D" parent="bubble7x7"]
-visible = false
-scale = Vector2(4, 4)
-navigation_polygon = SubResource("NavigationPolygon_br2ov")
-navigation_layers = 0
 
 [node name="Timer" type="Timer" parent="."]
 
