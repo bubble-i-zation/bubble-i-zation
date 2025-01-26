@@ -23,7 +23,7 @@ signal targetReached
 
 func _process(_delta: float) -> void:
 	if (current_quest == null):
-		current_quest = QuestManager.get_next_quest()
+		current_quest = QuestManager.get_next_quest(self)
 		if current_quest != null:
 			print("got new quest")
 			print(current_quest)
@@ -34,13 +34,14 @@ func _process(_delta: float) -> void:
 			print("got new job")
 			print(current_job)
 
-	if (current_quest != null && current_quest.is_complete()):
+	if (current_quest != null && (false == current_quest.has_unstarted_jobs() || current_quest.is_complete())):
 		current_quest = null
 	
 	if (current_job != null):
 		current_job.execute(self)
 		if (current_job.isCompleted):
 			current_job = null
+
 	
 	handle_speech_bubble()
 

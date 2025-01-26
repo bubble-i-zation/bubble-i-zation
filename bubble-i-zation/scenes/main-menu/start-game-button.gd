@@ -1,6 +1,6 @@
 extends Button
 
-var next_scene_path : String = "res://scenes/example_world.tscn"  # Add this line to define the exported variable
+var next_scene_path : String = "res://scenes/level_desert.tscn"  # Add this line to define the exported variable
 
 func _ready():
 	if next_scene_path != "":
