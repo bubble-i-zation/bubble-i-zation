@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2yrsa2eg1grp"]
+[gd_scene load_steps=12 format=3 uid="uid://c2yrsa2eg1grp"]
 
 [ext_resource type="Script" uid="uid://dva87hu8ndd27" path="res://scenes/bubbles/bubble.gd" id="1_jkl1b"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="1_pa6aa"]
@@ -22,6 +22,7 @@ house_scene = ExtResource("2_60m1a")
 porter_scene = ExtResource("3_taa85")
 
 [node name="bubbleConstrSite" type="Sprite2D" parent="."]
+visible = false
 z_index = 2
 texture_filter = 1
 texture = ExtResource("4_4py6g")
