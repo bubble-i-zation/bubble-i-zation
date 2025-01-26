@@ -16,10 +16,12 @@ var offsets = [
 ]
 var diaOffsets = [
 	Vector2i(1, 1),
-	Vector2i(0, 0),
+	Vector2i(-1, 1),
 	Vector2i(-1, -1),
 	Vector2i(1, -1)
 ]
+
+var plotsToFlatten: Array [Vector2i] = []
 
 var bubbleCoroutine = false
 
@@ -82,20 +84,26 @@ func checkForStreet():
 		return
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
+		if neighbor_position not in plotsToFlatten:
+			plotsToFlatten.append(neighbor_position)
 		var tile_id = tileMap.get_cell_source_id(neighbor_position)
 		if streetTiles.has(tile_id) && beganTiling == false:
+			#plotsToFlatten.remove_at(streetTiles.has(tile_id)) # verbesserungspotenzial für keine Straßen flatten
 			beganTiling = true
+			for diaOffset in diaOffsets:
+				var diaNeighbor_position = grid_position + diaOffset
+				if diaNeighbor_position not in plotsToFlatten:
+					plotsToFlatten.append(diaNeighbor_position)
 			BeginTiling()
 			
-	#for diaOffset in diaOffsets:
-	#	diaNeighbor_position = grid_position + diaOffset
+		
 		
 func BeginTiling():
 	
 	if jobs.size() > 0:
 		return
 	var tilingPositions: Array [Vector2]
-	for surrounding_cell in tileMap.get_surrounding_cells(grid_position):
+	for surrounding_cell in plotsToFlatten:
 		var local_position = tileMap.map_to_local(surrounding_cell)
 		var global_Pos = local_position + tileMap.global_position
 		tilingPositions.push_back(global_Pos)

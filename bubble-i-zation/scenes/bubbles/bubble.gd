@@ -53,6 +53,26 @@ var testTransportQuest: Quest
 	Population = 3
 }
 
+var nav3x3
+var nav7x7
+var nav5x5
+
+func changeNavAgent(i):
+	if i == 1:
+		nav3x3.set_navigation_layer_value(1)
+		nav5x5.set_navigation_layer_value(8)
+		nav7x7.set_navigation_layer_value(8)
+	if i == 2:
+		nav3x3.set_navigation_layer_value(8)
+		nav5x5.set_navigation_layer_value(1)
+		nav7x7.set_navigation_layer_value(8)
+	if 1 == 3:
+		nav3x3.set_navigation_layer_value(8)
+		nav5x5.set_navigation_layer_value(8)
+		nav7x7.set_navigation_layer_value(1)
+
+
+
 func upgradeTier():
 	bubbleCrowded = false
 	if tier < maxTier:
@@ -61,6 +81,7 @@ func upgradeTier():
 		tier = tier + 1
 		bubbleSprites[tier].visible = true
 		bubbleBGSprites[tier-1].visible = true
+		changeNavAgent(tier)
 		
 func _ready():
 	GlobalRessources.add_to_cities(self)
@@ -79,6 +100,10 @@ func _ready():
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 		QuestManager.add_quest(testTransportQuest)
+	
+	var nav3x3 = $bubble3x3/NavMesh3x3
+	var nav5x5 = $bubble5x5/NavMesh5x5
+	var nav7x7 = $bubble7x7/NavMesh7x7
 
 func buildQuestComplete():
 	if tier == 0:
