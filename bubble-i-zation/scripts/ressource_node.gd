@@ -46,7 +46,6 @@ var bubble: Node2D = null
 var can_produce := true
 
 func _ready() -> void:
-	inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 100;
 	if production == null:
 		push_error("no pruduction for %s" % [name])
 	
@@ -138,7 +137,7 @@ func BubbleCreation():
 		
 
 	elif factory == true:
-		
+		inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 100;
 		bubble = factory_to_instance.instantiate()
 		GlobalRessources.add_to_factories(self)
 		bubble.global_position = global_position

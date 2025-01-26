@@ -3,7 +3,7 @@ extends Node2D
 class_name Bubble
 
 @export var tier = 0
-@export var maxTier = 3
+@export var maxTier = 4
 @export var houseSpawnDelay = 3
 @export var porterSpawnDelay = 5
 @export var consumptionDelay = 30
@@ -25,6 +25,7 @@ var upgrading = false
 	12.0,
 	24.0,
 	37,
+	50
 ]          # Radius of the spawn circle
 @export var buildingHeightOffset: float = 6.0
 @export var max_attempts: int = 350
@@ -49,12 +50,14 @@ var bubbleCrowded = false;
 	$bubbleConstrSite,
 	$bubble3x3,
 	$bubble5x5,
-	$bubble7x7
+	$bubble7x7,
+	$bubble10x10
 ]
 
 @onready var bubbleBGSprites = [
 	$BG/BG3x3,
 	$BG/BG5x5,
+	$BG/BG7x7,
 	$BG/BG7x7
 ]
 

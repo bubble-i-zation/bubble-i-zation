@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1hyb4tar5b4y" path="res://assets/tiles/houses/house7.png" id="8_ts4b2"]
 [ext_resource type="Texture2D" uid="uid://4xw62xgdddwf" path="res://assets/tiles/houses/house8.png" id="9_y6rmv"]
 [ext_resource type="Texture2D" uid="uid://c3exoclx0dpo1" path="res://assets/tiles/houses/house9.png" id="10_o8uvo"]
-[ext_resource type="Texture2D" uid="uid://3bkha7rt3oq0" path="res://assets/tiles/houses/house10.png" id="11_5p8e4"]
+[ext_resource type="Texture2D" uid="uid://3bkha7rt3oq0" path="res://assets/tiles/houses/house10.png" id="11_chclh"]
 
 [node name="HouseNew" type="Node2D"]
 script = ExtResource("1_chclh")
@@ -72,5 +72,5 @@ offset = Vector2(0, -24)
 [node name="Sprite2D10" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
-texture = ExtResource("11_5p8e4")
+texture = ExtResource("11_chclh")
 offset = Vector2(0, -16)
