@@ -4,18 +4,18 @@ class_name Bubble
 
 @export var tier = 0
 @export var maxTier = 4
-@export var houseSpawnDelay = 3
-@export var porterSpawnDelay = 5
+@export var houseSpawnDelay = 40
+@export var porterSpawnDelay = 20
 @export var consumptionDelay = 30
 @export var maxPopulation = 3
 
-@export	var o2ConsumptionPerPopulation = 3
-@export	var waterConsumptionPerPopulation = 2
+@export	var o2ConsumptionPerPopulation = 2
+@export	var waterConsumptionPerPopulation = 1
 @export	var foodConsumptionPerPopulation = 1
 
-@export var o2ThresholdMin = 150
-@export var waterThreshold = 100
-@export var foodThresholdMin = 50
+@export var o2ThresholdMin = 300
+@export var waterThreshold = 150
+@export var foodThresholdMin = 150
 @export var buildMatsThresholdMin = 50
 
 var enoughSpaceToUprade = false
@@ -25,7 +25,7 @@ var upgrading = false
 	12.0,
 	24.0,
 	37,
-	50
+	60
 ]          # Radius of the spawn circle
 @export var buildingHeightOffset: float = 6.0
 @export var max_attempts: int = 350
@@ -43,6 +43,7 @@ var bubbleCrowded = false;
 @export var house_size = [
 	9.0,
 	11.0,
+	15.0,
 	15.0
 ]         # Distance threshold for house overlap
 

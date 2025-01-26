@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dmgbg2rs1dxen"]
+[gd_scene load_steps=35 format=3 uid="uid://dmgbg2rs1dxen"]
 
 [ext_resource type="Script" uid="uid://bh1p57d3t8svl" path="res://scenes/bubbles/FactoryBubble.gd" id="1_xsje2"]
 [ext_resource type="Texture2D" uid="uid://i3lxc2r0rblk" path="res://assets/tiles/MaterialFactory.png" id="2_j67hl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="4_j67hl"]
 [ext_resource type="Texture2D" uid="uid://bhcv8cgtr6i1r" path="res://assets/tiles/SmallFarm.png" id="4_lgbyc"]
 [ext_resource type="Texture2D" uid="uid://5bccpb5sevfc" path="res://assets/Bubbles/Bubble5x5.png" id="5_lgbyc"]
+[ext_resource type="Texture2D" uid="uid://bll46urb5f5u0" path="res://assets/tiles/WaterFactory.png" id="6_lgbyc"]
 [ext_resource type="Texture2D" uid="uid://wd66sven8161" path="res://assets/Bubbles/Bubble7x7.png" id="6_xdwsg"]
 [ext_resource type="Texture2D" uid="uid://c05g5nvgd3ky6" path="res://assets/Bubbles/Bubble3x3BG.png" id="7_ip3nl"]
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_kd4wp"]
@@ -78,20 +79,20 @@ atlas = ExtResource("3_hbbo3")
 region = Rect2(114, 0, 38, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wbnss"]
-atlas = ExtResource("2_j67hl")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("6_lgbyc")
+region = Rect2(0, 0, 128, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7alvd"]
-atlas = ExtResource("2_j67hl")
-region = Rect2(32, 0, 32, 32)
+atlas = ExtResource("6_lgbyc")
+region = Rect2(128, 0, 128, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mlvmq"]
-atlas = ExtResource("2_j67hl")
-region = Rect2(64, 0, 32, 32)
+atlas = ExtResource("6_lgbyc")
+region = Rect2(256, 0, 128, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u64vy"]
-atlas = ExtResource("2_j67hl")
-region = Rect2(96, 0, 32, 32)
+atlas = ExtResource("6_lgbyc")
+region = Rect2(384, 0, 128, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xdwsg"]
 animations = [{
@@ -188,7 +189,7 @@ script = ExtResource("1_xsje2")
 visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xdwsg")
-animation = &"BaumMatsWood"
+animation = &"Water"
 
 [node name="bubbleConstrSite" type="Sprite2D" parent="."]
 z_index = 2

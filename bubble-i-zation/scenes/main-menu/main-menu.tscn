@@ -1,15 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://dactfj6ehvql8"]
+[gd_scene load_steps=12 format=3 uid="uid://dactfj6ehvql8"]
 
 [ext_resource type="PackedScene" uid="uid://2kdx33y0ho05" path="res://scenes/main-menu/button.tscn" id="1_4p2w8"]
+[ext_resource type="Texture2D" uid="uid://c1sxtlvygonmc" path="res://assets/UI/GGJTitleScreen.png" id="1_yqp1m"]
 [ext_resource type="Script" uid="uid://cgkn3fw3rfvl" path="res://scenes/main-menu/exit-game-gutton.gd" id="2_7w8pu"]
 [ext_resource type="Script" uid="uid://kpowfr07s8c" path="res://scenes/main-menu/start-game-button.gd" id="2_nisa4"]
+[ext_resource type="Script" path="res://scenes/main-menu/title-screen-animation.gd" id="2_t0ril"]
 [ext_resource type="AudioStream" uid="uid://b2qgmyq13snp2" path="res://assets/Sounds/main-menu/main-menu_no-loop.ogg" id="4_uhacv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ril"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34ud"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jy3k"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(1024, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4dpv"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(1536, 0, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_golfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0ril")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l34ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jy3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4dpv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1153.0
 offset_bottom = 652.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(575.222, 322)
+scale = Vector2(2.24306, 2.24306)
+sprite_frames = SubResource("SpriteFrames_golfr")
+frame_progress = 0.328779
+script = ExtResource("2_t0ril")
 
 [node name="Container" type="Container" parent="."]
 layout_mode = 0
@@ -18,8 +63,8 @@ offset_bottom = 645.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1147.0
-offset_bottom = 649.0
+offset_right = 1211.0
+offset_bottom = 573.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]

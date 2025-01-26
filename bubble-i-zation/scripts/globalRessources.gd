@@ -9,6 +9,8 @@ var water := 0
 var oxygen := 0
 var fuel := 0
 
+var isGameOver = false
+
 
 func _process(delta: float) -> void:
 	repeatCheck()
@@ -57,6 +59,17 @@ func repeatCheck():
 	oxygen = cOxygen + fOxygen
 	fuel = cFuel + fFuel
 	pops = cPops + fPops
+	
+	if (
+		0 > food ||
+		0 > matStone || 
+		0 > matWood || 
+		0 > water || 
+		0 > oxygen || 
+		0 > fuel || 
+		0 > pops
+	):
+		isGameOver = true
 
 	#print("food: ",food)
 	#print("matStone: ",matStone)

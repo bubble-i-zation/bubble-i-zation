@@ -3,6 +3,7 @@ class_name ressource_node
 var tileMap:TileMapLayer
 @onready var construction_audio_player = $ConstructionAudioStreamPlayer
 @onready var resource_audio_player = $ResourceAudioStreamPlayer
+@onready var bubblepop_audio_player = $BubblePopAudioStreamPlayer
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
 @export var factory := true
@@ -133,6 +134,7 @@ func BubbleCreation():
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
+		bubblepop_audio_player.play()
 		
 		
 
@@ -144,8 +146,11 @@ func BubbleCreation():
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
 		bubble.setRessourceType(ressources)
+		bubblepop_audio_player.play()
+		
 		
 func NodeSelfKill():
+	
 	queue_free()
 
 func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
