@@ -36,9 +36,10 @@ func execute(porter):
 			else:
 				if factories.size() != 0:
 					factory = factories[0]
+					current_state = jobState.WALK_TO_ITEM
 				if cities.size() != 0:
 					city = cities[0]
-				current_state = jobState.WALK_TO_ITEM
+					current_state = jobState.WALK_TO_ITEM
 				
 		jobState.WALK_TO_ITEM:
 			# Walk to the bubble

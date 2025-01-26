@@ -66,7 +66,7 @@ func repeatCheck():
 	#print("fuel: ",fuel)
 	#print("pops: ",pops)
 
-var cities: Array[ressource_node] = []
+var cities: Array[Bubble] = []
 var factories: Array[ressource_node] = []
 
 # Helper dictionary to map ResourceType to string keys
