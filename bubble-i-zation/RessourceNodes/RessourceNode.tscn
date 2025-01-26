@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2gipirr5jcrq"]
+[gd_scene load_steps=7 format=3 uid="uid://b2gipirr5jcrq"]
 
 [ext_resource type="Texture2D" uid="uid://b1rcxrcm6logm" path="res://icon.svg" id="1_1h7av"]
 [ext_resource type="Script" uid="uid://dahpb8t8822u7" path="res://scripts/ressource_node.gd" id="1_a86f2"]
 [ext_resource type="AudioStream" uid="uid://bmmstxojf5fkt" path="res://assets/Sounds/Impacts/Bubblenation_Knife_restoring(2).wav" id="3_8acdu"]
 [ext_resource type="AudioStream" uid="uid://wv7fhq67qait" path="res://assets/Sounds/Impacts/Bubblenation_sound_blopp(2).wav" id="4_tp0ba"]
+[ext_resource type="PackedScene" uid="uid://3b2omnv6ir2b" path="res://ui_on_building.tscn" id="5_ngh7v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_nnfkk"]
 vertices = PackedVector2Array(70, 70, -69.4922, 70, -62.4922, -70, 70, -70)
@@ -29,3 +30,12 @@ stream = ExtResource("3_8acdu")
 
 [node name="BubblePopAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_tp0ba")
+
+[node name="UI_onNode" parent="." instance=ExtResource("5_ngh7v")]
+visible = false
+z_index = 5
+offset_left = -55.0
+offset_top = -60.0
+offset_right = -54.936
+offset_bottom = -60.0
+scale = Vector2(0.5, 0.5)

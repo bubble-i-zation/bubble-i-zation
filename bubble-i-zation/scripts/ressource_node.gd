@@ -1,6 +1,7 @@
 extends Node2D
 class_name ressource_node
 var tileMap:TileMapLayer
+@onready var ui = $UI_onNode
 @onready var construction_audio_player = $ConstructionAudioStreamPlayer
 @onready var resource_audio_player = $ResourceAudioStreamPlayer
 @onready var bubblepop_audio_player = $BubblePopAudioStreamPlayer
@@ -147,7 +148,7 @@ func BubbleCreation():
 		print("create bubble")
 		bubble.setRessourceType(ressources)
 		bubblepop_audio_player.play()
-		
+		ui.nodeInUse = true
 		
 func NodeSelfKill():
 	

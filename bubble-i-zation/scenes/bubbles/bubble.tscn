@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://i4gwp53r6s1y"]
+[gd_scene load_steps=13 format=3 uid="uid://i4gwp53r6s1y"]
 
 [ext_resource type="Script" uid="uid://dva87hu8ndd27" path="res://scenes/bubbles/bubble.gd" id="1_jkl1b"]
 [ext_resource type="Texture2D" uid="uid://bb4erer75skf8" path="res://assets/Bubbles/Bubble3x3.png" id="1_pa6aa"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cm0idkls2uae6" path="res://assets/Bubbles/Bubble5x5BG.png" id="8_br2ov"]
 [ext_resource type="Texture2D" uid="uid://mcr01ncsjooo" path="res://assets/Bubbles/Bubble10x10.png" id="8_rihrd"]
 [ext_resource type="Texture2D" uid="uid://bwpsya2nplumx" path="res://assets/Bubbles/Bubble7x7BG.png" id="9_taa85"]
+[ext_resource type="PackedScene" uid="uid://3b2omnv6ir2b" path="res://ui_on_building.tscn" id="12_45puu"]
 
 [node name="Bubble" type="Node2D"]
 script = ExtResource("1_jkl1b")
@@ -76,6 +77,15 @@ texture_filter = 1
 texture = ExtResource("9_taa85")
 
 [node name="houses" type="Node2D" parent="."]
+
+[node name="UI_onNode" parent="." instance=ExtResource("12_45puu")]
+visible = false
+z_index = 5
+offset_left = -52.0
+offset_top = -67.0
+offset_right = -52.0
+offset_bottom = -67.0
+scale = Vector2(0.5, 0.5)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

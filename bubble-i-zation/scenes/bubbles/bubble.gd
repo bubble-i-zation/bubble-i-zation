@@ -34,6 +34,7 @@ var upgrading = false
 var spawned_houses: Array[Node2D] = []  # List of spawned house instances
 var bubbleCrowded = false;
 
+@onready var ui = $UI_onNode
 # Timer reference to spawn houses every 10 seconds
 @onready var spawn_timer: Timer = $Timer
 @onready var porter_spawn_timer: Timer = $Timer2
@@ -86,6 +87,7 @@ func _ready():
 	spawn_timer.start(houseSpawnDelay)
 	porter_spawn_timer.start(porterSpawnDelay)
 	consumption_timer.start(consumptionDelay)
+	ui.nodeInUse = true
 	
 
 	if tier == 0:

@@ -39,6 +39,7 @@ offset_bottom = 66.0
 texture = ExtResource("2_7f8uu")
 
 [node name="Label" type="Label" parent="Oxygen"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
 offset_right = 149.0
@@ -72,6 +73,7 @@ offset_bottom = 67.0
 texture = ExtResource("4_64qkt")
 
 [node name="Label" type="Label" parent="Food"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
 offset_right = 149.0
@@ -88,6 +90,7 @@ offset_bottom = 67.0
 texture = ExtResource("5_wst1h")
 
 [node name="Label" type="Label" parent="Material"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
 offset_right = 149.0
@@ -104,6 +107,7 @@ offset_bottom = 67.0
 texture = ExtResource("6_qsb8j")
 
 [node name="Label" type="Label" parent="Fuel"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
 offset_right = 149.0
@@ -120,6 +124,7 @@ offset_bottom = 66.0
 texture = ExtResource("7_wst1h")
 
 [node name="Label" type="Label" parent="Pop"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
 offset_right = 149.0
