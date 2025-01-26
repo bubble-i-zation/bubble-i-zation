@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://gbcfxiuoehw1"]
+[gd_scene load_steps=12 format=3 uid="uid://gbcfxiuoehw1"]
 
 [ext_resource type="Texture2D" uid="uid://bq3uax0ys6in0" path="res://assets/UI/GameOverScreen.png" id="1_1fj2m"]
 [ext_resource type="Script" uid="uid://b1b5xknpvlpw0" path="res://scenes/game-over/game-over-animation.gd" id="2_ocxvl"]
 [ext_resource type="PackedScene" uid="uid://2kdx33y0ho05" path="res://scenes/main-menu/button.tscn" id="4_fif1u"]
 [ext_resource type="Script" uid="uid://f635eyv673pf" path="res://scenes/main-menu/back-to-main.gd" id="5_hybqg"]
 [ext_resource type="AudioStream" uid="uid://b2qgmyq13snp2" path="res://assets/Sounds/main-menu/main-menu_no-loop.ogg" id="6_fif1u"]
+[ext_resource type="Texture2D" uid="uid://x233ikbocxjh" path="res://assets/UI/GGJLogo.png" id="6_hybqg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n70v4"]
 atlas = ExtResource("1_1fj2m")
@@ -69,3 +70,7 @@ script = ExtResource("5_hybqg")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_fif1u")
 autoplay = true
+
+[node name="GgjLogo" type="Sprite2D" parent="."]
+position = Vector2(609, 102)
+texture = ExtResource("6_hybqg")
