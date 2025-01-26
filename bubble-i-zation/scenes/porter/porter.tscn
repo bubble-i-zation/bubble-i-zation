@@ -180,7 +180,6 @@ target_desired_distance = 16.0
 path_postprocessing = 1
 
 [node name="BubbleBG" type="Sprite2D" parent="."]
-z_index = 5
 texture_filter = 1
 texture = ExtResource("3_bgrm3")
 

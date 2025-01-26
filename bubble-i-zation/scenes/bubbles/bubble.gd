@@ -6,7 +6,7 @@ class_name Bubble
 @export var maxTier = 3
 @export var houseSpawnDelay = 3
 @export var porterSpawnDelay = 5
-@export var consumptionDelay = 5
+@export var consumptionDelay = 30
 @export var maxPopulation = 3
 
 @export	var o2ConsumptionPerPopulation = 3
@@ -98,6 +98,7 @@ func _process(delta: float) -> void:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
+		testTransportJob.destinationCity = self
 		testTransportJob.resourceType = ProductionResource.ResourceType.Oxygen
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
@@ -106,6 +107,7 @@ func _process(delta: float) -> void:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
+		testTransportJob.destinationCity = self
 		testTransportJob.resourceType = ProductionResource.ResourceType.Water
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
@@ -114,6 +116,7 @@ func _process(delta: float) -> void:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
+		testTransportJob.destinationCity = self
 		testTransportJob.resourceType = ProductionResource.ResourceType.Food
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
@@ -122,6 +125,7 @@ func _process(delta: float) -> void:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
+		testTransportJob.destinationCity = self
 		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
@@ -191,6 +195,9 @@ func is_position_valid(position: Vector2, house_size) -> bool:
 
 func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
 	inventoryNew[GlobalRessources.resource_key_map[resource]] -= quantity
+
+func add_resource(resource:ProductionResource.ResourceType, quantity = 1):
+	inventoryNew[GlobalRessources.resource_key_map[resource]] += quantity
 
 func _on_timer_timeout() -> void:
 	
