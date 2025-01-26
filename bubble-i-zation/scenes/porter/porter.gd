@@ -63,7 +63,7 @@ func handle_speech_bubble():
 		porter_speech_bubble.show_flatten()
 	
 	if current_job is TransportJob:
-		porter_speech_bubble.show_resource_type(current_job.resourceType)
+		porter_speech_bubble.show_resource_type(current_job.resourceType, !current_job.found_item)
 
 
 func do_navigation():
