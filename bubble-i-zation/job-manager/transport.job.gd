@@ -21,6 +21,7 @@ var destination: Vector2
 var resourceType: ProductionResource.ResourceType
 var factory: ressource_node
 var city: Bubble
+var destinationCity: Bubble
 var found_item := false
 
 func execute(porter):
@@ -30,7 +31,9 @@ func execute(porter):
 			# Find the bubble with the item
 			var factories: Array[ressource_node] = GlobalRessources.get_factories(resourceType)
 			var cities: Array[Bubble] = GlobalRessources.get_cities(resourceType)
-			
+			cities = cities.filter(func(city):return city != destinationCity)
+			print("factories")
+			print(factories.size())
 			if factories.size() == 0 and cities.size() == 0:
 		 	# No factory found
 				current_state = jobState.JOB_FAILED
@@ -73,7 +76,8 @@ func execute(porter):
 
 		jobState.DROP_ITEM:
 			# Drop the item
-			# @todo: add the item to the destination
+			if destinationCity:
+				destinationCity.add_resource(resourceType)
 			porter.remove_item(resourceType)
 			current_state = jobState.FINISH_JOB
 			isPerfomingAction = true
