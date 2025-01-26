@@ -1,6 +1,8 @@
 extends Node2D
 class_name ressource_node
 var tileMap:TileMapLayer
+@onready var construction_audio_player = $ConstructionAudioStreamPlayer
+@onready var resource_audio_player = $ResourceAudioStreamPlayer
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
 @export var factory := true
@@ -120,7 +122,7 @@ func BeginTiling():
 		flattenerJob.gimmeYourSpots(targetLocation)
 		flattenerQuest.add_objective(flattenerJob)
 	QuestManager.add_quest(flattenerQuest)
-	
+	construction_audio_player.play()
 	
 
 
@@ -132,6 +134,8 @@ func BubbleCreation():
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
+		
+		
 
 	elif factory == true:
 		

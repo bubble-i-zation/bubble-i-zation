@@ -1,7 +1,6 @@
 extends Node2D
-
 @export var road_layer: TileMapLayer
-
+@onready var audio_player = $AudioStreamPlayer
 var construction_quests: Dictionary = {}
 
 func construct_road(tile_pos: Vector2i):
@@ -35,12 +34,17 @@ func _process(delta: float) -> void:
 		if id != -1:
 			return
 		construct_road(tile_pos)
+		audio_player.pitch_scale = 1
+		audio_player.play(0.09)
+		
 	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		var tile_pos := road_layer.local_to_map(road_layer.get_local_mouse_position())
 		var id := road_layer.get_cell_source_id(tile_pos)
 		if !(id == 2 || id == 3 || id == 7):
 			return
 		remove_road(tile_pos)
+		audio_player.pitch_scale = 0.8
+		audio_player.play(0.09)
 
 
 func _on_timer_timeout() -> void:
