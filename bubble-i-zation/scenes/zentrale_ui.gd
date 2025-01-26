@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	food = GlobalRessources.food
 	water = GlobalRessources.water
 	oxygen = GlobalRessources.oxygen
-	mats = GlobalRessources.matStone #zu mats ändern
+	mats = GlobalRessources.matWood #zu mats ändern
 	fuel = GlobalRessources.fuel
 	pops = GlobalRessources.pops
 	
