@@ -54,6 +54,8 @@ texture = ExtResource("4_60m1a")
 
 [node name="Timer2" type="Timer" parent="."]
 
+[node name="Timer3" type="Timer" parent="."]
+
 [node name="BG" type="Node2D" parent="."]
 visible = false
 z_as_relative = false
@@ -80,3 +82,4 @@ texture = ExtResource("9_taa85")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]
