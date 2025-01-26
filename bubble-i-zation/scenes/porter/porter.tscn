@@ -194,14 +194,14 @@ frame_progress = 0.0646432
 texture_filter = 1
 texture = ExtResource("5_vdgkb")
 
+[node name="PorterSpeechBubble" parent="." instance=ExtResource("7_yuu14")]
+position = Vector2(0, -23)
+
 [node name="WorkParticles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 5
 texture = ExtResource("5_bgrm3")
 process_material = SubResource("ParticleProcessMaterial_1nt6f")
-
-[node name="PorterSpeechBubble" parent="." instance=ExtResource("7_yuu14")]
-position = Vector2(0, -23)
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
