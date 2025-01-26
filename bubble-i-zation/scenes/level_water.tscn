@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dnbeuqn5se78t"]
+[gd_scene load_steps=10 format=4 uid="uid://dnbeuqn5se78t"]
 
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="1_4xroo"]
 [ext_resource type="PackedScene" uid="uid://cbjhlb11fqqoi" path="res://assets/shaders/underwater_shader.tscn" id="1_by6u6"]
 [ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_by6u6"]
+[ext_resource type="AudioStream" uid="uid://cbyoyadng45i1" path="res://assets/Sounds/level-music/background-music_loop.ogg" id="2_hfeng"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_k2tqu"]
+[ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="3_m5shu"]
 [ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="4_xorte"]
 [ext_resource type="PackedScene" uid="uid://c2yrsa2eg1grp" path="res://scenes/bubbles/bubble.tscn" id="5_hfeng"]
 [ext_resource type="AudioStream" uid="uid://b2yif7tt5336c" path="res://assets/Sounds/Ui Elements/Bubblenation_Ui_Swooshing.wav" id="6_k2tqu"]
@@ -11,6 +13,13 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_by6u6")]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("2_hfeng")
+autoplay = true
+
+[node name="ZentraleUi" parent="CanvasLayer" instance=ExtResource("3_m5shu")]
+custom_minimum_size = Vector2(0, 0)
 
 [node name="TileMapLayer-Deco" type="TileMapLayer" parent="."]
 texture_filter = 1
