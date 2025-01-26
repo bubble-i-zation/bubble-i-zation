@@ -7,12 +7,8 @@ var has_priority: bool = false
 var questGiver
 var completeCallbackCallable: Callable
 	
-func add_objective(job: Job, quantity: int = 1):
-	for i in range(0,quantity):
-		objectives.push_back(job)
-		if job:
-			job = job.duplicate(true) as Job
-	print("objectives: ",objectives)
+func add_objective(job: Job):
+	objectives.push_back(job)
 		
 func get_unstarted_jobs():
 	return objectives.filter(func (job: Job): return !job.isStarted)

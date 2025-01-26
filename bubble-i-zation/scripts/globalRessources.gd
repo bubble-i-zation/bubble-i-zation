@@ -91,7 +91,7 @@ func get_factories(resource: ProductionResource.ResourceType) -> Array[ressource
 		return factory.inventoryNew[resource_key_map[resource]]>0)
 	return factories_with_resource
 
-func get_cities(resource: ProductionResource.ResourceType) -> Array[ressource_node]:
-	var cities_with_resource = factories.filter(func (city: ressource_node): 
+func get_cities(resource: ProductionResource.ResourceType) -> Array[Bubble]:
+	var cities_with_resource = cities.filter(func (city: Bubble): 
 		return city.inventoryNew[resource_key_map[resource]]>0)
 	return cities_with_resource

@@ -20,7 +20,7 @@ var item_to_transport: Object = null
 var destination: Vector2
 var resourceType: ProductionResource.ResourceType
 var factory: ressource_node
-var city: ressource_node
+var city: Bubble
 var found_item := false
 
 func execute(porter):
@@ -29,7 +29,7 @@ func execute(porter):
 		jobState.SEARCH_ITEM:
 			# Find the bubble with the item
 			var factories: Array[ressource_node] = GlobalRessources.get_factories(resourceType)
-			var cities: Array[ressource_node] = GlobalRessources.get_cities(resourceType)
+			var cities: Array[Bubble] = GlobalRessources.get_cities(resourceType)
 			
 			if factories.size() == 0 and cities.size() == 0:
 		 	# No factory found
@@ -38,7 +38,7 @@ func execute(porter):
 				if factories.size() != 0:
 					factory = factories[0]
 					current_state = jobState.WALK_TO_ITEM
-				if cities.size() != 0:
+				elif cities.size() != 0:
 					city = cities[0]
 					current_state = jobState.WALK_TO_ITEM
 				
