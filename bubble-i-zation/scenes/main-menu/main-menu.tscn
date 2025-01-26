@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dactfj6ehvql8"]
+[gd_scene load_steps=14 format=3 uid="uid://dactfj6ehvql8"]
 
 [ext_resource type="PackedScene" uid="uid://2kdx33y0ho05" path="res://scenes/main-menu/button.tscn" id="1_4p2w8"]
 [ext_resource type="Texture2D" uid="uid://c1sxtlvygonmc" path="res://assets/UI/GGJTitleScreen.png" id="1_yqp1m"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dja613mlg7rlx" path="res://scenes/main-menu/title-screen-animation.gd" id="2_t0ril"]
 [ext_resource type="AudioStream" uid="uid://b2qgmyq13snp2" path="res://assets/Sounds/main-menu/main-menu_no-loop.ogg" id="4_uhacv"]
 [ext_resource type="Texture2D" uid="uid://x233ikbocxjh" path="res://assets/UI/GGJLogo.png" id="7_l34ud"]
+[ext_resource type="Script" uid="uid://cwqqnv4tbt7xq" path="res://scenes/main-menu/logo-animation.gd" id="8_3jy3k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t0ril"]
 atlas = ExtResource("1_yqp1m")
@@ -91,3 +92,4 @@ autoplay = true
 [node name="GgjLogo" type="Sprite2D" parent="."]
 position = Vector2(607, 94)
 texture = ExtResource("7_l34ud")
+script = ExtResource("8_3jy3k")
