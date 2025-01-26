@@ -94,9 +94,12 @@ func BeginTiling():
 	
 	for tile in tilingPositions:
 		var flattenerJob = FlattenerJob.new()
+		flattenerJob.gimmeYourTILES(tileMap)
 		jobs.push_back(flattenerJob)
 		print("created Job")
 		flattenerJob.destination = tile
+		var targetLocation = flattenerJob.destination
+		flattenerJob.gimmeYourSpots(targetLocation)
 		flattenerQuest.add_objective(flattenerJob)
 	QuestManager.add_quest(flattenerQuest)
 	

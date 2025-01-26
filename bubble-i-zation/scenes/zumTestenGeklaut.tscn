@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://d0b5ruvtrafex"]
+[gd_scene load_steps=22 format=4 uid="uid://cs3wi277rwk0w"]
 
 [ext_resource type="Texture2D" uid="uid://dxq0geblyq3xi" path="res://assets/tiles/colored_packed.png" id="1_1hobc"]
 [ext_resource type="PackedScene" uid="uid://b2gipirr5jcrq" path="res://RessourceNodes/RessourceNode.tscn" id="2_2jjrd"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dy2fmd04pg1j8" path="res://RessourceNodes/ressource_node_Food.tscn" id="6_a4rlb"]
 [ext_resource type="PackedScene" uid="uid://dthkwrle336i6" path="res://RessourceNodes/ressource_node_Oxygen.tscn" id="7_yvw44"]
 [ext_resource type="PackedScene" uid="uid://ckafnxf1263e0" path="res://RessourceNodes/ressource_node_Water.tscn" id="8_2737m"]
+[ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="13_g57dm"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lfee2"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1203,3 +1204,5 @@ position = Vector2(8, -25)
 
 [node name="Porter3" parent="." instance=ExtResource("2_n4vkt")]
 position = Vector2(60, -73)
+
+[node name="ZentraleUi" parent="." instance=ExtResource("13_g57dm")]
