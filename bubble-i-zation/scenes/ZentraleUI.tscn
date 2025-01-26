@@ -40,12 +40,11 @@ offset_right = 47.0
 offset_bottom = 46.0
 texture = ExtResource("2_7f8uu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Oxygen"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Oxygen"]
 offset_left = 45.0
 offset_top = 1.0
-offset_right = 167.0
-offset_bottom = 41.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Water" type="TextureRect" parent="."]
 z_index = 1
@@ -57,12 +56,12 @@ offset_right = 212.0
 offset_bottom = 47.0
 texture = ExtResource("3_64qkt")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Water"]
+[node name="Label" type="Label" parent="Water"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 45.0
 offset_top = 1.0
-offset_right = 162.0
-offset_bottom = 41.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Food" type="TextureRect" parent="."]
 z_index = 1
@@ -74,11 +73,11 @@ offset_right = 376.0
 offset_bottom = 47.0
 texture = ExtResource("4_64qkt")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Food"]
-layout_mode = 0
-offset_left = 47.0
-offset_right = 169.0
-offset_bottom = 40.0
+[node name="Label" type="Label" parent="Food"]
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Material" type="TextureRect" parent="."]
 z_index = 1
@@ -90,11 +89,10 @@ offset_right = 551.0
 offset_bottom = 47.0
 texture = ExtResource("5_wst1h")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Material"]
-layout_mode = 2
-offset_left = 47.0
-offset_top = -1.0
-offset_right = 169.0
+[node name="Label" type="Label" parent="Material"]
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
 offset_bottom = 39.0
 
 [node name="Fuel" type="TextureRect" parent="."]
@@ -107,11 +105,11 @@ offset_right = 711.0
 offset_bottom = 47.0
 texture = ExtResource("6_qsb8j")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Fuel"]
-layout_mode = 0
-offset_left = 38.0
-offset_right = 160.0
-offset_bottom = 40.0
+[node name="Label" type="Label" parent="Fuel"]
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Pop" type="TextureRect" parent="."]
 z_index = 1
@@ -123,12 +121,11 @@ offset_right = 864.0
 offset_bottom = 46.0
 texture = ExtResource("7_wst1h")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Pop"]
-layout_mode = 0
-offset_left = 40.0
+[node name="Label" type="Label" parent="Pop"]
+offset_left = 45.0
 offset_top = 1.0
-offset_right = 162.0
-offset_bottom = 41.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

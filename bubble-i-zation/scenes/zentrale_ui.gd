@@ -7,12 +7,12 @@ var mats:int = 0
 var fuel:int = 0
 var pops:int = 0
 
-var oxygenTextBox
-var waterTextBox 
-var foodTextBox
-var matsTextBox
-var fuelTextBox
-var popsTextBox
+var oxygenTextBox: Label
+var waterTextBox: Label
+var foodTextBox: Label
+var matsTextBox: Label
+var fuelTextBox: Label
+var popsTextBox: Label
 
 var streetBtn
 var editBtn
@@ -20,12 +20,12 @@ var demolishBtn
 
 func _ready():
 	#text
-	oxygenTextBox = $Oxygen/RichTextLabel
-	waterTextBox = $Water/RichTextLabel2
-	foodTextBox = $Food/RichTextLabel
-	matsTextBox = $Material/RichTextLabel
-	fuelTextBox = $FuelNoImage/RichTextLabel
-	popsTextBox = $PopsNoImage/RichTextLabel
+	oxygenTextBox = $Oxygen/Label
+	waterTextBox = $Water/Label
+	foodTextBox = $Food/Label
+	matsTextBox = $Material/Label
+	fuelTextBox = $Fuel/Label
+	popsTextBox = $Pop/Label
 	#buttons
 	streetBtn = $Control/streetBtn
 #	streetBtn.pressed.connect("pressed", streetBtnPressed())
@@ -41,14 +41,24 @@ func _process(delta: float) -> void:
 	mats = GlobalRessources.matStone #zu mats ändern
 	fuel = GlobalRessources.fuel
 	pops = GlobalRessources.pops
+	
+	adjustUI()
+
+
+
 
 func adjustUI():
-	oxygenTextBox.text = oxygen
-	waterTextBox.text = water
-	foodTextBox.text = food
-	matsTextBox.text = mats
-	fuelTextBox.text = fuel
-	popsTextBox.text = pops
+	oxygenTextBox.text = str(oxygen)
+	waterTextBox.text = str(water)
+	foodTextBox.text = str(food)
+	matsTextBox.text = str(mats)
+	fuelTextBox.text = str(fuel)
+	popsTextBox.text = str(pops)
+	
+	print(oxygenTextBox)
+	print(waterTextBox)
+	print(foodTextBox)
+	print(matsTextBox)
 	
 #	func streetBtnPressed():
 		
