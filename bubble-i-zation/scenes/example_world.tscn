@@ -4,15 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="2_nk136"]
 [ext_resource type="TileSet" uid="uid://c6frucvxmiolt" path="res://scenes/tilesets/example_tile_set.tres" id="2_otmfv"]
 [ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="5_b3j4d"]
-[ext_resource type="Script" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
+[ext_resource type="Script" uid="uid://b1l1jf8dtojkk" path="res://scripts/build_roads_input.gd" id="6_p2eeb"]
 
 [node name="Node2D2" type="Node2D"]
-
-[node name="ZentraleUi" parent="." instance=ExtResource("5_b3j4d")]
-offset_left = 102.0
-offset_top = -549.0
-offset_right = 902.0
-offset_bottom = 51.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
@@ -45,3 +39,9 @@ position = Vector2(-56, -103)
 [node name="RoadPlacementHandler" type="Node2D" parent="." node_paths=PackedStringArray("road_layer")]
 script = ExtResource("6_p2eeb")
 road_layer = NodePath("../TileMapLayer2")
+
+[node name="ZentraleUi" parent="." instance=ExtResource("5_b3j4d")]
+offset_left = 102.0
+offset_top = -549.0
+offset_right = 1253.0
+offset_bottom = 51.0

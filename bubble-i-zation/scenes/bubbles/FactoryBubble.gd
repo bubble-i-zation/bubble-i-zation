@@ -49,10 +49,11 @@ func _ready():
 	spawn_timer.start(houseSpawnDelay)
 	
 	testTransportQuest = Quest.new()
-	var testTransportJob = TransportJob.new()
-	testTransportJob.destination = self.position
-	testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
-	testTransportQuest.add_objective(testTransportJob, buildingcosts)
+	for i in range(0, buildingcosts):
+		var testTransportJob = TransportJob.new()
+		testTransportJob.destination = self.position
+		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+		testTransportQuest.add_objective(testTransportJob)
 	testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 	QuestManager.add_quest(testTransportQuest)
 func buildQuestComplete():

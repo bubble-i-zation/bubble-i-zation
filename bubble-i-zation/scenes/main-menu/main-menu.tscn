@@ -1,29 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://dactfj6ehvql8"]
+[gd_scene load_steps=14 format=3 uid="uid://dactfj6ehvql8"]
 
 [ext_resource type="PackedScene" uid="uid://2kdx33y0ho05" path="res://scenes/main-menu/button.tscn" id="1_4p2w8"]
+[ext_resource type="Texture2D" uid="uid://c1sxtlvygonmc" path="res://assets/UI/GGJTitleScreen.png" id="1_yqp1m"]
 [ext_resource type="Script" uid="uid://cgkn3fw3rfvl" path="res://scenes/main-menu/exit-game-gutton.gd" id="2_7w8pu"]
 [ext_resource type="Script" uid="uid://kpowfr07s8c" path="res://scenes/main-menu/start-game-button.gd" id="2_nisa4"]
+[ext_resource type="Script" uid="uid://dja613mlg7rlx" path="res://scenes/main-menu/title-screen-animation.gd" id="2_t0ril"]
 [ext_resource type="AudioStream" uid="uid://b2qgmyq13snp2" path="res://assets/Sounds/main-menu/main-menu_no-loop.ogg" id="4_uhacv"]
+[ext_resource type="Texture2D" uid="uid://x233ikbocxjh" path="res://assets/UI/GGJLogo.png" id="7_l34ud"]
+[ext_resource type="Script" uid="uid://cwqqnv4tbt7xq" path="res://scenes/main-menu/logo-animation.gd" id="8_3jy3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0ril"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(0, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l34ud"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(512, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jy3k"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(1024, 0, 512, 288)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4dpv"]
+atlas = ExtResource("1_yqp1m")
+region = Rect2(1536, 0, 512, 288)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_golfr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0ril")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l34ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jy3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4dpv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1153.0
-offset_bottom = 652.0
+offset_right = 1363.0
+offset_bottom = 759.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
-[node name="Container" type="Container" parent="."]
-layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 645.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(680, 380)
+scale = Vector2(2.67578, 2.65278)
+sprite_frames = SubResource("SpriteFrames_golfr")
+frame_progress = 0.328779
+script = ExtResource("2_t0ril")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1147.0
-offset_bottom = 649.0
+offset_right = 1365.0
+offset_bottom = 762.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
 [node name="Start" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_4p2w8")]
@@ -41,3 +86,9 @@ script = ExtResource("2_7w8pu")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_uhacv")
 autoplay = true
+
+[node name="GgjLogo" type="Sprite2D" parent="."]
+position = Vector2(679, 96)
+scale = Vector2(1.89, 1.89)
+texture = ExtResource("7_l34ud")
+script = ExtResource("8_3jy3k")

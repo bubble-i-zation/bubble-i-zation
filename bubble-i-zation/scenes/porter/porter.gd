@@ -3,6 +3,8 @@ class_name Porter
 
 const speed := 30
 
+@onready var porter_audio_player = $AudioStreamPlayer2D
+
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var work_particles: GPUParticles2D = $WorkParticles
 
@@ -23,7 +25,7 @@ signal targetReached
 
 func _process(_delta: float) -> void:
 	if (current_quest == null):
-		current_quest = QuestManager.get_next_quest()
+		current_quest = QuestManager.get_next_quest(self)
 		if current_quest != null:
 			print("got new quest")
 			print(current_quest)
@@ -63,7 +65,7 @@ func handle_speech_bubble():
 		porter_speech_bubble.show_flatten()
 	
 	if current_job is TransportJob:
-		porter_speech_bubble.show_resource_type(current_job.resourceType)
+		porter_speech_bubble.show_resource_type(current_job.resourceType, !current_job.found_item)
 
 
 func do_navigation():
@@ -72,6 +74,10 @@ func do_navigation():
 		return
 
 	if !navigation_agent_2d.is_target_reachable():
+		velocity = Vector2.ZERO
+		return
+	
+	if current_job is TransportJob && !current_job.found_item:
 		velocity = Vector2.ZERO
 		return
 
@@ -90,6 +96,7 @@ func handle_animation():
 		animated_sprite_2d.play("walk")
 	elif current_job != null && current_job.isPerfomingAction:
 		animated_sprite_2d.play("work")
+		porter_audio_player.play()
 		work_particles.emitting = true
 	else:
 		animated_sprite_2d.play("idle")

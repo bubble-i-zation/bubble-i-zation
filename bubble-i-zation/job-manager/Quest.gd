@@ -6,17 +6,21 @@ var objectives: Array[Job] = []
 var has_priority: bool = false
 var questGiver
 var completeCallbackCallable: Callable
+var porters: Array[Porter] = []
 	
-func add_objective(job: Job, quantity: int = 1):
-	for i in range(0,quantity):
-		objectives.push_back(job)
-	print("objectives: ",objectives)
+func add_objective(job: Job):
+	objectives.push_back(job)
 		
 func get_unstarted_jobs():
 	return objectives.filter(func (job: Job): return !job.isStarted)
+
+func has_unstarted_jobs() -> bool:
+	var unstartedJobs = get_unstarted_jobs()
 	
+	return 0 < unstartedJobs.size()
+
 func get_completed_jobs():
-	return objectives.filter(func (job): return job.isCompleted == true)
+	return objectives.filter(func (job:Job): return job.isCompleted || job.isAborted)
 # Returns the first objective in array and removes it from the array
 func get_next_objective():
 	var unstarted_jobs = get_unstarted_jobs()
@@ -41,3 +45,8 @@ func get_priority():
 func set_priority(priority: bool):
 	has_priority = priority
 	
+func add_porter(porter: Porter):
+	porters.append(porter)
+	
+func has_active_porter() -> bool:
+	return 0 < porters.size()

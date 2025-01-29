@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmt2mjs8x2rhy"]
+[gd_scene load_steps=9 format=3 uid="uid://bmt2mjs8x2rhy"]
 
 [ext_resource type="Script" uid="uid://c5l2y0t5vrncu" path="res://scenes/zentrale_ui.gd" id="1_554ha"]
 [ext_resource type="Texture2D" uid="uid://bnfp72t8mxgnr" path="res://assets/UI/O2.png" id="2_7f8uu"]
@@ -6,10 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnn8ma8c71sl5" path="res://assets/UI/food.png" id="4_64qkt"]
 [ext_resource type="Texture2D" uid="uid://dedja45ork6f8" path="res://assets/UI/BuildingMats.png" id="5_wst1h"]
 [ext_resource type="Texture2D" uid="uid://cigkuohs6ba5t" path="res://assets/UI/fuel.png" id="6_qsb8j"]
-[ext_resource type="Texture2D" uid="uid://ijsaadint7u3" path="res://assets/UI/road.png" id="7_b2h50"]
 [ext_resource type="Texture2D" uid="uid://defqv57gwighs" path="res://assets/UI/pop.png" id="7_wst1h"]
-[ext_resource type="Texture2D" uid="uid://ca0fyi6r7toox" path="res://assets/UI/edit.png" id="8_hf2mv"]
-[ext_resource type="Texture2D" uid="uid://bbxvnpx7lngko" path="res://assets/UI/destroy.png" id="9_g2ioc"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_554ha"]
 
@@ -25,9 +22,10 @@ script = ExtResource("1_554ha")
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.27451)
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 offset_right = 1152.0
-offset_bottom = 53.0
+offset_bottom = 73.0
 texture = SubResource("CanvasTexture_554ha")
 
 [node name="Oxygen" type="TextureRect" parent="."]
@@ -35,66 +33,67 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 7.0
-offset_top = 6.0
+offset_top = 26.0
 offset_right = 47.0
-offset_bottom = 46.0
+offset_bottom = 66.0
 texture = ExtResource("2_7f8uu")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Oxygen"]
-layout_mode = 2
+[node name="Label" type="Label" parent="Oxygen"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 1.0
-offset_right = 167.0
-offset_bottom = 41.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Water" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 172.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 212.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("3_64qkt")
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Water"]
+[node name="Label" type="Label" parent="Water"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 45.0
 offset_top = 1.0
-offset_right = 162.0
-offset_bottom = 41.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Food" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 336.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 376.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("4_64qkt")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Food"]
+[node name="Label" type="Label" parent="Food"]
 layout_mode = 0
-offset_left = 47.0
-offset_right = 169.0
-offset_bottom = 40.0
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Material" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 511.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 551.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("5_wst1h")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Material"]
-layout_mode = 2
-offset_left = 47.0
-offset_top = -1.0
-offset_right = 169.0
+[node name="Label" type="Label" parent="Material"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
 offset_bottom = 39.0
 
 [node name="Fuel" type="TextureRect" parent="."]
@@ -102,80 +101,31 @@ z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 671.0
-offset_top = 7.0
+offset_top = 27.0
 offset_right = 711.0
-offset_bottom = 47.0
+offset_bottom = 67.0
 texture = ExtResource("6_qsb8j")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Fuel"]
+[node name="Label" type="Label" parent="Fuel"]
 layout_mode = 0
-offset_left = 38.0
-offset_right = 160.0
-offset_bottom = 40.0
+offset_left = 45.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 39.0
 
 [node name="Pop" type="TextureRect" parent="."]
 z_index = 1
 texture_filter = 1
 layout_mode = 1
 offset_left = 824.0
-offset_top = 6.0
+offset_top = 26.0
 offset_right = 864.0
-offset_bottom = 46.0
+offset_bottom = 66.0
 texture = ExtResource("7_wst1h")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Pop"]
+[node name="Label" type="Label" parent="Pop"]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 45.0
 offset_top = 1.0
-offset_right = 162.0
-offset_bottom = 41.0
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="streetBtn" type="Button" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = -68.0
-offset_right = 91.0
-grow_vertical = 0
-icon = ExtResource("7_b2h50")
-icon_alignment = 1
-expand_icon = true
-
-[node name="editBtn" type="Button" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 141.0
-offset_top = -68.0
-offset_right = 209.0
-grow_vertical = 0
-icon = ExtResource("8_hf2mv")
-icon_alignment = 1
-expand_icon = true
-
-[node name="demolishBtn" type="Button" parent="Control"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 261.0
-offset_top = -68.0
-offset_right = 329.0
-grow_vertical = 0
-icon = ExtResource("9_g2ioc")
-icon_alignment = 1
-expand_icon = true
+offset_right = 149.0
+offset_bottom = 39.0

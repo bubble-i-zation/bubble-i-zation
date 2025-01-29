@@ -1,6 +1,12 @@
 extends Node2D
 class_name ressource_node
+
+@onready var tier = 0
 var tileMap:TileMapLayer
+@onready var ui = $UI_onNode
+@onready var construction_audio_player = $ConstructionAudioStreamPlayer
+@onready var resource_audio_player = $ResourceAudioStreamPlayer
+@onready var bubblepop_audio_player = $BubblePopAudioStreamPlayer
 @export var bauKosten = 10 #mussma halt anpassen export var icon:Texture2D
 @export var animated_sprite: AnimatedSprite2D = null
 @export var factory := true
@@ -16,10 +22,12 @@ var offsets = [
 ]
 var diaOffsets = [
 	Vector2i(1, 1),
-	Vector2i(0, 0),
+	Vector2i(-1, 1),
 	Vector2i(-1, -1),
 	Vector2i(1, -1)
 ]
+
+var plotsToFlatten: Array [Vector2i] = []
 
 var bubbleCoroutine = false
 
@@ -42,7 +50,6 @@ var bubble: Node2D = null
 var can_produce := true
 
 func _ready() -> void:
-	
 	if production == null:
 		push_error("no pruduction for %s" % [name])
 	
@@ -82,20 +89,26 @@ func checkForStreet():
 		return
 	for offset in offsets:
 		var neighbor_position = grid_position + offset
+		if neighbor_position not in plotsToFlatten:
+			plotsToFlatten.append(neighbor_position)
 		var tile_id = tileMap.get_cell_source_id(neighbor_position)
 		if streetTiles.has(tile_id) && beganTiling == false:
+			#plotsToFlatten.remove_at(streetTiles.has(tile_id)) # verbesserungspotenzial für keine Straßen flatten
 			beganTiling = true
+			for diaOffset in diaOffsets:
+				var diaNeighbor_position = grid_position + diaOffset
+				if diaNeighbor_position not in plotsToFlatten:
+					plotsToFlatten.append(diaNeighbor_position)
 			BeginTiling()
 			
-	#for diaOffset in diaOffsets:
-	#	diaNeighbor_position = grid_position + diaOffset
+		
 		
 func BeginTiling():
 	
 	if jobs.size() > 0:
 		return
 	var tilingPositions: Array [Vector2]
-	for surrounding_cell in tileMap.get_surrounding_cells(grid_position):
+	for surrounding_cell in plotsToFlatten:
 		var local_position = tileMap.map_to_local(surrounding_cell)
 		var global_Pos = local_position + tileMap.global_position
 		tilingPositions.push_back(global_Pos)
@@ -112,7 +125,7 @@ func BeginTiling():
 		flattenerJob.gimmeYourSpots(targetLocation)
 		flattenerQuest.add_objective(flattenerJob)
 	QuestManager.add_quest(flattenerQuest)
-	
+	construction_audio_player.play()
 	
 
 
@@ -120,19 +133,29 @@ func BubbleCreation():
 	if bubble != null:
 		return
 	if factory == false:
+		tier = 1
 		bubble = scene_to_instance.instantiate()
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
+		bubblepop_audio_player.play()
+		
+		
 
 	elif factory == true:
-		
+		inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 100;
 		bubble = factory_to_instance.instantiate()
 		GlobalRessources.add_to_factories(self)
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
 		print("create bubble")
 		bubble.setRessourceType(ressources)
+		bubblepop_audio_player.play()
+		ui.nodeInUse = true
 		
 func NodeSelfKill():
+	
 	queue_free()
+
+func remove_resource(resource:ProductionResource.ResourceType, quantity = 1):
+	inventoryNew[GlobalRessources.resource_key_map[resource]] -= quantity

@@ -9,12 +9,15 @@ var water := 0
 var oxygen := 0
 var fuel := 0
 
+var isGameOver = false
+var gameOverScene = "res://scenes/game-over/game-over.tscn"
 
 func _process(delta: float) -> void:
+	await get_tree().create_timer(0.5).timeout
 	repeatCheck()
 
-
 func repeatCheck():
+	
 	#factory
 	var fPops := 0
 	var fMatStone := 0
@@ -33,22 +36,24 @@ func repeatCheck():
 	var cFuel := 0
 
 	for city in cities:
-		cFood += city.inventoryNew["Food"]
-		cMatStone += city.inventoryNew["BauMatsStone"]
-		cMatWood += city.inventoryNew["BaumMatsWood"]
-		cWater += city.inventoryNew["Water"]
-		cOxygen += city.inventoryNew["Oxygen"]
-		cFuel += city.inventoryNew["Brennstoff"]
-		cPops += city.inventoryNew["Population"]
+		if city:
+			cFood += city.inventoryNew["Food"]
+			cMatStone += city.inventoryNew["BauMatsStone"]
+			cMatWood += city.inventoryNew["BaumMatsWood"]
+			cWater += city.inventoryNew["Water"]
+			cOxygen += city.inventoryNew["Oxygen"]
+			cFuel += city.inventoryNew["Brennstoff"]
+			cPops += city.inventoryNew["Population"]
 		
 	for factory in factories:
-		fFood += factory.inventoryNew["Food"]
-		fMatStone += factory.inventoryNew["BauMatsStone"]
-		fMatWood += factory.inventoryNew["BaumMatsWood"]
-		fWater += factory.inventoryNew["Water"]
-		fOxygen += factory.inventoryNew["Oxygen"]
-		fFuel += factory.inventoryNew["Brennstoff"]
-		fPops += factory.inventoryNew["Population"]
+		if factory:
+			fFood += factory.inventoryNew["Food"]
+			fMatStone += factory.inventoryNew["BauMatsStone"]
+			fMatWood += factory.inventoryNew["BaumMatsWood"]
+			fWater += factory.inventoryNew["Water"]
+			fOxygen += factory.inventoryNew["Oxygen"]
+			fFuel += factory.inventoryNew["Brennstoff"]
+			fPops += factory.inventoryNew["Population"]
 		
 	food = cFood + fFood
 	matStone = cMatStone + fMatStone
@@ -57,7 +62,21 @@ func repeatCheck():
 	oxygen = cOxygen + fOxygen
 	fuel = cFuel + fFuel
 	pops = cPops + fPops
-
+	
+	if (
+		0 > food ||
+		0 > matStone || 
+		0 > matWood || 
+		0 > water || 
+		0 > oxygen || 
+		0 > fuel || 
+		0 > pops
+	):
+		isGameOver = true
+	if (isGameOver):
+		print("itsgameover")
+		get_tree().change_scene_to_file(gameOverScene)
+		queue_free()
 	#print("food: ",food)
 	#print("matStone: ",matStone)
 	#print("matWood: ",matWood)
@@ -66,7 +85,7 @@ func repeatCheck():
 	#print("fuel: ",fuel)
 	#print("pops: ",pops)
 
-var cities: Array[ressource_node] = []
+var cities: Array[Bubble] = []
 var factories: Array[ressource_node] = []
 
 # Helper dictionary to map ResourceType to string keys
@@ -91,7 +110,7 @@ func get_factories(resource: ProductionResource.ResourceType) -> Array[ressource
 		return factory.inventoryNew[resource_key_map[resource]]>0)
 	return factories_with_resource
 
-func get_cities(resource: ProductionResource.ResourceType) -> Array[ressource_node]:
-	var cities_with_resource = factories.filter(func (city: ressource_node): 
+func get_cities(resource: ProductionResource.ResourceType) -> Array[Bubble]:
+	var cities_with_resource = cities.filter(func (city: Bubble): 
 		return city.inventoryNew[resource_key_map[resource]]>0)
 	return cities_with_resource

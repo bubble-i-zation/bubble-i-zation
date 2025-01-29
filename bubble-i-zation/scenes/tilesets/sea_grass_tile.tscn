@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://p2cg4bce1gtr"]
+
+[ext_resource type="Texture2D" uid="uid://bcrl66ssk35ax" path="res://assets/tiles/BasicTileset.png" id="1_ue3ai"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exape"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq5md"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiwfy"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey3j0"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na6dw"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8afp"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlk14"]
+atlas = ExtResource("1_ue3ai")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxeqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exape")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq5md")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiwfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey3j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na6dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8afp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlk14")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="SeaGrassTile" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bxeqi")
+autoplay = "default"
+frame = 2
+frame_progress = 0.228138
