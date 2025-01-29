@@ -13,10 +13,15 @@ class_name Bubble
 @export	var waterConsumptionPerPopulation = 1
 @export	var foodConsumptionPerPopulation = 1
 
-@export var o2ThresholdMin = 300
-@export var waterThreshold = 150
-@export var foodThresholdMin = 150
-@export var buildMatsThresholdMin = 50
+@export var o2ThresholdMin = 200
+@export var waterThresholdMin = 100
+@export var foodThresholdMin = 100
+@export var buildMatsThresholdMin = 30
+
+@export var o2Threshold = 500
+@export var waterThreshold = 350
+@export var foodThreshold = 350
+@export var buildMatsThreshold = 150
 
 var enoughSpaceToUprade = false
 var upgrading = false
@@ -100,9 +105,12 @@ func _ready():
 		QuestManager.add_quest(testTransportQuest)
 
 func _process(delta: float) -> void:
-	if inventoryNew["Oxygen"] < o2ThresholdMin:
+	if inventoryNew["Oxygen"] < o2Threshold:
+		var urgent
+		if inventoryNew["Oxygen"] < o2ThresholdMin:
+			urgent = true	
 		var testTransportQuest = Quest.new()
-		var testTransportJob = TransportJob.new()
+		var testTransportJob = TransportJob.new(urgent)
 		testTransportJob.destination = self.position
 		testTransportJob.destinationCity = self
 		testTransportJob.resourceType = ProductionResource.ResourceType.Oxygen
@@ -118,7 +126,7 @@ func _process(delta: float) -> void:
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 		QuestManager.add_quest(testTransportQuest)
-	if inventoryNew["Food"] < foodThresholdMin:
+	if inventoryNew["Food"] < foodThreshold:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position
@@ -127,7 +135,7 @@ func _process(delta: float) -> void:
 		testTransportQuest.add_objective(testTransportJob)
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 		QuestManager.add_quest(testTransportQuest)
-	if inventoryNew["BaumMatsWood"] < buildMatsThresholdMin:
+	if inventoryNew["BaumMatsWood"] < buildMatsThreshold:
 		var testTransportQuest = Quest.new()
 		var testTransportJob = TransportJob.new()
 		testTransportJob.destination = self.position

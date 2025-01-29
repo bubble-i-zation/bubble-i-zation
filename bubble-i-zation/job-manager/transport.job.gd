@@ -23,6 +23,10 @@ var factory: ressource_node
 var city: Bubble
 var destinationCity: Bubble
 var found_item := false
+var urgency
+
+func _init(urgent = 0):
+	urgentcy = urgent
 
 func execute(porter):
 	#print("Current state: " + str(current_state))
@@ -38,10 +42,10 @@ func execute(porter):
 		 	# No factory found
 				current_state = jobState.JOB_FAILED
 			else:
-				if factories.size() != 0:
+				if factories.size() != 0 && factories[0].tier > 0:
 					factory = factories[0]
 					current_state = jobState.WALK_TO_ITEM
-				elif cities.size() != 0:
+				elif cities.size() != 0 && cities[0].tier > 0 && urgentcy:
 					city = cities[0]
 					current_state = jobState.WALK_TO_ITEM
 				

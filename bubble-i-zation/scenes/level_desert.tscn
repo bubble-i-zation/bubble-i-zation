@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://da4cner8sad7b" path="res://scenes/cameraMovement.gd" id="2_f2qbf"]
 [ext_resource type="AudioStream" uid="uid://cbyoyadng45i1" path="res://assets/Sounds/level-music/background-music_loop.ogg" id="2_y1rsc"]
 [ext_resource type="PackedScene" uid="uid://bjxdp7ek2w8kv" path="res://scenes/porter/porter.tscn" id="3_ayw0b"]
-[ext_resource type="PackedScene" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
+[ext_resource type="PackedScene" uid="uid://d0cmpm3efpf1e" path="res://scenes/road_placement_handler.tscn" id="4_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://i4gwp53r6s1y" path="res://scenes/bubbles/bubble.tscn" id="5_f2qbf"]
 [ext_resource type="PackedScene" uid="uid://bmt2mjs8x2rhy" path="res://scenes/ZentraleUI.tscn" id="6_ayw0b"]
 [ext_resource type="AudioStream" uid="uid://b2yif7tt5336c" path="res://assets/Sounds/Ui Elements/Bubblenation_Ui_Swooshing.wav" id="7_ypdak"]
@@ -50,6 +50,25 @@ position = Vector2(-8, -38)
 [node name="Bubble" parent="." instance=ExtResource("5_f2qbf")]
 position = Vector2(7, -70)
 tier = 1
+maxTier = null
+consumptionDelay = null
+maxPopulation = null
+o2ConsumptionPerPopulation = null
+waterConsumptionPerPopulation = null
+foodConsumptionPerPopulation = null
+o2ThresholdMin = null
+waterThresholdMin = null
+foodThresholdMin = null
+buildMatsThresholdMin = null
+o2Threshold = null
+waterThreshold = null
+foodThreshold = null
+buildMatsThreshold = null
+circle_radius = null
+buildingHeightOffset = null
+max_attempts = null
+house_size = null
+inventoryNew = null
 
 [node name="RoadPlacementHandler2" parent="." node_paths=PackedStringArray("road_layer") instance=ExtResource("4_f2qbf")]
 road_layer = NodePath("../TileMapLayer2-Gameplay")
