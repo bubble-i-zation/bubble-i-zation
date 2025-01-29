@@ -3,7 +3,6 @@ class_name ressource_node
 
 @onready var tier = 0
 var tileMap:TileMapLayer
-var tier = 0;
 @onready var ui = $UI_onNode
 @onready var construction_audio_player = $ConstructionAudioStreamPlayer
 @onready var resource_audio_player = $ResourceAudioStreamPlayer
