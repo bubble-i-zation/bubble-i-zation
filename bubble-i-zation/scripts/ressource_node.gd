@@ -3,6 +3,7 @@ class_name ressource_node
 
 @onready var tier = 0
 var tileMap:TileMapLayer
+var tier = 0;
 @onready var ui = $UI_onNode
 @onready var construction_audio_player = $ConstructionAudioStreamPlayer
 @onready var resource_audio_player = $ResourceAudioStreamPlayer
@@ -145,6 +146,7 @@ func BubbleCreation():
 	elif factory == true:
 		inventoryNew[GlobalRessources.resource_key_map[production.resource_type]] += 100;
 		bubble = factory_to_instance.instantiate()
+		tier = 1;
 		GlobalRessources.add_to_factories(self)
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)
