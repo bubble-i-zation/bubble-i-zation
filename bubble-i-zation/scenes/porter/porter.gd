@@ -39,10 +39,12 @@ func _process(_delta: float) -> void:
 	if (current_quest != null && current_quest.is_complete()):
 		current_quest = null
 	
-	if (current_job != null):
+	if (current_job != null and current_job.jobFailedCount < 10):
 		current_job.execute(self)
 		if (current_job.isCompleted):
 			current_job = null
+	else:
+		current_quest = QuestManager.get_next_quest(self)
 	
 	handle_speech_bubble()
 

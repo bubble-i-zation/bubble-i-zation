@@ -5,6 +5,7 @@ var isCompleted := false
 var isStarted := false
 var isPerfomingAction := false
 var isAborted := false
+var jobFailedCount := 0
 # This is the base class of a job and defines the interface for all job-types
 
 # Excute will run in the process lifesycle of the porter class

@@ -12,7 +12,8 @@ enum jobState {
 	ON_WAY_TO_DESTINATION,
 	DROP_ITEM,
 	FINISH_JOB,
-	JOB_FAILED
+	JOB_FAILED,
+	DISCARD_JOB
 }
 
 var current_state: jobState = jobState.SEARCH_ITEM;
@@ -91,8 +92,10 @@ func execute(porter):
 			Global.get_tree().create_timer(3).timeout.connect(on_finish_timeout)
 
 		jobState.JOB_FAILED:
+			jobFailedCount += 1
 			current_state = jobState.SEARCH_ITEM
-
+			if jobFailedCount >= 10:
+				current_state = jobState.DISCARD_JOB
 
 func on_finish_timeout():
 	isCompleted = true
