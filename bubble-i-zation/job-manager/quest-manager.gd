@@ -56,5 +56,13 @@ func get_next_quest(porter: Porter):
 		return null
 		
 	nextQuest.add_porter(porter)
-	
 	return nextQuest
+	
+func get_next_job(porter: Porter) -> Job:
+	var next_quest = get_next_quest(porter)
+	var next_objective = null
+
+	if next_quest:
+		next_objective = next_quest.get_next_objective()
+		
+	return next_objective

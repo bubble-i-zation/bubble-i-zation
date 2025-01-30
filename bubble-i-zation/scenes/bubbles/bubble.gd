@@ -105,55 +105,61 @@ func _ready():
 		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
 		QuestManager.add_quest(testTransportQuest)
 
+var time_passed = 0.0  # Tracks time
+
 func _process(delta: float) -> void:
-	if inventoryNew["Oxygen"] < o2Threshold:
-		var urgency = 0
-		if inventoryNew["Oxygen"] < o2ThresholdMin:
-			urgency = 2
-		var testTransportQuest = Quest.new()
-		var testTransportJob = TransportJob.new(urgency)
-		testTransportJob.destination = self.position
-		testTransportJob.destinationCity = self
-		testTransportJob.resourceType = ProductionResource.ResourceType.Oxygen
-		testTransportQuest.add_objective(testTransportJob)
-		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
-		QuestManager.add_quest(testTransportQuest)
-	if inventoryNew["Water"] < waterThreshold:
-		var urgency = 0
-		if inventoryNew["Water"] < waterThresholdMin:
-			urgency = 2
-		var testTransportQuest = Quest.new()
-		var testTransportJob = TransportJob.new(urgency)
-		testTransportJob.destination = self.position
-		testTransportJob.destinationCity = self
-		testTransportJob.resourceType = ProductionResource.ResourceType.Water
-		testTransportQuest.add_objective(testTransportJob)
-		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
-		QuestManager.add_quest(testTransportQuest)
-	if inventoryNew["Food"] < foodThreshold:
-		var urgency = 0
-		if inventoryNew["Food"] < foodThresholdMin:
-			urgency = 2
-		var testTransportQuest = Quest.new()
-		var testTransportJob = TransportJob.new(urgency)
-		testTransportJob.destination = self.position
-		testTransportJob.destinationCity = self
-		testTransportJob.resourceType = ProductionResource.ResourceType.Food
-		testTransportQuest.add_objective(testTransportJob)
-		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
-		QuestManager.add_quest(testTransportQuest)
-	if inventoryNew["BaumMatsWood"] < buildMatsThreshold:
-		var urgency = 0
-		if inventoryNew["BaumMatsWood"] < buildMatsThresholdMin:
-			urgency = 2
-		var testTransportQuest = Quest.new()
-		var testTransportJob = TransportJob.new(urgency)
-		testTransportJob.destination = self.position
-		testTransportJob.destinationCity = self
-		testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
-		testTransportQuest.add_objective(testTransportJob)
-		testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
-		QuestManager.add_quest(testTransportQuest)
+	#todo: only check all couple of seconds if new job is needed
+	time_passed += delta
+	if time_passed >= 3.0:  # Execute every 3 seconds
+		time_passed = 0.0  # Reset timer
+		if inventoryNew["Oxygen"] < o2Threshold:
+			var urgency = 0
+			if inventoryNew["Oxygen"] < o2ThresholdMin:
+				urgency = 2
+			var testTransportQuest = Quest.new()
+			var testTransportJob = TransportJob.new(urgency)
+			testTransportJob.destination = self.position
+			testTransportJob.destinationCity = self
+			testTransportJob.resourceType = ProductionResource.ResourceType.Oxygen
+			testTransportQuest.add_objective(testTransportJob)
+			testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+			QuestManager.add_quest(testTransportQuest)
+		if inventoryNew["Water"] < waterThreshold:
+			var urgency = 0
+			if inventoryNew["Water"] < waterThresholdMin:
+				urgency = 2
+			var testTransportQuest = Quest.new()
+			var testTransportJob = TransportJob.new(urgency)
+			testTransportJob.destination = self.position
+			testTransportJob.destinationCity = self
+			testTransportJob.resourceType = ProductionResource.ResourceType.Water
+			testTransportQuest.add_objective(testTransportJob)
+			testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+			QuestManager.add_quest(testTransportQuest)
+		if inventoryNew["Food"] < foodThreshold:
+			var urgency = 0
+			if inventoryNew["Food"] < foodThresholdMin:
+				urgency = 2
+			var testTransportQuest = Quest.new()
+			var testTransportJob = TransportJob.new(urgency)
+			testTransportJob.destination = self.position
+			testTransportJob.destinationCity = self
+			testTransportJob.resourceType = ProductionResource.ResourceType.Food
+			testTransportQuest.add_objective(testTransportJob)
+			testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+			QuestManager.add_quest(testTransportQuest)
+		if inventoryNew["BaumMatsWood"] < buildMatsThreshold:
+			var urgency = 0
+			if inventoryNew["BaumMatsWood"] < buildMatsThresholdMin:
+				urgency = 2
+			var testTransportQuest = Quest.new()
+			var testTransportJob = TransportJob.new(urgency)
+			testTransportJob.destination = self.position
+			testTransportJob.destinationCity = self
+			testTransportJob.resourceType = ProductionResource.ResourceType.BaumMatsWood
+			testTransportQuest.add_objective(testTransportJob)
+			testTransportQuest.add_complete_callback(Callable(buildQuestComplete))
+			QuestManager.add_quest(testTransportQuest)
 		
 func upgradeTier():
 	bubbleCrowded = false

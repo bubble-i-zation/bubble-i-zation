@@ -16,36 +16,28 @@ const speed := 30
 
 @onready var porter_speech_bubble: PorterSpeechBubble = $PorterSpeechBubble
 
-var current_quest: Quest = null
 var current_job: Job = null
 var inventory: Array[ProductionResource.ResourceType] = []
 
 signal targetReached
 #spaß mit blasen
 
-func _process(_delta: float) -> void:
-	if (current_quest == null):
-		current_quest = QuestManager.get_next_quest(self)
-		if current_quest != null:
-			print("got new quest")
-			print(current_quest)
-		
-	if (current_quest != null and current_job == null):
-		current_job = current_quest.get_next_objective()
-		if current_job != null:
-			print("got new job")
-			print(current_job)
-
-	if (current_quest != null && current_quest.is_complete()):
-		current_quest = null
+func _process(_delta: float) -> void:	
+	if current_job == null:
+		current_job =  QuestManager.get_next_job(self)
+	#if current_job != null:
+		#print("got new job")
+		#print(current_job)
+		#print("got new job fail count: ",current_job.jobFailedCount)
 	
-	if (current_job != null and current_job.jobFailedCount < 10):
+	if (current_job != null && current_job.jobFailedCount < 5):
+		#print("execute job: ",current_job)
 		current_job.execute(self)
 		if (current_job.isCompleted):
+			print("current_job is completed: ",current_job)
 			current_job = null
 	else:
-		current_quest = QuestManager.get_next_quest(self)
-	
+		current_job = null
 	handle_speech_bubble()
 
 func _physics_process(_delta: float) -> void:

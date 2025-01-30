@@ -28,9 +28,13 @@ var urgency = 0
 
 func _init(newUrgency: int = 0):
 	urgency = newUrgency
+	jobType = "TransportJob"
+
 
 func execute(porter):
 	#print("Current state: " + str(current_state))
+	print("jobFailedCount: ",jobFailedCount)
+	#print("jobType: ",jobType)
 	match current_state:
 		jobState.SEARCH_ITEM:
 			# Find the bubble with the item
@@ -42,13 +46,16 @@ func execute(porter):
 			if factories.size() == 0 and cities.size() == 0:
 		 	# No factory found
 				current_state = jobState.JOB_FAILED
+				print("JOB_FAILED: ",jobState.JOB_FAILED)
 			else:
 				if factories.size() != 0 && factories[0].tier > 0 && urgency > 0:
 					factory = factories[0]
 					current_state = jobState.WALK_TO_ITEM
+					#print("factory: ",jobState.WALK_TO_ITEM)
 				elif cities.size() != 0:
 					city = cities[0]
 					current_state = jobState.WALK_TO_ITEM
+					#print("city, current_state: ",current_state)
 				
 		jobState.WALK_TO_ITEM:
 			found_item = true
@@ -92,10 +99,9 @@ func execute(porter):
 			Global.get_tree().create_timer(3).timeout.connect(on_finish_timeout)
 
 		jobState.JOB_FAILED:
+			print("JOB FAILED!!!")
 			jobFailedCount += 1
 			current_state = jobState.SEARCH_ITEM
-			if jobFailedCount >= 10:
-				current_state = jobState.DISCARD_JOB
 
 func on_finish_timeout():
 	isCompleted = true

@@ -56,10 +56,10 @@ inventoryNew = {
 &"BauMatsStone": 0,
 &"BaumMatsWood": 200,
 &"Brennstoff": 0,
-&"Food": 300,
+&"Food": 160,
 &"Oxygen": 500,
 &"Population": 3,
-&"Water": 300
+&"Water": 160
 }
 
 [node name="RoadPlacementHandler2" parent="." node_paths=PackedStringArray("road_layer") instance=ExtResource("4_f2qbf")]
