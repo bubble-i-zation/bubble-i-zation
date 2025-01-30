@@ -54,6 +54,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(680, 380)
 scale = Vector2(2.6543, 2.64931)
 sprite_frames = SubResource("SpriteFrames_30wbr")
@@ -75,6 +76,7 @@ stream = ExtResource("6_fif1u")
 autoplay = true
 
 [node name="GgjLogo" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(687, 173)
 texture = ExtResource("6_hybqg")
 

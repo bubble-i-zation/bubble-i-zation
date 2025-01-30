@@ -1,8 +1,7 @@
 extends Node2D
 class_name ressource_node
-
-@onready var tier = 0
 var tileMap:TileMapLayer
+var tier = 0;
 @onready var ui = $UI_onNode
 @onready var construction_audio_player = $ConstructionAudioStreamPlayer
 @onready var resource_audio_player = $ResourceAudioStreamPlayer
@@ -133,7 +132,6 @@ func BubbleCreation():
 	if bubble != null:
 		return
 	if factory == false:
-		tier = 1
 		bubble = scene_to_instance.instantiate()
 		bubble.global_position = global_position
 		get_parent().get_parent().add_child(bubble)

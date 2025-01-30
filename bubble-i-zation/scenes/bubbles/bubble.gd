@@ -83,7 +83,8 @@ var nav7x7
 var nav5x5
 
 func _ready():
-	GlobalRessources.add_to_cities(self)
+	if GlobalRessources != null:
+		GlobalRessources.add_to_cities(self)
 	print("wood: ",inventoryNew["BaumMatsWood"])
 	bubbleSprites[tier].visible = true
 	

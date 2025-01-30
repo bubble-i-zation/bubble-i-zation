@@ -6,7 +6,7 @@ var construction_quests: Dictionary = {}
 func construct_road(tile_pos: Vector2i):
 	road_layer.set_cell(tile_pos,7, Vector2i(0,0))
 	var quest := Quest.new()
-	var job := TransportJob.new()
+	var job := TransportJob.new(2)
 	var local_pos := road_layer.map_to_local(tile_pos)
 	var job_site := local_pos + road_layer.global_position
 	print(job_site)
